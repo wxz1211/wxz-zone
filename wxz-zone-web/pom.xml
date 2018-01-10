@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.github.wxz</groupId>
-            <artifactId>wxz-zone-framework</artifactId>
+            <artifactId>wxz-zone-service</artifactId>
             <version>0.0.1</version>
         </dependency>
 

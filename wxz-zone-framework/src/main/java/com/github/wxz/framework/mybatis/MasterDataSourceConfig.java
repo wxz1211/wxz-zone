@@ -35,7 +35,7 @@ public class MasterDataSourceConfig {
     /**
      * 精确到 master 目录，以便跟其他数据源隔离
      */
-    protected static final String PACKAGE = "com.github.wxz.service.dao.master";
+    protected static final String PACKAGE = "com.github.wxz.dao.master";
     protected static final String MAPPER_LOCATION = "classpath*:mapper/master/*.xml";
     private static final Logger LOGGER = LoggerFactory.getLogger(MasterDataSourceConfig.class);
 

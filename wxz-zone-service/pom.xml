@@ -11,5 +11,11 @@
 
     <artifactId>wxz-zone-service</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.github.wxz</groupId>
+            <artifactId>wxz-zone-framework</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
 </project>
