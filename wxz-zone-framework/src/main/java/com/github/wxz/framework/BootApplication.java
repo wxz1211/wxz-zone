@@ -1,4 +1,4 @@
-package com.github.wxz.web.framework;
+package com.github.wxz.framework;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

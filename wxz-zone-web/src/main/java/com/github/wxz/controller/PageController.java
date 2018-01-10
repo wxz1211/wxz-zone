@@ -1,4 +1,4 @@
-package com.github.wxz.web.controller;
+package com.github.wxz.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

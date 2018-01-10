@@ -1,6 +1,6 @@
-package com.github.wxz.web;
+package com.github.wxz;
 
-import com.github.wxz.web.framework.BootApplication;
+import com.github.wxz.framework.BootApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Configuration;
 

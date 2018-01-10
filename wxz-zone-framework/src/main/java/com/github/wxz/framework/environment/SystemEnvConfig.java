@@ -1,4 +1,4 @@
-package com.github.wxz.web.framework.environment;
+package com.github.wxz.framework.environment;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
