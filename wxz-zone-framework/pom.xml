@@ -11,7 +11,12 @@
     <packaging>jar</packaging>
     <artifactId>wxz-zone-framework</artifactId>
 
+    <description>wxz-zone-framework</description>
     <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
         <!-- Spring Boot Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -9,13 +9,18 @@
         <relativePath>..</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <description>wxz-zone-web</description>
     <artifactId>wxz-zone-web</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.github.wxz</groupId>
             <artifactId>wxz-zone-framework</artifactId>
             <version>0.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
         </dependency>
 
         <dependency>
