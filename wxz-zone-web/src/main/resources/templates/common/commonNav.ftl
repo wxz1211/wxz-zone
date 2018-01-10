@@ -11,14 +11,14 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿</a>
+        <a class="blog-logo" href="home">带点绿^▽^</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item layui-this">
                 <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
             <li class="layui-nav-item">
-                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
             </li>
             <li class="layui-nav-item">
                 <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -27,7 +27,7 @@
                 <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
             <li class="layui-nav-item">
-                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
         </ul>
         <!-- 手机和平板的导航开关 -->
@@ -51,14 +51,14 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿</a>
+        <a class="blog-logo" href="home">带点绿^▽^</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
                 <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
             <li class="layui-nav-item layui-this">
-                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
             </li>
             <li class="layui-nav-item">
                 <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -67,7 +67,7 @@
                 <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
             <li class="layui-nav-item">
-                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
         </ul>
         <!-- 手机和平板的导航开关 -->
@@ -91,14 +91,14 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿</a>
+        <a class="blog-logo" href="home">带点绿^▽^</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
                 <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
             <li class="layui-nav-item">
-                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
             </li>
             <li class="layui-nav-item layui-this">
                 <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -107,7 +107,7 @@
                 <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
             <li class="layui-nav-item">
-                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
         </ul>
         <!-- 手机和平板的导航开关 -->
@@ -131,14 +131,14 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿</a>
+        <a class="blog-logo" href="home">带点绿^▽^</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
                 <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
             <li class="layui-nav-item">
-                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
             </li>
             <li class="layui-nav-item">
                 <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -147,7 +147,7 @@
                 <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
             <li class="layui-nav-item">
-                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
         </ul>
         <!-- 手机和平板的导航开关 -->
@@ -171,14 +171,14 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿</a>
+        <a class="blog-logo" href="home">带点绿^▽^</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
                 <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
             <li class="layui-nav-item">
-                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+                <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
             </li>
             <li class="layui-nav-item">
                 <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -187,7 +187,7 @@
                 <a href="timeline"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
             <li class="layui-nav-item layui-this">
-                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
         </ul>
         <!-- 手机和平板的导航开关 -->

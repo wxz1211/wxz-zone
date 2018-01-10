@@ -4,6 +4,7 @@
 <html>
 
 <#import "/common/common.ftl" as netCommon>
+<#import "/common/commonNav.ftl" as netCommonNav>
 
 <@netCommon.commonHtml />
 
@@ -17,7 +18,7 @@
 
 <body>
 <!-- 导航 -->
-<@netCommon.commonNav/>
+<@netCommonNav.commonNav1/>
 <!-- 主体（一般只改变这里的内容） -->
 <div class="blog-body">
     <div class="blog-container">
@@ -126,20 +127,20 @@ pagesize(laypageId, pageSize).callback(function (newPageSize) {
                             <br/>
                         </p>
                         <p>
-                            &nbsp; &nbsp; 点赞不落阁：<a href="http://fly.layui.com/case/2017/" target="_blank"><span
+                            &nbsp; &nbsp; 点赞不落阁：<a href="javascript:;" target="_blank"><span
                                 style="color:#337FE5;">点击前往</span></a>&nbsp; &nbsp; 完整演示请看后台：<span><a
-                                href="http://www.lyblogs.cn/admin" target="_blank"><span
+                                href="javascript:;" target="_blank"><span
                                 style="color:#337FE5;">点击前往</span></a></span>&nbsp; &nbsp; pagesize.js下载地址：<a
-                                href="https://pan.baidu.com/s/1kVK8UhT" target="_blank"><span style="color:#337FE5;">点击前往</span></a>
+                                href="javascript:;" target="_blank"><span style="color:#337FE5;">点击前往</span></a>
                         </p>
                         <hr/>
-                        &nbsp; &nbsp; 出自：不落阁
+                        &nbsp; &nbsp; 出自：wxz
                         <p>
-                            &nbsp; &nbsp; 地址：<a href="http://www.lyblogs.cn" target="_blank">www.lyblogs.cn</a>
+                            &nbsp; &nbsp; 地址：<a href="javascript:;" target="_blank">wxz</a>
                         </p>
                         <p>
                             &nbsp; &nbsp; 转载请注明出处！<img
-                                src="http://www.lyblogs.cn/kindeditor/plugins/emoticons/images/0.gif" border="0"
+                                src="" border="0"
                                 alt=""/>
                         </p>
                         <p>

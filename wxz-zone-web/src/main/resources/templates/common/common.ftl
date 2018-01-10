@@ -33,10 +33,10 @@
 <#macro commonFooter>
 <!-- 底部 -->
 <footer class="blog-footer">
-    <p><span>Copyright</span><span>&copy;</span><span>2017</span><a
+    <p><span>Copyright</span><span>&copy;</span><span>2018</span><a
             href="javascript:;">lost</a><span>Design By WXZ</span>
     </p>
-    <p><a href="http://www.miibeian.gov.cn/" target="_blank">蜀ICP备16029915号-1</a></p>
+    <p><a href="javascript:;" target="_blank">5201314备案</a></p>
 </footer>
 </#macro>
 
@@ -48,7 +48,7 @@
         <a href="home"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
     </li>
     <li class="layui-nav-item">
-        <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+        <a href="article"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章列表</a>
     </li>
     <li class="layui-nav-item">
         <a href="resource"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
@@ -57,7 +57,7 @@
         <a href="timeline"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
     </li>
     <li class="layui-nav-item">
-        <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+        <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
     </li>
 </ul>
 </#macro>
@@ -109,29 +109,23 @@
 <div class="home-tips shadow">
     <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
     <div class="home-tips-container">
-        <span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作，为大家准备了游客专用账号！</span>
-        <span style="color: red">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
-        <span style="color: red">如果你觉得网站做得还不错，来Fly社区点个赞吧！<a href="javascript:;"
-                                                            target="_blank"
-                                                            style="color:#01AAED">点我前往</a></span>
-        <span style="color: #009688">lost &nbsp;—— &nbsp;一个废宅程序员的个人博客,采用Layui为前端框架</span>
+        <span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作.</span>
+        <span style="color: #6c8dff">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
+        <span style="color: #6cffc8">如果你觉得网站做得还不错，来点个赞吧！<a href="javascript:;"
+                                                           target="_blank"
+                                                           style="color:#01AAED">点我前往</a></span>
+        <span style="color: #009688">lost &nbsp;—— &nbsp;一个废宅程序员的个人博客</span>
     </div>
 </div>
 </#macro>
 <#macro commonHotArticle>
 <!--热文排行-->
 <div class="blog-module shadow">
-    <div class="blog-module-title">热文排行</div>
+    <div class="blog-module-title">文章推荐</div>
     <ul class="fa-ul blog-module-ul">
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">Web安全之跨站请求伪造CSRF</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">MVC 防范跨站请求伪造（CSRF）</a>
-        </li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">常用正则表达式</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">数据迁移常用指令</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">浅谈Framework基元类型</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">基础知识回顾-扩展方法</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">一步步制作时光轴（一）（HTML篇）</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">一步步制作时光轴（二）（CSS篇）</a></li>
+        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章1</a></li>
+        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章2</a></li>
+        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章3</a></li>
     </ul>
 </div>
 </#macro>

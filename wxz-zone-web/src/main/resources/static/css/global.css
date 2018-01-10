@@ -216,10 +216,10 @@ body {
     text-align: center;
     margin: 0 auto;
     line-height: 64px;
-    font-size: 30px;
-    color: lightgreen;
+    font-size: 25px;
+    color: #7097ee;
     font-weight: bold;
-    font-family: KaiTi;
+    font-family: "Times New Roman",Georgia,Serif;
     display: inline-block;
     z-index: 10;
 }
