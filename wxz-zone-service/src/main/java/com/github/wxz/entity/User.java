@@ -11,43 +11,47 @@ public class User {
      * 用户ID
      */
     private Integer id;
+
     /**
      * 用户名
      */
     private String name;
+
+    /**
+     * email
+     */
+    private String email;
+
     /**
      * 性别
      */
     private Integer sex;
-    /**
-     * 密码
-     */
-    private String pass;
-    /**
-     * 昵称
-     */
-    private String nick;
+
     /**
      * 用户头像
      */
     private String img;
+
     /**
-     * 手机
+     * 电话号码
      */
     private String mobile;
+
     /**
      * 创建时间
      */
     private Date create;
+
     /**
      * 更新时间
      */
     private Date update;
 
     /**
-     * 最后登录时间
+     * 加密后的密码secret
      */
-    private Date login;
+    private String secret;
+
 
     public Integer getId() {
         return id;
@@ -73,21 +77,6 @@ public class User {
         this.sex = sex;
     }
 
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-
-    public String getNick() {
-        return nick;
-    }
-
-    public void setNick(String nick) {
-        this.nick = nick;
-    }
 
     public String getImg() {
         return img;
@@ -121,11 +110,4 @@ public class User {
         this.update = update;
     }
 
-    public Date getLogin() {
-        return login;
-    }
-
-    public void setLogin(Date login) {
-        this.login = login;
-    }
 }

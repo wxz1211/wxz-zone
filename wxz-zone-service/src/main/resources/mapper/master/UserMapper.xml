@@ -4,6 +4,73 @@
 <mapper namespace="com.github.wxz.dao.master.UserMapper">
 
     <select id="getUserById" resultType="com.github.wxz.entity.User">
-         SELECT * from xxl_job_qrtz_user where id = #{id}
+         SELECT
+         id,
+         `name`,
+         email,
+         sex,
+         img,
+         secret,
+         mobile,
+         `create`,
+         `update`
+         FROM
+         wxz_zone_user
+         WHERE
+         id = #{id}
     </select>
+
+    <select id="getUserByName" parameterType="java.lang.String" resultType="com.github.wxz.entity.User">
+        SELECT
+        id,
+        `name`,
+        email,
+        sex,
+        img,
+        secret,
+        mobile,
+        `create`,
+        `update`
+        FROM
+        wxz_zone_user
+        WHERE
+        `name` = #{name}
+    </select>
+
+    <update id="updateProfilePhoto" parameterType="com.github.wxz.entity.User">
+        UPDATE
+        wxz_zone_user
+        SET
+        img = #{img}
+        ,
+        `update` = now()
+        WHERE
+        id=#{id}
+    </update>
+
+
+    <update id="updatePassWord" parameterType="com.github.wxz.entity.User">
+        UPDATE
+        wxz_zone_user
+        SET
+        pass = #{pass}
+        ,
+        secret = #{secret},
+        `update` = now()
+        WHERE
+        id = #{id}
+    </update>
+
+    <insert id="addUser"
+            parameterType="com.github.wxz.entity.User"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO
+         wxz_zone_user
+        ( `name`, email,`pass`,secret,`img`,`mobile`,`sex`, `create`, `update`)
+        VALUES
+        ( #{name}, #{email},#{pass},#{secret},#{img}, #{mobile}, #{sex}, now(), now());
+    </insert>
+
+
 </mapper>
