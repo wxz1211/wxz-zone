@@ -1,6 +1,6 @@
 package com.github.wxz.service;
 
-import com.github.wxz.dao.master.ArticleMapper;
+import com.github.wxz.dao.ArticleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.github.wxz.dao.master;
+package com.github.wxz.dao;
 
 import com.github.wxz.entity.User;
 import org.apache.ibatis.annotations.Delete;

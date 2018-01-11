@@ -1,0 +1,72 @@
+server:
+  port: 8080
+  context-path: /framework
+  session:
+    timeout: 1800
+
+spring:
+  profiles:
+    active: dev
+  freemarker:
+    cache: false
+    request-context-attribute: cxt
+    suffix: .ftl
+
+mybatis:
+     mapperLocations: classpath:/mapper/*.xml
+     typeAliasesPackage: com.github.wxz.entity
+     mapperScanPackage: com.github.wxz.dao
+     configLocation: classpath:/mybatis/mybatis-config.xml
+
+mysql:
+  datasource:
+    readSize: 2  #¶Á¿â¸öÊý
+    type: com.alibaba.druid.pool.DruidDataSource
+    configLocation: classpath:/mybatis/mybatis-config.xml
+    mapperLocations: classpath:/mapper/*.xml
+    write:
+        driver-class-name: com.mysql.jdbc.Driver
+        minIdle: 5
+        maxActive: 100
+        initialSize: 10
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 50
+        filters: stat
+    read01:
+         driver-class-name: com.mysql.jdbc.Driver
+         minIdle: 5
+         maxActive: 100
+         initialSize: 10
+         maxWait: 60000
+         timeBetweenEvictionRunsMillis: 60000
+         minEvictableIdleTimeMillis: 300000
+         validationQuery: select 'x'
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedStatements: true
+         maxPoolPreparedStatementPerConnectionSize: 50
+         filters: stat
+    read02:
+         driver-class-name: com.mysql.jdbc.Driver
+         minIdle: 5
+         maxActive: 100
+         initialSize: 10
+         maxWait: 60000
+         timeBetweenEvictionRunsMillis: 60000
+         minEvictableIdleTimeMillis: 300000
+         validationQuery: select 'x'
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedStatements: true
+         maxPoolPreparedStatementPerConnectionSize: 50
+         filters: stat
+logging:
+  config: classpath:log/logback.xml
+  path: logs
+
