@@ -110,7 +110,7 @@ public class MybatisConfiguration {
         p.setProperty("rowBoundsWithCount", "true");
         p.setProperty("reasonable", "true");
         p.setProperty("returnPageInfo", "check");
-        p.setProperty("params", "count=countSql");
+        p.setProperty("params", "hashCount=countSql");
         pageHelper.setProperties(p);
         return pageHelper;
     }

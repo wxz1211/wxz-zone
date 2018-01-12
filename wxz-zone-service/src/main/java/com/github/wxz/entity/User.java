@@ -1,12 +1,13 @@
 package com.github.wxz.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author xianzhi.wang
  * @date 2018/1/10 -18:06
  */
-public class User {
+public class User implements Serializable {
     /**
      * 用户ID
      */
@@ -52,6 +53,21 @@ public class User {
      */
     private String secret;
 
+    public String getSecret() {
+        return secret;
+    }
+
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public Integer getId() {
         return id;

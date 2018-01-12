@@ -17,5 +17,10 @@
             <artifactId>wxz-zone-framework</artifactId>
             <version>0.0.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 </project>

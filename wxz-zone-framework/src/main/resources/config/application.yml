@@ -11,6 +11,11 @@ spring:
     cache: false
     request-context-attribute: cxt
     suffix: .ftl
+  redis:
+    database: 0
+    password: redis
+    host: 47.88.220.111
+    port: 6380
 
 mybatis:
      mapperLocations: classpath:/mapper/*.xml
@@ -20,7 +25,7 @@ mybatis:
 
 mysql:
   datasource:
-    readSize: 2  #¶Á¿â¸öÊý
+    readSize: 2
     type: com.alibaba.druid.pool.DruidDataSource
     configLocation: classpath:/mybatis/mybatis-config.xml
     mapperLocations: classpath:/mapper/*.xml
