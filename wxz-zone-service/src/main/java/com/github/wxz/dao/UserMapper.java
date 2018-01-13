@@ -26,7 +26,7 @@ public interface UserMapper {
      * @param name
      * @return
      */
-    User getUserByName(@Param("name") String name);
+    User  getUserByName(@Param("name") String name);
 
     /**
      * updateProfilePhoto
