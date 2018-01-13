@@ -1,6 +1,11 @@
 package com.github.wxz.controller;
 
+import com.github.wxz.entity.User;
+import com.github.wxz.service.ArticleService;
+import com.github.wxz.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -9,8 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class PageController {
+    @Autowired
+    public UserService userService;
+
+    @Autowired
+    public ArticleService articleService;
+
     @RequestMapping(value = "home")
-    public String home() {
+    public String home(Model model) {
+        User user = userService.getUserById(6);
+        model.addAttribute("user", user);
         return "home/home";
     }
 

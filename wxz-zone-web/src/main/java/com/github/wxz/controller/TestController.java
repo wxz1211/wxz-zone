@@ -2,7 +2,7 @@ package com.github.wxz.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.github.wxz.common.util.BeanUtils;
-import com.github.wxz.domain.UserDo;
+import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.entity.User;
 import com.github.wxz.redis.IUserRedisService;
 import com.github.wxz.redis.StringRedisService;
@@ -37,15 +37,15 @@ public class TestController {
 
         User user1 = userService.getUserByName("wangxianzhi");
         User user = userService.getUserById(20);
-        UserDo userDo = new UserDo();
-        BeanUtils.copyProperties(userDo, user);
+        UserAuthDO userAuthDO = new UserAuthDO();
+        BeanUtils.copyProperties(userAuthDO, user);
 
         LOGGER.info(JSON.toJSONString(user));
-        LOGGER.info(JSON.toJSONString(userDo));
+        LOGGER.info(JSON.toJSONString(userAuthDO));
         LOGGER.info(JSON.toJSONString(user1));
         iUserRedisService.findAll();
 
-        LOGGER.info(JSON.toJSONString(iUserRedisService.findById(String.valueOf(userDo.getId()))));
+        LOGGER.info(JSON.toJSONString(iUserRedisService.findById(String.valueOf(userAuthDO.getId()))));
         return "{\"dsds\":\"11111\"}";
     }
 

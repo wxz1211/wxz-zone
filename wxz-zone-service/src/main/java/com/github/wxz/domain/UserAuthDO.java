@@ -6,9 +6,9 @@ import java.io.Serializable;
  * @author xianzhi.wang
  * @date 2018/1/11 -10:37
  */
-public class UserDo implements Serializable{
+public class UserAuthDO implements Serializable {
 
-
+    private String wxzId;
     /**
      * 用户ID
      */
@@ -45,6 +45,14 @@ public class UserDo implements Serializable{
     private String secret;
 
     private String pass;
+
+    public String getWxzId() {
+        return wxzId;
+    }
+
+    public void setWxzId(String wxzId) {
+        this.wxzId = wxzId;
+    }
 
     public Integer getId() {
         return id;

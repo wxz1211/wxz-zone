@@ -59,4 +59,10 @@
     text-indent: 1.3em;
     padding: 2px 0;
 }
-/*一路走来和后台记录END*/
+.touxiangImg {
+    -webkit-transform: rotate(360deg);
+    animation: rotation1 8s linear infinite;
+    -moz-animation: rotation1 8s linear infinite;
+    -webkit-animation: rotation1 85s linear infinite;
+    -o-animation: rotation1 8s linear infinite;
+}

@@ -25,10 +25,21 @@ public abstract class IRedisService<T> {
     @Resource
     public ValueOperations<String, Object> valueOperations;
 
+    /**
+     * set String
+     * @param key
+     * @param value
+     */
     public void set(final String key, String value) {
         set(key, value, -1);
     }
 
+    /**
+     * set String
+     * @param key
+     * @param value
+     * @param expire
+     */
     public void set(final String key, String value, long expire) {
         if (expire == -1) {
             valueOperations.set(key, value);
@@ -37,15 +48,29 @@ public abstract class IRedisService<T> {
         }
     }
 
+    /**
+     * get String
+     * @param key
+     * @return
+     */
     public String get(final String key) {
         Object object = valueOperations.get(key);
         return object == null ? null : object.toString();
     }
 
+    /**
+     * String exists
+     * @param key
+     * @return
+     */
     public boolean exists(final String key) {
         return get(key) == null ? false : true;
     }
 
+    /**
+     * String del
+     * @param key
+     */
     public void del(final String key) {
         redisTemplate.delete(key);
     }

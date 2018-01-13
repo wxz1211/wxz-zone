@@ -18,6 +18,7 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+
     @WriteDataSource
     public User getUserById(int id) {
         return userMapper.getUserById(id);
@@ -27,4 +28,10 @@ public class UserService {
     public User getUserByName(String name) {
         return userMapper.getUserByName(name);
     }
+
+    @WriteDataSource
+    public User addUser(User user) {
+        return userMapper.addUser(user);
+    }
+
 }

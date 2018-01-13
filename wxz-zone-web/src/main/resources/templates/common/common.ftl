@@ -1,6 +1,8 @@
 <#macro commonStyle>
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/layui/css/layui.mobile.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="bookmark" type="image/x-icon" href="/favicon.ico">
 <!--全局样式表-->
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/css/global.css"/>
 <!--font-awesome-->
@@ -84,21 +86,22 @@
 <!--个人介绍-->
 <div class="blogerinfo shadow">
     <div class="blogerinfo-figure">
-        <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"/>
+        <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" class="touxiangImg" style="border-radius: 50%;
+    width: 120px;height: 120px;" alt="absolutely"/>
     </div>
-    <p class="blogerinfo-nickname">absolutely</p>
-    <p class="blogerinfo-introduce">一只废宅~~</p>
+    <p class="blogerinfo-nickname">${user.name}</p>
+    <p class="blogerinfo-introduce">做一只安安静静的废宅~~</p>
     <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;上海 - 宝山</p>
     <hr/>
     <div class="blogerinfo-contact">
-        <a target="_blank" title="QQ交流" href="javascript:layer.msg('dd')"><i
-                class="fa fa-qq fa-2x"></i></a>
-        <a target="_blank" title="给我写信" href="javascript:layer.msg('dd')"><i
-                class="fa fa-envelope fa-2x"></i></a>
-        <a target="_blank" title="新浪微博" href="javascript:layer.msg('dd')"><i
-                class="fa fa-weibo fa-2x"></i></a>
-        <a target="_blank" title="git" href="javascript:layer.msg('dd')"><i
-                class="fa fa-git fa-2x"></i></a>
+        <a target="_blank" title="豆瓣交流" href="https://www.douban.com/people/wxz1211/"><i
+                class="fa  fa-slideshare fa-lg"></i></a>
+        <a target="_blank" title="相亲专用" href="https://www.zhihu.com/people/wangxianzhi1211/activities"><i
+                class="fa fa-openid fa-lg"></i></a>
+        <a target="_blank" title="交流交流" href="http://www.wangxianzhi.xyz/do/about"><i
+                class="fa fa-twitch fa-lg"></i></a>
+        <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
+                class="fa  fa-yelp  fa-lg"></i></a>
     </div>
 </div>
 </#macro>
@@ -109,11 +112,11 @@
 <div class="home-tips shadow">
     <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
     <div class="home-tips-container">
-        <span style="color: #009688">偷偷告诉大家，本博客的后台管理也正在制作.</span>
-        <span style="color: #6c8dff">网站新增留言回复啦！使用QQ登陆即可回复，人人都可以回复！</span>
-        <span style="color: #6cffc8">如果你觉得网站做得还不错，来点个赞吧！<a href="javascript:;"
-                                                           target="_blank"
-                                                           style="color:#01AAED">点我前往</a></span>
+        <span style="color: #009688">不求回报去爱一个人通常可以如愿以偿,因为真的没有回报.</span>
+        <span style="color: #6c8dff">生活不止眼前的苟且,还有读不懂的诗和到不了的远方.</span>
+        <span style="color: #6cffc8">人们希望你做的更好,但一般不希望你超过他.<a href="javascript:;"
+                                                             target="_blank"
+                                                             style="color:#01AAED">点我前往</a></span>
         <span style="color: #009688">lost &nbsp;—— &nbsp;一个废宅程序员的个人博客</span>
     </div>
 </div>

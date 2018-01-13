@@ -8,7 +8,7 @@ spring:
   profiles:
     active: dev
   freemarker:
-    cache: false
+    cache: true
     request-context-attribute: cxt
     suffix: .ftl
   redis:

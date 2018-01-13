@@ -1,6 +1,6 @@
 package com.github.wxz.redis;
 
-import com.github.wxz.domain.UserDo;
+import com.github.wxz.domain.UserAuthDO;
 
 import java.util.List;
 
@@ -14,28 +14,28 @@ public interface IUserRedisService {
      *saveUsers
      * @param users
      */
-    void saveUsers(List<UserDo> users);
+    void saveUsers(List<UserAuthDO> users);
 
     /**
      * saveUser
      *
-     * @param userDo
+     * @param userAuthDO
      */
-    void saveUser(UserDo userDo);
+    void saveUser(UserAuthDO userAuthDO);
 
     /**
      * findAll
      *
      * @return
      */
-    List<UserDo> findAll();
+    List<UserAuthDO> findAll();
 
     /**
      * findById
      * @param id
      * @return
      */
-    UserDo findById(String id);
+    UserAuthDO findById(String id);
 
     void deleteById(String id);
 }

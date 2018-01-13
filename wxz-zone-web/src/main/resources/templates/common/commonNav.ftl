@@ -11,7 +11,7 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿^▽^</a>
+        <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item layui-this">
@@ -51,7 +51,7 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿^▽^</a>
+        <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -91,7 +91,7 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿^▽^</a>
+        <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -131,7 +131,7 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿^▽^</a>
+        <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -171,7 +171,7 @@
                  title="absolutely"/>
         </a>
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">带点绿^▽^</a>
+        <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">

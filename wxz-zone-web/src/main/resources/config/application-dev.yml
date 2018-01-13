@@ -3,7 +3,6 @@ server:
     name: wxz-zone
   port: 8080
   context-path: /wxz-zone
-
 mysql:
   datasource:
     write:
@@ -18,4 +17,5 @@ mysql:
       url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
       username: root
       password: root
+
 

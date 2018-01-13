@@ -1,6 +1,6 @@
 package com.github.wxz.redis.impl;
 
-import com.github.wxz.domain.UserDo;
+import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.framework.redis.service.IRedisService;
 import com.github.wxz.redis.IUserRedisService;
 import org.slf4j.Logger;
@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2018/1/12 -13:18
  */
 @Service
-public class UserRedisServiceImpl extends IRedisService<UserDo> implements IUserRedisService {
+public class UserRedisServiceImpl extends IRedisService<UserAuthDO> implements IUserRedisService {
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRedisServiceImpl.class);
 
     private static final String USER_REDIS_KEY = "USER_REDIS_KEY";
@@ -25,24 +25,24 @@ public class UserRedisServiceImpl extends IRedisService<UserDo> implements IUser
     }
 
     @Override
-    public void saveUsers(List<UserDo> users) {
-        for (UserDo user : users) {
+    public void saveUsers(List<UserAuthDO> users) {
+        for (UserAuthDO user : users) {
             hashPut(String.valueOf(user.getId()), user, -1);
         }
     }
 
     @Override
-    public void saveUser(UserDo user) {
+    public void saveUser(UserAuthDO user) {
         hashPut(String.valueOf(user.getId()), user, -1);
     }
 
     @Override
-    public List<UserDo> findAll() {
+    public List<UserAuthDO> findAll() {
         return hashGetAll();
     }
 
     @Override
-    public UserDo findById(String id) {
+    public UserAuthDO findById(String id) {
         return hashGetByKey(id);
     }
 

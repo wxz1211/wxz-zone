@@ -48,19 +48,6 @@ public class User implements Serializable {
      */
     private Date update;
 
-    /**
-     * 加密后的密码secret
-     */
-    private String secret;
-
-    public String getSecret() {
-        return secret;
-    }
-
-    public void setSecret(String secret) {
-        this.secret = secret;
-    }
-
     public String getEmail() {
         return email;
     }
