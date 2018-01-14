@@ -43,21 +43,7 @@ mysql:
         poolPreparedStatements: true
         maxPoolPreparedStatementPerConnectionSize: 50
         filters: stat
-    read01:
-         driver-class-name: com.mysql.jdbc.Driver
-         minIdle: 5
-         maxActive: 100
-         initialSize: 10
-         maxWait: 60000
-         timeBetweenEvictionRunsMillis: 60000
-         minEvictableIdleTimeMillis: 300000
-         validationQuery: select 'x'
-         testOnBorrow: false
-         testOnReturn: false
-         poolPreparedStatements: true
-         maxPoolPreparedStatementPerConnectionSize: 50
-         filters: stat
-    read02:
+    read:
          driver-class-name: com.mysql.jdbc.Driver
          minIdle: 5
          maxActive: 100

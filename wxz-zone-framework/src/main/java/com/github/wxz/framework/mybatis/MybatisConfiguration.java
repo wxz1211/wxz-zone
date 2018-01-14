@@ -1,6 +1,8 @@
 package com.github.wxz.framework.mybatis;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.github.pagehelper.PageHelper;
+import com.github.wxz.framework.mybatis.routing.RoundRobinRoutingDataSource;
 import com.github.wxz.framework.spring.SpringContextUtil;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,6 +12,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
@@ -24,9 +27,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.github.wxz.framework.mybatis.MybatisConfiguration.PACKAGES_SCAN;
 
@@ -57,11 +60,12 @@ public class MybatisConfiguration {
     private String configLocation;
 
     @Autowired
-    private DataSource writeDataSource;
+    @Qualifier("writeDataSource")
+    private DruidDataSource  writeDataSource;
+
     @Autowired
-    private DataSource readDataSource01;
-    @Autowired
-    private DataSource readDataSource02;
+    @Qualifier("readDataSources")
+    private List<DruidDataSource> readDataSources;
 
 
     @Bean(name = "sqlSessionFactory")
@@ -82,8 +86,8 @@ public class MybatisConfiguration {
 
             //添加分页插件、打印sql插件
             Interceptor[] plugins = new Interceptor[]{
-                    pageHelper()
-                    //, new SqlPrintInterceptor()
+                    pageHelper(),
+                     new SqlPrintInterceptor()
             };
             sessionFactoryBean.setPlugins(plugins);
 
@@ -124,43 +128,17 @@ public class MybatisConfiguration {
     public AbstractRoutingDataSource roundRobinDataSourceProxy() {
 
         Map<Object, Object> targetDataSources = new HashMap<>(3);
-        //把所有数据库都放在targetDataSources中,注意key值要和determineCurrentLookupKey()中代码写的一至，
-        //否则切换数据源时找不到正确的数据源
-        targetDataSources.put(DataSourceType.WRITE.getType(), writeDataSource);
-        targetDataSources.put(DataSourceType.READ.getType() + "1", readDataSource01);
-        targetDataSources.put(DataSourceType.READ.getType() + "2", readDataSource02);
 
-        final int readSize = Integer.parseInt(readDataSourceSize);
+        targetDataSources.put(DataSourceType.WRITE.getType(), writeDataSource);
+        for (int i = 0; i < readDataSources.size(); i++) {
+            targetDataSources.put(i, readDataSources.get(i));
+        }
+        final int readSize = readDataSources.size();
 
         //路由类，寻找对应的数据源
-        AbstractRoutingDataSource proxy = new AbstractRoutingDataSource() {
-            private AtomicInteger count = new AtomicInteger(0);
-
-            /**
-             * 这是AbstractRoutingDataSource类中的一个抽象方法，
-             * 而它的返回值是你所要用的数据源dataSource的key值，有了这个key值，
-             * targetDataSources就从中取出对应的DataSource，如果找不到，就用配置默认的数据源。
-             */
-            @Override
-            protected Object determineCurrentLookupKey() {
-                String typeKey = DataSourceContextHolder.getReadOrWrite();
-
-                if (typeKey == null) {
-                    throw new NullPointerException("数据库路由时，决定使用哪个数据库源类型不能为空...");
-                }
-
-                if (typeKey.equals(DataSourceType.WRITE.getType())) {
-                    return DataSourceType.WRITE.getType();
-                }
-
-                //读库， 简单负载均衡
-                int number = count.getAndAdd(1);
-                int lookupKey = number % readSize;
-                return DataSourceType.READ.getType() + (lookupKey + 1);
-            }
-        };
+        AbstractRoutingDataSource proxy = new RoundRobinRoutingDataSource(readSize);
         //默认库
-        proxy.setDefaultTargetDataSource(readDataSource01);
+        proxy.setDefaultTargetDataSource(writeDataSource);
         proxy.setTargetDataSources(targetDataSources);
         return proxy;
     }
