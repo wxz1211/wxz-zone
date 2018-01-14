@@ -2,14 +2,7 @@
 <!-- 导航 -->
 <nav class="blog-nav layui-header">
     <div class="blog-container">
-        <!-- QQ互联登陆 -->
-        <a href="javascript:;" class="blog-user">
-            <i class="fa fa-qq"></i>
-        </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"
-                 title="absolutely"/>
-        </a>
+
         <!-- 不落阁 -->
         <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
@@ -42,15 +35,7 @@
 <!-- 导航 -->
 <nav class="blog-nav layui-header">
     <div class="blog-container">
-        <!-- QQ互联登陆 -->
-        <a href="javascript:;" class="blog-user">
-            <i class="fa fa-qq"></i>
-        </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"
-                 title="absolutely"/>
-        </a>
-        <!-- 不落阁 -->
+
         <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
@@ -82,15 +67,7 @@
 <!-- 导航 -->
 <nav class="blog-nav layui-header">
     <div class="blog-container">
-        <!-- QQ互联登陆 -->
-        <a href="javascript:;" class="blog-user">
-            <i class="fa fa-qq"></i>
-        </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"
-                 title="absolutely"/>
-        </a>
-        <!-- 不落阁 -->
+
         <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
@@ -122,15 +99,7 @@
 <!-- 导航 -->
 <nav class="blog-nav layui-header">
     <div class="blog-container">
-        <!-- QQ互联登陆 -->
-        <a href="javascript:;" class="blog-user">
-            <i class="fa fa-qq"></i>
-        </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"
-                 title="absolutely"/>
-        </a>
-        <!-- 不落阁 -->
+
         <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
@@ -162,15 +131,7 @@
 <!-- 导航 -->
 <nav class="blog-nav layui-header">
     <div class="blog-container">
-        <!-- QQ互联登陆 -->
-        <a href="javascript:;" class="blog-user">
-            <i class="fa fa-qq"></i>
-        </a>
-        <a href="javascript:;" class="blog-user layui-hide">
-            <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" alt="absolutely"
-                 title="absolutely"/>
-        </a>
-        <!-- 不落阁 -->
+
         <a class="blog-logo" href="home">安安静的肥宅</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">

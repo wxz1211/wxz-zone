@@ -1,14 +1,19 @@
 <#macro commonStyle>
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/layui/css/layui.css">
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/layui/css/layui.mobile.css">
-<link rel="shortcut icon" href="/favicon.ico">
-<link rel="bookmark" type="image/x-icon" href="/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+<link rel="shortcut icon" href="${cxt.contextPath}/images/favicon.ico" type="image/x-icon">
+<link rel="bookmark" type="image/x-icon" href="${cxt.contextPath}/images/favicon.ico">
 <!--全局样式表-->
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/css/global.css"/>
 <!--font-awesome-->
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/font-awesome/css/font-awesome.min.css"/>
 <!--animate.min-->
 <link rel="stylesheet" type="text/css" href="${cxt.contextPath}/css/animate.min.css"/>
+<title>你个死肥宅ヾ(=^▽^=)ノ</title>
 </#macro>
 
 <#macro commonHtml>
@@ -25,11 +30,6 @@
 </#macro>
 
 <#macro commonHeader>
-<meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
-<meta http-equiv="Content-Language" content="zh-CN">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
-<title>ヾ(=^▽^=)ノlost❤</title>
-<link rel="shortcut icon" href="${cxt.contextPath}/images/logo_40.png" type="image/x-icon">
 </#macro>
 
 <#macro commonFooter>
@@ -95,14 +95,18 @@
     <hr/>
     <div class="blogerinfo-contact">
         <a target="_blank" title="豆瓣交流" href="https://www.douban.com/people/wxz1211/"><i
-                class="fa  fa-slideshare fa-lg"></i></a>
+                class="fa  fa-slideshare fa-lg"></i> 豆瓣交流</a>
         <a target="_blank" title="相亲专用" href="https://www.zhihu.com/people/wangxianzhi1211/activities"><i
-                class="fa fa-openid fa-lg"></i></a>
-        <a target="_blank" title="交流交流" href="http://www.wangxianzhi.xyz/do/about"><i
-                class="fa fa-twitch fa-lg"></i></a>
-        <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
-                class="fa  fa-yelp  fa-lg"></i></a>
+                class="fa fa-openid fa-lg"></i> 相亲专用</a>
+
     </div>
+    <div class="blogerinfo-contact">
+        <a target="_blank" title="相亲简介" href="http://www.wangxianzhi.xyz/do/about"><i
+                class="fa fa-twitch fa-lg"></i> 相亲简介</a>
+        <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
+                class="fa  fa-yelp  fa-lg"></i> 基佬专用</a>
+    </div>
+
 </div>
 </#macro>
 
@@ -110,11 +114,11 @@
 <#macro commonTips>
 <!-- 网站公告提示 -->
 <div class="home-tips shadow">
-    <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
+    <i style="float:left;line-height:19px;" class="fa fa-volume-up"></i>
     <div class="home-tips-container">
         <span style="color: #009688">不求回报去爱一个人通常可以如愿以偿,因为真的没有回报.</span>
         <span style="color: #6c8dff">生活不止眼前的苟且,还有读不懂的诗和到不了的远方.</span>
-        <span style="color: #6cffc8">人们希望你做的更好,但一般不希望你超过他.<a href="javascript:;"
+        <span style="color: #736dff">人们希望你做的更好,但一般不希望你超过他.<a href="javascript:;"
                                                              target="_blank"
                                                              style="color:#01AAED">点我前往</a></span>
         <span style="color: #009688">lost &nbsp;—— &nbsp;一个废宅程序员的个人博客</span>

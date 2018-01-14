@@ -19,17 +19,17 @@ public class UserService {
     private UserMapper userMapper;
 
 
-    @WriteDataSource
+    //@WriteDataSource
     public User getUserById(int id) {
         return userMapper.getUserById(id);
     }
 
-    @ReadDataSource
+    //@ReadDataSource
     public User getUserByName(String name) {
         return userMapper.getUserByName(name);
     }
 
-    @WriteDataSource
+    //@WriteDataSource
     public User addUser(User user) {
         return userMapper.addUser(user);
     }

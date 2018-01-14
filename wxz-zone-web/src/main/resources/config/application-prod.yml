@@ -1,23 +1,45 @@
 server:
   application:
     name: wxz-zone
-  port: 9090
+  port: 8084
   context-path: /wxz-zone
-
 mysql:
   datasource:
     write:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
       username: root
       password: root
-    read01:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      driverClassName: com.mysql.jdbc.Driver
+      minIdle: 5
+      maxActive: 100
+      initialSize: 10
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+      filters: stat
+    read:
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
       username: root
       password: root
-    read02:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
-      username: root
-      password: root
-
-
+      driverClassName: com.mysql.jdbc.Driver
+      minIdle: 5
+      maxActive: 100
+      initialSize: 10
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 50
+      filters: stat
+spring:
+  freemarker:
+    cache: true
 

@@ -10,6 +10,7 @@
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="img" property="img" jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="sent" property="sent" jdbcType="VARCHAR"/>
         <result column="top" property="top" jdbcType="INTEGER"/>
         <result column="create" property="create" jdbcType="TIMESTAMP"/>
         <result column="update" property="update" jdbcType="TIMESTAMP"/>
@@ -19,7 +20,7 @@
             parameterType="com.github.wxz.entity.Article">
         INSERT
         INTO
-        wxz_zone_arcticle
+        wxz_zone_article
         (
         user_id,
         <if test="category != null">
@@ -37,6 +38,9 @@
         </if>
         <if test="content != null">
             content,
+        </if>
+        <if test="sent != null">
+            sent,
         </if>
 
         <if test="top != null">
@@ -63,6 +67,9 @@
         <if test="content != null">
             #{content},
         </if>
+        <if test="sent != null">
+            #{sent},
+        </if>
         <if test="top != null">
             #{top},
         </if>
@@ -75,8 +82,19 @@
         SELECT
         *
         from
-        wxz_zone_arcticle
+        wxz_zone_article
         where
         id=#{arcticleId}
     </select>
+
+
+    <select id="getArticlesByPage"
+            resultMap="ArticleMap">
+        SELECT
+        *
+        from
+        wxz_zone_article
+        limit #{begin},#{pageSize}
+    </select>
+
 </mapper>

@@ -1,5 +1,7 @@
 package com.github.wxz.controller;
 
+import com.github.wxz.common.util.PageUtil;
+import com.github.wxz.entity.Article;
 import com.github.wxz.entity.User;
 import com.github.wxz.service.ArticleService;
 import com.github.wxz.service.UserService;
@@ -24,6 +26,8 @@ public class PageController {
     public String home(Model model) {
         User user = userService.getUserById(6);
         model.addAttribute("user", user);
+        PageUtil<Article> articlePageUtil = articleService.getArticlesByPage(1);
+        model.addAttribute("article", articlePageUtil);
         return "home/home";
     }
 

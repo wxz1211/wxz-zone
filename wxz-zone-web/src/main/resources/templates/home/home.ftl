@@ -25,9 +25,9 @@
         var canvas = document.getElementById('canvas-banner');
         canvas.width = window.document.body.clientWidth - 10;//减去滚动条的宽度
         if (screen.width >= 992) {
-            canvas.height = window.innerHeight * 1 / 3;
+            canvas.height = window.innerHeight * 1 / 4;
         } else {
-            canvas.height = window.innerHeight * 2 / 7;
+            canvas.height = window.innerHeight * 2 / 9;
         }
     </script>
     <!-- 这个一般才是真正的主体内容 -->
@@ -36,52 +36,31 @@
         <@netCommon.commonTips/>
             <!--左边文章列表-->
             <div class="blog-main-left">
-
+            <#list article.dataList as item>
                 <div class="article shadow">
                     <div class="article-left">
-                        <img src="${cxt.contextPath}/images/cover/201703181909057125.jpg"
-                             alt="标题"/>
+                        <img src="${item.img!}"
+                             alt="标题" style="width: 100% ;height: 100%"/>
                     </div>
                     <div class="article-right">
                         <div class="article-title">
-                            <a href="detail">标题</a>
+                            <a href="detail"> ${ item.title!}</a>
                         </div>
                         <div class="article-abstract">
-                            文章内容简介
+                        <#if item.content?exists>${item.content?substring(0,1)}</#if>
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="article-footer">
-                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
+                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;${item.create?string('yyyy-MM-dd')}</span>
                         <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;wxz</span>
-                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">分类</a></span>
+                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">${item.tag}</a></span>
                         <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
                         <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                     </div>
                 </div>
+            </#list>
 
-                <div class="article shadow">
-                    <div class="article-left">
-                        <img src="${cxt.contextPath}/images/cover/201703181909057125.jpg"
-                             alt="标题"/>
-                    </div>
-                    <div class="article-right">
-                        <div class="article-title">
-                            <a href="detail">标题</a>
-                        </div>
-                        <div class="article-abstract">
-                            文章内容简介
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="article-footer">
-                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
-                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;wxz</span>
-                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">分类</a></span>
-                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
-                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
-                    </div>
-                </div>
             </div>
 
 
@@ -92,8 +71,6 @@
                 <div></div>
 
             <@netCommon.commonHotArticle/>
-
-            <@netCommon.commonRecentShare/>
 
             <@netCommon.commonYiLuZouLai/>
 

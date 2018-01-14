@@ -15,10 +15,22 @@ public class Article implements Serializable {
     private String tag;
     private String title;
     private String img;
+    /**
+     * simple content
+     */
+    private String sent;
     private String content;
     private Integer top;
     private Date create;
     private Date update;
+
+    public String getSent() {
+        return sent;
+    }
+
+    public void setSent(String sent) {
+        this.sent = sent;
+    }
 
     public Integer getId() {
         return id;
