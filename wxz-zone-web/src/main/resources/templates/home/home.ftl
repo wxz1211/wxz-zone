@@ -47,20 +47,20 @@
                             <a href="detail"> ${ item.title!}</a>
                         </div>
                         <div class="article-abstract">
-                        <#if item.content?exists>${item.content?substring(0,1)}</#if>
+                            <#if item.content?exists>${item.content?substring(0,1)}</#if>
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="article-footer">
                         <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;${item.create?string('yyyy-MM-dd')}</span>
-                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;wxz</span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;${item.uName}</span>
                         <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">${item.tag}</a></span>
                         <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
                         <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                     </div>
                 </div>
             </#list>
-
+                <div style="align-content: center;font-size: inherit">查看更多.....</div>
             </div>
 
 
@@ -94,5 +94,6 @@
 <!-- 本页脚本 -->
 
 <script src="${cxt.contextPath}/js/home.js"></script>
+
 </body>
 </html>

@@ -27,50 +27,11 @@
                      style="text-align:center;font-size:16px;padding:40px 15px;background:#fff;margin-bottom:15px;">
                     未搜索到与【<span style="color: #FF5722;">keywords</span>】有关的文章，随便看看吧！
                 </div>
-                <div class="article shadow">
-                    <div class="article-left">
-                        <img src="${cxt.contextPath}/images/cover/201703181909057125.jpg"
-                             alt="基于laypage的layui扩展模块（pagesize.js）！"/>
-                    </div>
-                    <div class="article-right">
-                        <div class="article-title">
-                            <a href="../detail/detail.ftl">基于laypage的layui扩展模块（pagesize.js）！</a>
-                        </div>
-                        <div class="article-abstract">
-                            该模块主要是针对当前版本laypage没有页容量控制功能而制作，使用该模块后即可实现每页显示多少条数据的控制！本人原创，但是可能有可能只对本人的分页写法有用！
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="article-footer">
-                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
-                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Absolutely</span>
-                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Web前端</a></span>
-                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
-                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
-                    </div>
+                <div id="blog-main-left-body">
+
+
                 </div>
-                <div class="article shadow">
-                    <div class="article-left">
-                        <img src="${cxt.contextPath}/images/cover/201703181909057125.jpg"
-                             alt="基于laypage的layui扩展模块（pagesize.js）！"/>
-                    </div>
-                    <div class="article-right">
-                        <div class="article-title">
-                            <a href="../detail/detail.ftl">基于laypage的layui扩展模块（pagesize.js）！</a>
-                        </div>
-                        <div class="article-abstract">
-                            该模块主要是针对当前版本laypage没有页容量控制功能而制作，使用该模块后即可实现每页显示多少条数据的控制！本人原创，但是可能有可能只对本人的分页写法有用！
-                        </div>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="article-footer">
-                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;2017-03-18</span>
-                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;Absolutely</span>
-                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">Web前端</a></span>
-                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
-                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
-                    </div>
-                </div>
+
             </div>
             <div class="blog-main-right">
                 <div class="blog-search">
@@ -91,44 +52,30 @@
                     <div class="article-category-title">分类导航</div>
                     <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">ASP.NET MVC</a>
                     <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">SQL Server</a>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Entity Framework</a>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">Web前端</a>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">C#基础</a>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">杂文随笔</a>
                     <div class="clear"></div>
                 </div>
                 <div class="blog-module shadow">
                     <div class="blog-module-title">作者推荐</div>
                     <ul class="fa-ul blog-module-ul">
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">Web安全之跨站请求伪造CSRF</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC 防范跨站请求伪造（CSRF）</a>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">Web安全之跨站请求伪造CSRF</a>
                         </li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">C#基础知识回顾-扩展方法</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（一）（HTML篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（二）（CSS篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（三）（JS篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">写了个Win10风格快捷菜单！</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC自定义错误页</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET
-                            MVC制作404跳转（非302和200）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">基于laypage的layui扩展模块（pagesize.js）！</a>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC
+                            防范跨站请求伪造（CSRF）</a>
                         </li>
+
                     </ul>
                 </div>
                 <div class="blog-module shadow">
                     <div class="blog-module-title">随便看看</div>
                     <ul class="fa-ul blog-module-ul">
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（一）（HTML篇）</a></li>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a
+                                href="../detail/detail.ftl">一步步制作时光轴（一）（HTML篇）</a></li>
                         <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET
                             MVC制作404跳转（非302和200）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC 防范跨站请求伪造（CSRF）</a>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC
+                            防范跨站请求伪造（CSRF）</a>
                         </li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（三）（JS篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">基于laypage的layui扩展模块（pagesize.js）！</a>
-                        </li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">一步步制作时光轴（二）（CSS篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">写了个Win10风格快捷菜单！</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">常用正则表达式</a></li>
+
                     </ul>
                 </div>
                 <!--右边悬浮 平板或手机设备显示-->
@@ -145,5 +92,80 @@
 <!--分享窗体 遮罩-->
 <@netCommon.commonShare/>
 
+<@netCommon.commonScript/>
+
+
+<script>
+    layui.use(['laypage', 'layer', 'jquery'], function () {
+        var laypage = layui.laypage
+                , layer = layui.layer
+                , jquery = layui.jquery;
+        paging(1);
+
+        function paging(pageNo) {
+            jquery.ajax({
+                url: 'article/getArticleByPageNo',
+                type: 'POST',
+                data: {pageNo: pageNo},
+                dataType: 'json',
+                success: function (data) {
+
+                    var totalCount = data.data.totalCount;
+                    var dataList = data.data.dataList;
+                    var currentPageNo = data.data.currentPageNo;
+                    var html = '';
+                    for (var i = 0; i < dataList.length; i++) {
+                        html +=
+                                '<div class="article shadow">'
+                                + '<div class="article-left">';
+                        if (dataList[i].img == null) {
+                            html += '<img src="" alt="标题" style="width: 100% ;height: 100%"/>';
+                        } else {
+                            html += '<img src="' + dataList[i].img + '" alt="标题" style="width: 100% ;height: 100%"/>';
+                        }
+
+                        html += '</div> '
+                                + '<div class="article-right"><div class="article-title">'
+                                + '<a href="detail">' + dataList[i].title + '</a></div>'
+                                + '<div class="article-abstract">'
+                                //+ dataList[i].content
+                                + 'linux写时复制技术'
+                                + '</div></div>'
+                                + '<div class="clear"></div><div class="article-footer">'
+                                + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + dataList[i].create + '</span>'
+                                + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;' + dataList[i].uName + '</span>'
+                                + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">' + dataList[i].tag + '</a></span>'
+                                + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>'
+                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>'
+                                + '</div> </div>'
+                    }
+
+                    html += '<div id="article" class="article"></div>';
+                    jquery("#blog-main-left-body").html(html);
+
+
+                    laypage.render({
+                        elem: 'article'
+                        , count: totalCount
+                        , curr: currentPageNo || 1
+                        , skip: true
+                        , first: '首页'
+                        , last: '尾页'
+                        , prev: '<em>上一页</em>'
+                        , next: '<em>下一页</em>'
+                        , theme: '#FF5722'
+                        , jump: function (obj, first) {
+                            if (!first) {
+                                paging(obj.curr);
+                            }
+                        }
+                    })
+                }
+            });
+        }
+
+
+    });
+</script>
 </body>
 </html>

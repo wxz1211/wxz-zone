@@ -14,8 +14,8 @@ public class Response {
     private String msg;
 
 
-    public Response(Object data) {
-        new Response(0, data, "success");
+    public static  Response successResponse(Object data) {
+        return new Response(0, data, "success");
     }
 
     public Response(int code, Object data, String msg) {

@@ -1,11 +1,16 @@
 package com.github.wxz.service;
 
-import com.github.wxz.common.util.PageUtil;
+import com.github.wxz.common.util.BeanUtils;
+import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.dao.ArticleMapper;
+import com.github.wxz.dao.UserMapper;
+import com.github.wxz.domain.ArticleDO;
 import com.github.wxz.entity.Article;
+import com.github.wxz.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,6 +21,9 @@ import java.util.List;
 public class ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     /**
      * addArticle
@@ -37,24 +45,43 @@ public class ArticleService {
 
     /**
      * getArticlesByPage
-     * @param begin
+     *
+     * @param pageNo
      * @param pageSize
      * @return
      */
-    public PageUtil<Article> getArticlesByPage(Integer begin, Integer pageSize) {
+    public PaginationManage<ArticleDO> getArticlesByPage(Integer pageNo, Integer pageSize) {
 
-        List<Article>  articleList = articleMapper.getArticlesByPage(begin, pageSize);
+        List<Article> articleList = articleMapper.getArticlesByPage((pageNo - 1) * pageSize, pageSize);
+        List<ArticleDO> articleDOList = new ArrayList<>();
 
-        return PageUtil.instance(articleList,begin,pageSize);
+        articleList.stream().forEach(article -> {
+            User user = userMapper.getUserById(article.getUid());
+            ArticleDO articleDO = new ArticleDO();
+            BeanUtils.copyProperties(articleDO, article);
+
+            articleDO.setuName((user == null || user.getName() == null) ? "" : user.getName());
+            articleDOList.add(articleDO);
+        });
+
+        int totalCount = articleMapper.count();
+        PaginationManage<ArticleDO> articlePaginationManage = new PaginationManage<>();
+        articlePaginationManage.setDataList(articleDOList);
+        articlePaginationManage.setPageInfo(pageNo, pageSize);
+        articlePaginationManage.setTotalCount(totalCount);
+        return articlePaginationManage;
     }
 
     /**
      * getArticlesByPage
-     * @param begin
+     *
+     * @param pageNo
      * @return
      */
-
-    public PageUtil<Article> getArticlesByPage(Integer begin) {
-        return getArticlesByPage(begin, PageUtil.DEFAULT_SIZE);
+    public PaginationManage<ArticleDO> getArticlesByPage(Integer pageNo) {
+        if (pageNo == null || pageNo == 0) {
+            pageNo = 1;
+        }
+        return getArticlesByPage(pageNo, PaginationManage.DEFAULT_SIZE_8);
     }
 }

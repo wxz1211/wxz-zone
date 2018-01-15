@@ -94,7 +94,15 @@
         *
         from
         wxz_zone_article
+        ORDER BY `create` DESC
         limit #{begin},#{pageSize}
     </select>
 
+
+    <select id="count" resultType="java.lang.Integer">
+        select
+        count(1)
+        from
+        wxz_zone_article
+    </select>
 </mapper>
