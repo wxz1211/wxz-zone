@@ -22,7 +22,16 @@
             <li class="layui-nav-item">
                 <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
+            <li style="left:10%" class="layui-nav-item">
+                <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(11,7,39,0.78);">&#xe6af;</i>&nbsp;个人中心</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                    <dd><a id="sign" href="javascript:layer.msg('hello');">注册</a></dd>
+                    <dd><a id="logout" href="javascript:layer.msg('hello');">退出</a></dd>
+                </dl>
+            </li>
         </ul>
+
         <!-- 手机和平板的导航开关 -->
         <a class="blog-navicon" href="javascript:;">
             <i class="fa fa-navicon"></i>
@@ -54,7 +63,9 @@
             <li class="layui-nav-item">
                 <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
             </li>
+
         </ul>
+
         <!-- 手机和平板的导航开关 -->
         <a class="blog-navicon" href="javascript:;">
             <i class="fa fa-navicon"></i>

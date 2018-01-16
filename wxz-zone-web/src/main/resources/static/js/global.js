@@ -1,15 +1,33 @@
-﻿
-layui.use(['element', 'layer', 'util', 'form'], function () {
+﻿layui.use(['element', 'layer', 'util', 'form'], function () {
     var $ = layui.jquery;
+
+    var layer = layui.layer;
+    $('#login').on('click', function () {
+
+        $('#user-login').removeClass('layui-hide');
+        layer.open(
+            {
+                area : ['400px'],
+                title: '登录',
+                shadeClose: true, //点击遮罩关闭层
+                type: 1,
+                content: $('#user-login')
+            }
+        );
+
+    })
+
     //模拟QQ登陆
-    $('.blog-user').click(function () {
-        var user = this;
-        var index = layer.load(1);
-        setTimeout(function () {
-            layer.close(index);
-            $(user).toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
-        }, 800);
-    });
+    // $('.blog-user').click(function () {
+    //     var user = this;
+    //     var index = layer.load(1);
+    //     setTimeout(function () {
+    //         layer.close(index);
+    //         $(user).toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
+    //     }, 800);
+    // });
+
+
     //分享工具
     layui.util.fixbar({
         bar1: '&#xe641;',
@@ -71,6 +89,7 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
         $('.blog-share').removeClass('layui-hide');
         $('.blog-share').addClass('layui-show');
     }
+
     //隐藏百度分享
     function shareOut() {
         $('.blog-share').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -80,6 +99,7 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
         $('.blog-share').addClass('shareOut');
         $('.blog-share').removeClass('layui-show');
     }
+
     //显示侧边导航
     function leftIn() {
         $('.blog-mask').unbind('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend');
@@ -95,6 +115,7 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
         $('.blog-nav-left').removeClass('layui-hide');
         $('.blog-nav-left').addClass('layui-show');
     }
+
     //隐藏侧边导航
     function leftOut() {
         $('.blog-mask').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -112,6 +133,7 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
         $('.blog-nav-left').addClass('leftOut');
         $('.blog-nav-left').removeClass('layui-show');
     }
+
     //显示类别导航
     function categroyIn() {
         $('.category-toggle').addClass('layui-hide');
@@ -121,6 +143,7 @@ layui.use(['element', 'layer', 'util', 'form'], function () {
         $('.article-category').addClass('categoryIn');
         $('.article-category').addClass('layui-show');
     }
+
     //隐藏类别导航
     function categoryOut() {
         $('.article-category').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {

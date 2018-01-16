@@ -103,6 +103,7 @@
         paging(1);
 
         function paging(pageNo) {
+            var index = layer.load(2, {shade: false});
             jquery.ajax({
                 url: 'article/getArticleByPageNo',
                 type: 'POST',
@@ -141,6 +142,7 @@
                     }
 
                     html += '<div id="article" class="article"></div>';
+                    layer.close(index);
                     jquery("#blog-main-left-body").html(html);
 
 
@@ -148,12 +150,7 @@
                         elem: 'article'
                         , count: totalCount
                         , curr: currentPageNo || 1
-                        , skip: true
-                        , first: '首页'
-                        , last: '尾页'
-                        , prev: '<em>上一页</em>'
-                        , next: '<em>下一页</em>'
-                        , theme: '#FF5722'
+                        , layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
                         , jump: function (obj, first) {
                             if (!first) {
                                 paging(obj.curr);

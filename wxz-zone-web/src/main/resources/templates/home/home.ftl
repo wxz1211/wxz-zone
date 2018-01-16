@@ -11,7 +11,7 @@
     <link href="${cxt.contextPath}/css/home.css" rel="stylesheet"/>
 
 </head>
-
+<@netCommon.commonScript/>
 <body>
 
 <@netCommonNav.commonNav/>
@@ -90,10 +90,13 @@
 <!--分享窗体 遮罩-->
 <@netCommon.commonShare/>
 
-<@netCommon.commonScript/>
+
+
 <!-- 本页脚本 -->
 
 <script src="${cxt.contextPath}/js/home.js"></script>
 
+<@netCommon.commonSign/>
+<@netCommon.commonLogin/>
 </body>
 </html>
