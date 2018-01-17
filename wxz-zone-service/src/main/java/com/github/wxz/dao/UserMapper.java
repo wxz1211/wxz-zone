@@ -57,7 +57,7 @@ public interface UserMapper {
      * @param user
      * @return
      */
-    User addUser(User user);
+    Integer addUser(User user);
 
     /**
      * del

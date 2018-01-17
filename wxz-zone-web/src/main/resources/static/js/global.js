@@ -80,7 +80,7 @@
                             return "该昵称已经被使用";
                         }
                     }
-                })
+                });
             }
         },
         mobileRepeat: function (value) {
@@ -111,7 +111,9 @@
             success: function (data) {
                 layer.closeAll();
                 if (data.code == 0) {
-                    layer.msg('成功登录啦~正在跳转中...')
+                    layer.msg('登录成功啦~正在跳转中...')
+                } else {
+                    layer.msg('登录失败啦~正在跳转中...')
                 }
                 location.href = 'home';
             }
@@ -131,7 +133,9 @@
             success: function (data) {
                 layer.closeAll();
                 if (data.code == 0) {
-                    layer.msg('成功注册啦~正在跳转中...')
+                    layer.msg('注册成功啦~正在跳转中...')
+                } else {
+                    layer.msg('注册失败啦~正在跳转中...')
                 }
                 location.href = 'home';
             }

@@ -34,7 +34,7 @@ public class UserService {
     }
 
     //@WriteDataSource
-    public User addUser(User user) {
+    public Integer addUser(User user) {
         return userMapper.addUser(user);
     }
 

@@ -2,6 +2,7 @@ package com.github.wxz.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.github.wxz.common.response.Response;
+import com.github.wxz.common.util.BeanUtils;
 import com.github.wxz.entity.User;
 import com.github.wxz.request.UserLoginDO;
 import com.github.wxz.request.UserSignDO;
@@ -10,7 +11,6 @@ import com.github.wxz.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -43,11 +43,17 @@ public class UserController {
         if (StringUtils.isAnyEmpty(userSign)) {
             return Response.FAIL;
         }
+
         UserSignDO userSignDO = JSONObject.parseObject(userSign, UserSignDO.class);
+
+        if (userService.getUserByMobile(userSignDO.getMobile()) != null || userService.getUserByName(userSignDO.getName()) != null) {
+            return Response.FAIL;
+        }
         User user = new User();
         BeanUtils.copyProperties(user, userSignDO);
         user.setPass(userSignDO.getPassword());
-        user = userService.addUser(user);
+        //TODO　存入mysql数据库存在乱码问题
+        userService.addUser(user);
         headPrinter.login(httpServletResponse, user);
         return Response.SUCCESS;
     }
