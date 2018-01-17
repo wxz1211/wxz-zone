@@ -28,6 +28,15 @@ public interface UserMapper {
      */
     User  getUserByName(@Param("name") String name);
 
+
+    /**
+     * getUserByName
+     *
+     * @param mobile
+     * @return
+     */
+    User  getUserByMobile(@Param("mobile") String mobile);
+
     /**
      * updateProfilePhoto
      *

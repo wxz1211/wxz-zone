@@ -87,7 +87,7 @@
 <!--个人介绍-->
 <div class="blogerinfo shadow">
     <div class="blogerinfo-figure">
-        <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" class="touxiangImg" style="border-radius: 50%;
+        <img src="http://www.wangxianzhi.xyz/static/2017_07_29181936_4b9tttt.jpg" class="touxiangImg" style="border-radius: 75%;
     width: 120px;height: 120px;" alt="absolutely"/>
     </div>
     <p class="blogerinfo-nickname">${user.name}</p>
@@ -195,55 +195,70 @@
 </#macro>
 
 
+
+<!--注册-->
 <#macro commonSign>
 
-<form id="user-sign" class="layui-form layui-hide" action="">
-
+<form id="user-sign" class="layui-form layui-hide" onsubmit="return false;">
+    <br>
     <div class="layui-form-item">
-        <label class="layui-form-label">昵称</label>
-        <div class="layui-input-inline">
-            <input type="text" name="name" required lay-verify="name" placeholder="请输入昵称" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">手机号</label>
-        <div class="layui-input-inline">
-            <input type="text" name="mobile" required lay-verify="required" placeholder="请输入手机号码" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">邮箱</label>
-        <div class="layui-input-inline">
-            <input type="text" name="email" required lay-verify="email" placeholder="请输入邮箱" autocomplete="off"
-                   class="layui-input">
-        </div>
-    </div>
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
-        <div class="layui-input-inline">
-            <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off"
-                   class="layui-input">
-        </div>
-        <div class="layui-form-mid layui-word-aux">辅助文字</div>
-    </div>
-
-
-    <div class="layui-form-item">
-        <label class="layui-form-label">单选框</label>
+        <label class="layui-form-label">昵称&nbsp;<i style="color: red">*</i></label>
         <div class="layui-input-block">
-            <input type="radio" name="sex" value="1" title="男">
-            <input type="radio" name="sex" value="0" title="女" checked>
+            <input name="name" required lay-verify="name|nameRepeat" lay-verType="tips" placeholder="请输入昵称"
+                   autocomplete="off"
+                   class="layui-input" style="width: 75%;">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机号&nbsp;<i style="color: red">*</i></label>
+
+        <div class="layui-input-block">
+            <input name="mobile" required lay-verify="phone|mobileRepeat" lay-verType="tips" placeholder="请输入手机号码"
+                   autocomplete="off"
+                   class="layui-input" style="width: 75%;">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱&nbsp;<i style="color: red">*</i></label>
+        <div class="layui-input-block">
+            <input name="email" required lay-verify="email" lay-verType="tips" placeholder="请输入邮箱"
+                   autocomplete="off"
+                   class="layui-input" style="width: 75%;">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">密码&nbsp;<i style="color: red">*</i></label>
+        <div class="layui-input-block">
+            <input type="password" name="password" required lay-verify="password" lay-verType="tips" placeholder="请输入密码"
+                   autocomplete="off"
+                   class="layui-input" style="width: 75%;">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">确认密码&nbsp;<i style="color: red">*</i></label>
+        <div class="layui-input-block">
+            <input type="password" name="rePassword" required lay-verify="rePassword" lay-verType="tips"
+                   placeholder="请确认密码"
+                   autocomplete="off"
+                   class="layui-input" style="width: 75%;">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">性别&nbsp;<i style="color: red">*</i></label>
+        <div class="layui-input-inline">
+            <input type="radio" name="sex" value="1" title="男" checked>
+            <input type="radio" name="sex" value="0" title="女">
         </div>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="user-sign">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
@@ -251,29 +266,33 @@
 
 </#macro>
 
+
+<!--登录-->
 <#macro commonLogin>
 
-<form id="user-login" class="layui-form layui-hide" action="">
-    <div></div>
+<form id="user-login" class="layui-form layui-hide" onsubmit="return false;">
+    <br>
     <div class="layui-form-item">
-        <label class="layui-form-label">手机号</label>
+        <label class="layui-form-label">手机号&nbsp;<i style="color: red">*</i></label>
+
         <div class="layui-input-inline">
-            <input name="mobile" required lay-verify="mobile" placeholder="请输入手机号码" autocomplete="off"
+            <input name="mobile" required lay-verify="phone" lay-verType="tips" placeholder="请输入手机号码" autocomplete="off"
                    class="layui-input">
         </div>
     </div>
     <div class="layui-form-item">
-        <label class="layui-form-label">密码</label>
+        <label class="layui-form-label">密码&nbsp;<i style="color: red">*</i></label>
+
         <div class="layui-input-inline">
-            <input type="password" name="password" required lay-verify="password" placeholder="请输入密码" autocomplete="off"
+            <input type="password" name="password" lay-verType="tips" required lay-verify="password" placeholder="请输入密码"
+                   autocomplete="off"
                    class="layui-input">
         </div>
-        <div class="layui-form-mid layui-word-aux">辅助文字</div>
     </div>
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button class="layui-btn" lay-submit lay-filter="user-login">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>

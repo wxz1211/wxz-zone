@@ -3,6 +3,7 @@ package com.github.wxz.domain;
 import java.io.Serializable;
 
 /**
+ * redis UserAuthDO
  * @author xianzhi.wang
  * @date 2018/1/11 -10:37
  */
@@ -116,5 +117,20 @@ public class UserAuthDO implements Serializable {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAuthDO{" +
+                "wxzId='" + wxzId + '\'' +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", sex=" + sex +
+                ", img='" + img + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", secret='" + secret + '\'' +
+                ", pass='" + pass + '\'' +
+                '}';
     }
 }

@@ -3,6 +3,7 @@ package com.github.wxz.domain;
 import java.util.Date;
 
 /**
+ * service 层
  * @author xianzhi.wang
  * @date 2018/1/15 -10:51
  */
@@ -118,5 +119,23 @@ public class ArticleDO {
 
     public void setUpdate(Date update) {
         this.update = update;
+    }
+
+    @Override
+    public String toString() {
+        return "ArticleDO{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", uName='" + uName + '\'' +
+                ", category='" + category + '\'' +
+                ", tag='" + tag + '\'' +
+                ", title='" + title + '\'' +
+                ", img='" + img + '\'' +
+                ", sent='" + sent + '\'' +
+                ", content='" + content + '\'' +
+                ", top=" + top +
+                ", create=" + create +
+                ", update=" + update +
+                '}';
     }
 }

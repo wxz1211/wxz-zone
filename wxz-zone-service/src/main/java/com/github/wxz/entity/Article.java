@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * mysql数据库层面
  * @author xianzhi.wang
  * @date 2018/1/10 -18:34
  */

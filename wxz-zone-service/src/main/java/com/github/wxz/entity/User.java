@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * mysql数据库层面
  * @author xianzhi.wang
  * @date 2018/1/10 -18:06
  */
@@ -37,6 +38,8 @@ public class User implements Serializable {
      * 电话号码
      */
     private String mobile;
+
+    private String pass;
 
     /**
      * 创建时间
@@ -113,4 +116,11 @@ public class User implements Serializable {
         this.update = update;
     }
 
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
 }

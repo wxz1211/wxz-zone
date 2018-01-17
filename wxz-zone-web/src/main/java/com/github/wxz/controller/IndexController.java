@@ -4,11 +4,11 @@ import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
 import com.github.wxz.entity.User;
 import com.github.wxz.service.ArticleService;
+import com.github.wxz.service.HeadPrinter;
 import com.github.wxz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -17,20 +17,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class IndexController {
+
     @Autowired
     public UserService userService;
 
     @Autowired
     public ArticleService articleService;
 
+    @Autowired
+    private HeadPrinter headPrinter;
+
     @RequestMapping(value = "home")
     public String home(Model model) {
+        headPrinter.printHead(model);
         User user = userService.getUserById(6);
         model.addAttribute("user", user);
-        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(null);
+        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(1, PaginationManage.DEFAULT_SIZE_5);
         model.addAttribute("article", articlePaginationManage);
-        model.addAttribute("totalCount", articlePaginationManage.getTotalCount());
-        model.addAttribute("currentPage", articlePaginationManage.getCurrentPageNo());
         return "home/home";
     }
 

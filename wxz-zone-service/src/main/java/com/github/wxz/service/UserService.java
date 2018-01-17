@@ -29,6 +29,10 @@ public class UserService {
         return userMapper.getUserByName(name);
     }
 
+    public User getUserByMobile(String mobile) {
+        return userMapper.getUserByMobile(mobile);
+    }
+
     //@WriteDataSource
     public User addUser(User user) {
         return userMapper.addUser(user);

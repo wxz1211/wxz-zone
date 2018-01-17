@@ -118,7 +118,7 @@ public class UserAuth {
 
     public void writeWxzId(HttpServletResponse httpServletResponse, User user) {
         UserAuthDO userAuthDO = toRedisKey(user);
-        stringRedisService.setString(userAuthDO.getWxzId(), JSONObject.toJSONString(userAuthDO), 3600 * 24 * 30 * 12);
+        stringRedisService.setString(userAuthDO.getWxzId(), JSON.toJSONString(userAuthDO), 3600 * 24 * 30 * 12);
         if (httpServletResponse != null) {
             Cookie cookie = new Cookie(WXZ_ID_COOKIE_NAME, UrlUtils.encode(userAuthDO.getWxzId()));
             cookie.setMaxAge((int) TimeUnit.DAYS.toSeconds(60L));

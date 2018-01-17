@@ -37,6 +37,23 @@
         `name` = #{name}
     </select>
 
+    <select id="getUserByMobile" parameterType="java.lang.String" resultType="com.github.wxz.entity.User">
+        SELECT
+        id,
+        `name`,
+        email,
+        sex,
+        img,
+        pass,
+        mobile,
+        `create`,
+        `update`
+        FROM
+        wxz_zone_user
+        WHERE
+        `mobile` = #{mobile}
+    </select>
+
     <update id="updateProfilePhoto" parameterType="com.github.wxz.entity.User">
         UPDATE
         wxz_zone_user
