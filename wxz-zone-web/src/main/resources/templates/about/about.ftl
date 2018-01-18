@@ -219,4 +219,7 @@
     <!-- 本页脚本 -->
     <script src="${cxt.contextPath}/js/about.js"></script>
 </body>
+<@netCommon.commonSign/>
+<@netCommon.commonLogin/>
+<@netCommon.commonUserCenter/>
 </html>

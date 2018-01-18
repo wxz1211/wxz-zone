@@ -188,4 +188,7 @@
         });
     </script>
 </body>
+<@netCommon.commonSign/>
+<@netCommon.commonLogin/>
+<@netCommon.commonUserCenter/>
 </html>

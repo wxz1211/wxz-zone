@@ -38,27 +38,32 @@ public class IndexController {
     }
 
     @RequestMapping(value = "article")
-    public String article() {
+    public String article(Model model) {
+        headPrinter.printHead(model);
         return "article/article";
     }
 
     @RequestMapping(value = "detail")
-    public String detail() {
+    public String detail(Model model) {
+        headPrinter.printHead(model);
         return "detail/detail";
     }
 
     @RequestMapping(value = "about")
-    public String about() {
+    public String about(Model model) {
+        headPrinter.printHead(model);
         return "about/about";
     }
 
     @RequestMapping(value = "resource")
-    public String resource() {
+    public String resource(Model model) {
+        headPrinter.printHead(model);
         return "resource/resource";
     }
 
     @RequestMapping(value = "timeline")
-    public String timeline() {
+    public String timeline(Model model) {
+        headPrinter.printHead(model);
         return "timeline/timeline";
     }
 }

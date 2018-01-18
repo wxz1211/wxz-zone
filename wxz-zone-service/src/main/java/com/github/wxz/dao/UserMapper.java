@@ -4,6 +4,7 @@ import com.github.wxz.entity.User;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 /**
  * @author xianzhi.wang
@@ -26,7 +27,7 @@ public interface UserMapper {
      * @param name
      * @return
      */
-    User  getUserByName(@Param("name") String name);
+    User getUserByName(@Param("name") String name);
 
 
     /**
@@ -35,7 +36,7 @@ public interface UserMapper {
      * @param mobile
      * @return
      */
-    User  getUserByMobile(@Param("mobile") String mobile);
+    User getUserByMobile(@Param("mobile") String mobile);
 
     /**
      * updateProfilePhoto
@@ -67,4 +68,7 @@ public interface UserMapper {
     @Delete("delete from wxz_zone_user where id =#{id}")
     void delete(User user);
 
+
+    @Update("update wxz_zone_user set img = #{img},`update` =now()  where id=#{id}")
+    Integer updatePic(@Param("id") Integer id, @Param("img") String img);
 }

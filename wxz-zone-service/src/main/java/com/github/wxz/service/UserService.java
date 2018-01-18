@@ -3,8 +3,6 @@ package com.github.wxz.service;
 
 import com.github.wxz.dao.UserMapper;
 import com.github.wxz.entity.User;
-import com.github.wxz.framework.mybatis.annotation.ReadDataSource;
-import com.github.wxz.framework.mybatis.annotation.WriteDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +34,11 @@ public class UserService {
     //@WriteDataSource
     public Integer addUser(User user) {
         return userMapper.addUser(user);
+    }
+
+
+    public Integer updatePic(Integer id, String imgPath) {
+        return userMapper.updatePic(id, imgPath);
     }
 
 }

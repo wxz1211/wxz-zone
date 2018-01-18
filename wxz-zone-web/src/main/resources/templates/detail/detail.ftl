@@ -243,4 +243,7 @@ pagesize(laypageId, pageSize).callback(function (newPageSize) {
 <script src="${cxt.contextPath}/js/detail.js"></script>
 
 </body>
+<@netCommon.commonSign/>
+<@netCommon.commonLogin/>
+<@netCommon.commonUserCenter/>
 </html>

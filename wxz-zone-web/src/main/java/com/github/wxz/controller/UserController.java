@@ -98,9 +98,9 @@ public class UserController {
 
         User user = userService.getUserByName(name);
         if (user == null) {
-            return Response.FAIL;
+            return Response.SUCCESS;
         }
-        return Response.SUCCESS;
+        return Response.FAIL;
     }
 
 
@@ -116,9 +116,9 @@ public class UserController {
 
         User user = userService.getUserByMobile(mobile);
         if (user == null) {
-            return Response.FAIL;
+            return Response.SUCCESS;
         }
-        return Response.SUCCESS;
+        return Response.FAIL;
     }
 
 

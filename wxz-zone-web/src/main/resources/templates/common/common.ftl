@@ -203,20 +203,28 @@
     <br>
     <div class="layui-form-item">
         <label class="layui-form-label">昵称&nbsp;<i style="color: red">*</i></label>
-        <div class="layui-input-block">
+        <div class="layui-input-inline">
             <input name="name" required lay-verify="name|nameRepeat" lay-verType="tips" placeholder="请输入昵称"
                    autocomplete="off"
-                   class="layui-input" style="width: 75%;">
+                   class="layui-input" style="width: 100%;">
         </div>
+        <div id="validateNameDiv" class="layui-form-mid layui-word-aux">
+            <a id="validateName" href="javascript:;"><i class="layui-icon" style="color: #3a66ff">&#xe6b2;</i>&nbsp;验证昵称</a>
+        </div>
+
     </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">手机号&nbsp;<i style="color: red">*</i></label>
 
-        <div class="layui-input-block">
+        <div class="layui-input-inline">
             <input name="mobile" required lay-verify="phone|mobileRepeat" lay-verType="tips" placeholder="请输入手机号码"
                    autocomplete="off"
-                   class="layui-input" style="width: 75%;">
+                   class="layui-input" style="width: 100%;">
+        </div>
+        <div id="validateMobileDiv" class="layui-form-mid layui-word-aux">
+            <a id="validateMobile" href="javascript:;"><i class="layui-icon"
+                                                          style="color: #3a66ff">&#xe6b2;</i>验证手机号</a>
         </div>
     </div>
 
@@ -258,7 +266,7 @@
 
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="user-sign">立即提交</button>
+            <button id="submit" class="layui-btn layui-btn-disabled" lay-submit lay-filter="user-sign">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
@@ -297,5 +305,48 @@
         </div>
     </div>
 </form>
+
+</#macro>
+
+<!--个人中心-->
+<#macro commonUserCenter>
+
+<div id="user-center" class="layui-hide">
+    <br>
+
+    <#if currentUser?exists>
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col width="200">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <td>昵称</td>
+                <td>手机号码</td>
+                <td>邮箱</td>
+                <td>性别</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>${currentUser.name}</td>
+                <td>${currentUser.mobile}</td>
+                <td>${currentUser.email}</td>
+                <td>
+                    <#if currentUser.sex==1>
+                        <i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe662;</i>男
+                    <#else>
+                        <i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe661;</i>女
+                    </#if>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </#if>
+</div>
 
 </#macro>

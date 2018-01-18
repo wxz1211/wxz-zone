@@ -1,10 +1,7 @@
 ﻿layui.use(['element', 'layer', 'util', 'form'], function () {
     var $ = layui.jquery;
-
     var layer = layui.layer;
-
     var form = layui.form;
-
     $('#login').on('click', function () {
         $('#user-login').removeClass('layui-hide');
         layer.open(
@@ -18,20 +15,63 @@
         );
     });
 
+    var errorMsg1 = 0;
+    var errorMsg2 = 0;
+    var index;
+    $('#validateNameDiv').removeClass('layui-hide');
+    $('#validateMobileDiv').removeClass('layui-hide');
+    //注册
     $('#sign').on('click', function () {
         $('#user-sign').removeClass('layui-hide');
-        layer.open(
+        index = layer.open(
             {
+                closeBtn: 1,
                 area: ['500px'],
                 title: '注册',
                 shadeClose: true, //点击遮罩关闭层
                 type: 1,
                 content: $('#user-sign')
+            }, function () {
+                errorMsg1 = 0;
+                errorMsg2 = 0;
+                layer.close(index);
             }
         );
     });
 
+    //提交注册
+    $('#submit').on('click', function () {
+        if (errorMsg1 + errorMsg2 == 2) {
+            $('#submit').removeClass('layui-btn-disabled');
+        } else {
+            layer.msg('请先验证手机号和昵称')
+        }
+    });
+
+
+    //个人中心
+    $('#userCenter').on('click', function () {
+        layer.closeAll();
+        $('#user-center').removeClass('layui-hide');
+        index = layer.open(
+            {
+                closeBtn: 1,
+                area: ['700px'],
+                title: '个人中心',
+                shadeClose: true, //点击遮罩关闭层
+                type: 1,
+                content: $('#user-center')
+            }, function () {
+                layer.close(index);
+            }
+        );
+
+    });
+
+
+    //退出
     $('#logout').on('click', function () {
+        layer.closeAll();
         $.ajax({
             url: 'user/logout',
             type: 'POST',
@@ -42,6 +82,69 @@
                 location.href = 'home';
             }
         });
+    });
+
+    //验证手机号
+    $('#validateMobile').on('click', function () {
+        var value = $('input[name=mobile]').val();
+        if (/^1[3|4|5|7|8]\d{9}$/.test(value)) {
+            $.ajax({
+                url: 'user/mobileRepeat',
+                type: 'POST',
+                async: false,
+                data: {mobile: value},
+                success: function (data) {
+                    if (data.code == 0) {
+                        errorMsg2 = 1;
+                        layer.msg('该手机号可以使用');
+                        $('#validateMobileDiv').addClass('layui-hide');
+                        $('input[name=mobile]').addClass('layui-disabled');
+                        if (errorMsg1 + errorMsg2 == 2) {
+                            $('#submit').removeClass('layui-btn-disabled');
+
+                        }
+                    } else if (data.code == -1) {
+                        layer.msg('该号码已经被使用');
+                    }
+                }
+            })
+        } else {
+            layer.msg('请先输入正确的格式的手机号码');
+        }
+
+    });
+
+    //验证昵称
+    $('#validateName').on('click', function () {
+        var value = $('input[name=name]').val();
+
+        if (value.length >= 4 && !/^\d+\d+\d$/.test(value)) {
+            //TODO: ajax 表单验证问题
+            $.ajax({
+                url: 'user/nameRepeat',
+                type: 'POST',
+                async: false,
+                data: {name: value},
+                success: function (data) {
+                    if (data.code == 0) {
+                        errorMsg1 = 1;
+                        layer.msg('该昵称可以使用')
+                        $('#validateNameDiv').addClass('layui-hide');
+                        $('input[name=name]').addClass('layui-disabled');
+                        if (errorMsg2 + errorMsg1 == 2) {
+                            $('#submit').removeClass('layui-btn-disabled');
+
+                        }
+                    } else {
+                        layer.msg('该昵称已经被使用');
+                        //return "该昵称已经被使用";
+                    }
+                }
+            });
+        } else {
+            layer.msg('请先输入正确的格式的昵称');
+        }
+
     });
 
     form.verify({
@@ -65,42 +168,52 @@
             } else if (!new RegExp(passwordValue).test(value)) {
                 return '两次输入的密码不一致!';
             }
-        },
-        nameRepeat: function (value) {
-            if (value.length >= 4 && !/^\d+\d+\d$/.test(value)) {
-//TODO: ajax 表单验证问题
-                $.ajax({
-                    url: 'user/nameRepeat',
-                    type: 'POST',
-                    async: false,
-                    data: {name: value},
-                    success: function (data) {
-                        if (data.code == -1 || data.code == '-1') {
-                            console.log(data.code);
-                            return "该昵称已经被使用";
-                        }
-                    }
-                });
-            }
-        },
-        mobileRepeat: function (value) {
-            var json = JSON.stringify(value);
-            if (/^1[3|4|5|7|8]\d{9}$/.test(value)) {
-                $.ajax({
-                    url: 'user/mobileRepeat',
-                    type: 'POST',
-                    async: false,
-                    data: {mobile: value},
-                    success: function (data) {
-                        if (data.code == -1) {
-                            return "该号码已经被使用";
-                        }
-                    }
-                })
-            }
         }
+        // ,nameRepeat: function (value) {
+        //     if (value.length >= 4 && !/^\d+\d+\d$/.test(value)) {
+        //         //TODO: ajax 表单验证问题
+        //         $.ajax({
+        //             url: 'user/nameRepeat',
+        //             type: 'POST',
+        //             async: false,
+        //             data: {name: value},
+        //             success: function (data) {
+        //                 if (data.code == 0) {
+        //                     errorMsg1++;
+        //                     if (errorMsg2 + errorMsg1 == 2) {
+        //                         $('#submit').removeClass('layui-btn-disabled');
+        //                     }
+        //                 } else {
+        //                     return "该昵称已经被使用";
+        //                 }
+        //             }
+        //         });
+        //     }
+        // },
+        // mobileRepeat: function (value) {
+        //     var json = JSON.stringify(value);
+        //     if (/^1[3|4|5|7|8]\d{9}$/.test(value)) {
+        //         $.ajax({
+        //             url: 'user/mobileRepeat',
+        //             type: 'POST',
+        //             async: false,
+        //             data: {mobile: value},
+        //             success: function (data) {
+        //                 if (data.code == 0) {
+        //                     if (errorMsg2 + errorMsg1 == 2) {
+        //                         $('#submit').removeClass('layui-btn-disabled');
+        //                     }
+        //                     errorMsg2++;
+        //                 } else if (data.code == -1) {
+        //                     return "该号码已经被使用";
+        //                 }
+        //             }
+        //         })
+        //     }
+        // }
     });
 
+    //登录
     form.on('submit(user-login)', function (data) {
         var json = JSON.stringify(data.field);
         $.ajax({
@@ -122,8 +235,13 @@
 
     });
 
-
+    //注册框弹出
     form.on('submit(user-sign)', function (data) {
+        if (errorMsg1 + errorMsg2 == 2) {
+            $('#submit').removeClass('layui-btn-disabled');
+        }
+        errorMsg1 = 0;
+        errorMsg2 = 0;
         var json = JSON.stringify(data.field);
         $.ajax({
             url: 'user/sign',

@@ -98,5 +98,6 @@
 
 <@netCommon.commonSign/>
 <@netCommon.commonLogin/>
+<@netCommon.commonUserCenter/>
 </body>
 </html>
