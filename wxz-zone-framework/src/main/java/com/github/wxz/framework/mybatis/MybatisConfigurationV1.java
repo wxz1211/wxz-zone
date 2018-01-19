@@ -72,7 +72,7 @@ public class MybatisConfigurationV1 {
             //添加分页插件、打印sql插件
             Interceptor[] plugins = new Interceptor[]{
                     pageHelper()
-                    ,new SqlPrintInterceptor()
+                    //,new SqlPrintInterceptor()
             };
             sessionFactoryBean.setPlugins(plugins);
 

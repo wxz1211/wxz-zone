@@ -9,7 +9,26 @@
 <@netCommon.commonStyle />
     <!-- 本页样式表 -->
     <link href="${cxt.contextPath}/css/home.css" rel="stylesheet"/>
+
 </head>
+<style>
+    #submit {
+        position: relative;
+        width: 206px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 26px;
+        font-weight: 300;
+    }
+
+    .p {
+        text-align: center;
+        margin: 10px;
+        font-size: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+</style>
 <body>
 
 <@netCommonNav.commonNavNormal/>
@@ -22,24 +41,17 @@
         <div class="blog-main">
         <@netCommon.commonTips/>
             <!--左边文章列表-->
-            <div class="blog-main-left">
-                <textarea id="layer-edit""></textarea>
+            <div style="margin: 5px 0px">
+                <textarea id="layer-edit"></textarea>
+
             </div>
+            <p class="p">
+                <button id="submit" class="layui-btn">
+                    发表
+                </button>
+            </p>
 
 
-            <!--右边小栏目-->
-            <div class="blog-main-right">
-                <!--占位-->
-                <div></div>
-
-            <@netCommon.commonHotArticle/>
-
-            <@netCommon.commonYiLuZouLai/>
-
-            <@netCommon.commonHouTaiJiLu/>
-
-            <@netCommon.commonLink/>
-            </div>
             <div class="clear"></div>
         </div>
     </div>

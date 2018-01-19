@@ -62,4 +62,16 @@ public class UserSignDO {
     public void setRePassword(String rePassword) {
         this.rePassword = rePassword;
     }
+
+    @Override
+    public String toString() {
+        return "UserSignDO{" +
+                "name='" + name + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", email='" + email + '\'' +
+                ", sex=" + sex +
+                ", password='" + password + '\'' +
+                ", rePassword='" + rePassword + '\'' +
+                '}';
+    }
 }

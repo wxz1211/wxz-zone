@@ -1,9 +1,9 @@
 layui.use(['layer', 'jquery', 'element', 'layedit'], function () {
 
-    var layedit = layui.layedit;
+    var edit = layui.layedit;
     var $ = layui.jquery;
 
-    layedit.set({
+    edit.set({
         uploadImage: {
             url: 'image/addImage' //接口url
             , type: 'post' //默认post
@@ -11,8 +11,8 @@ layui.use(['layer', 'jquery', 'element', 'layedit'], function () {
     });
 
 
-    layedit.build('layer-edit', {
-        height: 400,
+    var index = edit.build('layer-edit', {
+        height: 600,
 
         tool: ['face'//表情
             , 'strong' //加粗
@@ -32,5 +32,18 @@ layui.use(['layer', 'jquery', 'element', 'layedit'], function () {
 
     $('.layui-layedit').css("background-color", "white");
 
+
+    $('#submit').on('click', function () {
+        var content = edit.getContent(index);
+        var sent = edit.getText(index);
+        if (sent == null || sent == '' || sent.length == 0
+            || content == null || content == '' || content.length == 0) {
+            layer.alert('请先输入内容');
+            return;
+        }
+
+
+
+    })
 
 });

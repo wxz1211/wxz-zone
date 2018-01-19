@@ -26,4 +26,12 @@ public class UserLoginDO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "UserLoginDO{" +
+                "mobile='" + mobile + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
