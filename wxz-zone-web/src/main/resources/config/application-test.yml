@@ -1,12 +1,12 @@
 server:
   application:
     name: wxz-zone
-  port: 8084
+  port: 8099
   context-path: /wxz-zone
 mysql:
   datasource:
     write:
-      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       driverClassName: com.mysql.jdbc.Driver
@@ -23,7 +23,7 @@ mysql:
       maxPoolPreparedStatementPerConnectionSize: 50
       filters: stat
     read:
-      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&characterEncoding=utf8
       username: root
       password: root
       driverClassName: com.mysql.jdbc.Driver
@@ -42,4 +42,8 @@ mysql:
 spring:
   freemarker:
     cache: true
-
+  http:
+    multipart:
+      enabled: true
+pic:
+  path: /data/pic/do/

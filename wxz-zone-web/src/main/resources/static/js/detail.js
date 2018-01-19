@@ -1,5 +1,4 @@
-﻿
-prettyPrint();
+﻿prettyPrint();
 layui.use(['form', 'layedit'], function () {
     var form = layui.form;
     var $ = layui.jquery;

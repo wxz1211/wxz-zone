@@ -4,6 +4,7 @@ import com.github.wxz.common.util.CloseUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,13 +19,15 @@ import java.util.Date;
  */
 @Component
 public class FilesUtilCommon {
-    public static String path;
     private static Logger LOGGER = LoggerFactory.getLogger(FilesUtilCommon.class);
 
-    public String getPath(MultipartFile multipartFile) {
+    @Value("${pic.path}")
+    private String path;
+
+    public String getPath(MultipartFile multipartFile, Integer uid) {
         String fileName = multipartFile.getOriginalFilename();
-        String format = DateFormatUtils.format(new Date(), "YYYY_MM_ddHHmmss");
-        String filePath = format + "_" + fileName;
+        String format = DateFormatUtils.format(new Date(), "YYYY_MM_ddHHmmssSSS");
+        String filePath = format + "_" + uid + "_" + fileName;
         LOGGER.info("fileName {} ", fileName);
         uploadFilesUtil(filePath, multipartFile);
         return getImagePath(filePath);

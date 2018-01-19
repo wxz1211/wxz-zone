@@ -1,5 +1,6 @@
 package com.github.wxz.action;
 
+import com.github.wxz.common.response.LayerImageResponse;
 import com.github.wxz.common.response.Response;
 import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.framework.file.FilesUtilCommon;
@@ -37,11 +38,29 @@ public class ImageAction {
     @Autowired
     private HeadPrinter headPrinter;
 
+    @RequestMapping(value = "/addImage", method = RequestMethod.POST)
+    public Response addImage(HttpServletRequest httpRequest, Model model) {
+
+        UserAuthDO userAuthDO = headPrinter.printHead(model);
+        String imagePath;
+        try {
+            imagePath =
+                    getImgPath(httpRequest, userAuthDO.getId());
+        } catch (Exception e) {
+            LOGGER.error("upload image error {} ...", e);
+            return Response.FAIL;
+        }
+        LayerImageResponse layerImageResponse = new LayerImageResponse();
+        layerImageResponse.setSrc(imagePath);
+        layerImageResponse.setTitle("image");
+        return Response.successResponse(layerImageResponse);
+    }
+
     @RequestMapping(value = "changePic", method = RequestMethod.POST)
     public Response changePic(HttpServletRequest httpRequest, Model model) {
         UserAuthDO userAuthDO = headPrinter.printHead(model);
         String imagePath =
-                getImgPath(httpRequest);
+                getImgPath(httpRequest, userAuthDO.getId());
         LOGGER.info("changePic id {} ,imgPath {} ", userAuthDO.getId(), imagePath);
         int status = userService.updatePic(userAuthDO.getId(), imagePath);
         if (status == 1) {
@@ -50,24 +69,25 @@ public class ImageAction {
         return Response.FAIL;
     }
 
-    private String getImgPath(HttpServletRequest httpRequest) {
+    private String getImgPath(HttpServletRequest httpRequest, Integer uid) {
         String contentType = httpRequest.getContentType();
         String imagePath = "";
         if (contentType != null && contentType.toLowerCase().startsWith(MULTIPART)) {
             MultipartHttpServletRequest multipartRequest =
                     WebUtils.getNativeRequest(httpRequest, MultipartHttpServletRequest.class);
             Iterator<String> itr = multipartRequest.getFileNames();
-            CommonsMultipartFile multipartFile;
+            MultipartFile multipartFile;
+
             while (itr.hasNext()) {
                 String str = itr.next();
-                multipartFile = (CommonsMultipartFile) multipartRequest.getFile(str);
+                multipartFile =  multipartRequest.getFile(str);
                 //原文件名
                 String fileName = multipartFile.getOriginalFilename();
                 MultipartFile file = multipartRequest.getFile(fileName);
                 if (file == null) {
                     file = multipartFile;
                 }
-                imagePath = filesUtilCommon.getPath(file);
+                imagePath = filesUtilCommon.getPath(file, uid);
             }
         }
         return imagePath;

@@ -66,4 +66,10 @@ public class IndexController {
         headPrinter.printHead(model);
         return "timeline/timeline";
     }
+
+    @RequestMapping(value = "edit")
+    public String edit(Model model) {
+        headPrinter.printHead(model);
+        return "edit/edit";
+    }
 }

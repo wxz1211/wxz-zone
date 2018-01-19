@@ -42,5 +42,9 @@ mysql:
 spring:
   freemarker:
     cache: false
-
+  http:
+    multipart:
+      enabled: true
+pic:
+  path: /data/pic/do/
 
