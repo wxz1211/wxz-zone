@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <description>wxz-zone-common</description>
-
+    <packaging>jar</packaging>
     <artifactId>wxz-zone-common</artifactId>
 
     <dependencies>

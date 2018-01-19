@@ -6,7 +6,9 @@
         <artifactId>wxz-zone</artifactId>
         <groupId>com.github.wxz</groupId>
         <version>0.0.1</version>
+        <relativePath>..</relativePath>
     </parent>
+    <packaging>jar</packaging>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wxz-zone-service</artifactId>
 
@@ -22,4 +24,16 @@
             <artifactId>guava</artifactId>
         </dependency>
     </dependencies>
+    <!-- Plugins -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

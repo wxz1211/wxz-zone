@@ -6,17 +6,20 @@
         <artifactId>wxz-zone</artifactId>
         <groupId>com.github.wxz</groupId>
         <version>0.0.1</version>
+        <relativePath>..</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>wxz-zone-framework</artifactId>
-
+    <packaging>jar</packaging>
     <description>wxz-zone-framework</description>
     <dependencies>
+
         <dependency>
             <groupId>com.github.wxz</groupId>
             <artifactId>wxz-zone-common</artifactId>
             <version>0.0.1</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -91,12 +94,11 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
             </plugin>
         </plugins>
     </build>
