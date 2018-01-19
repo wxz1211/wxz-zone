@@ -1,7 +1,6 @@
 package com.github.wxz.auth;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.github.wxz.common.crypt.AesCrypt;
 import com.github.wxz.common.util.BeanUtils;
 import com.github.wxz.common.util.UrlUtils;
@@ -59,7 +58,7 @@ public class UserAuth {
     public void invalidate(HttpServletRequest request) {
         String wxzId = getGidCookie(request);
         if (wxzId != null) {
-            deleteWxzid(request);
+            deleteWxzId(request);
             invalidate(wxzId);
         }
     }
@@ -93,7 +92,7 @@ public class UserAuth {
     }
 
 
-    private String deleteWxzid(HttpServletRequest request) {
+    private String deleteWxzId(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
 

@@ -9,6 +9,10 @@ package com.github.wxz.common.response;
 public class Response {
     public static final Response SUCCESS = new Response(0, "", "success");
     public static final Response FAIL = new Response(-1, "", "fail");
+    /**
+     * NOT LOGIN
+     */
+    public static final Response NOT_LOGIN = new Response(-2, "", "fail");
     private int code;
     private Object data;
     private String msg;

@@ -37,7 +37,7 @@ public class AuthInterceptor {
         UserAuthDO userAuthDO = userAuth.getCurrentUser(httpServletRequest);
         ProceedingJoinPoint proceedingJoinPoint = (ProceedingJoinPoint) joinPoint;
         if (userAuthDO == null) {
-            return Response.FAIL;
+            return Response.NOT_LOGIN;
         } else {
             return proceedingJoinPoint.proceed(joinPoint.getArgs());
         }

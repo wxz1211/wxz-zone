@@ -42,6 +42,7 @@
 
     <!-- Plugins -->
     <build>
+        <finalName>wxz-zone</finalName>
         <plugins>
             <!-- Maven 单元测试覆盖率 -->
             <plugin>
