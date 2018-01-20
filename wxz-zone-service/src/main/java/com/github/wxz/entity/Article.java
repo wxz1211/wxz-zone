@@ -5,14 +5,19 @@ import java.util.Date;
 
 /**
  * mysql数据库层面
+ *
  * @author xianzhi.wang
  * @date 2018/1/10 -18:34
  */
 public class Article implements Serializable {
 
     private Integer id;
+    /**
+     * 加密后的sid
+     */
+    private String sid;
     private Integer uid;
-    private String category;
+    private Integer category;
     private String tag;
     private String title;
     private String img;
@@ -22,8 +27,33 @@ public class Article implements Serializable {
     private String sent;
     private String content;
     private Integer top;
+    private Integer chosen;
     private Date create;
     private Date update;
+
+    public Integer getChosen() {
+        return chosen;
+    }
+
+    public void setChosen(Integer chosen) {
+        this.chosen = chosen;
+    }
+
+    public Integer getCategory() {
+        return category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
 
     public String getSent() {
         return sent;
@@ -49,13 +79,6 @@ public class Article implements Serializable {
         this.uid = uid;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public String getTag() {
         return tag;

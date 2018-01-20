@@ -20,6 +20,9 @@
     var index;
     $('#validateNameDiv').removeClass('layui-hide');
     $('#validateMobileDiv').removeClass('layui-hide');
+    $('input[name=mobile]').removeClass('layui-disabled');
+    $('input[name=name]').removeClass('layui-disabled');
+
     //注册
     $('#sign').on('click', function () {
         $('#user-sign').removeClass('layui-hide');

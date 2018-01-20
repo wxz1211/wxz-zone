@@ -5,6 +5,7 @@ import com.github.wxz.dao.UserMapper;
 import com.github.wxz.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author xianzhi.wang
@@ -32,6 +33,7 @@ public class UserService {
     }
 
     //@WriteDataSource
+    @Transactional(rollbackFor = Exception.class)
     public Integer addUser(User user) {
         return userMapper.addUser(user);
     }

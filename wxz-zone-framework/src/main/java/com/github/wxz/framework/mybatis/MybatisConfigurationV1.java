@@ -2,6 +2,7 @@ package com.github.wxz.framework.mybatis;
 
 
 import com.github.pagehelper.PageHelper;
+import com.github.wxz.framework.spring.SpringContextUtil;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -18,6 +19,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.io.IOException;
@@ -100,5 +103,11 @@ public class MybatisConfigurationV1 {
         p.setProperty("reasonable", "true");
         pageHelper.setProperties(p);
         return pageHelper;
+    }
+
+    //事务管理
+    @Bean
+    public DataSourceTransactionManager annotationDrivenTransactionManager() {
+        return new DataSourceTransactionManager(dataSource);
     }
 }

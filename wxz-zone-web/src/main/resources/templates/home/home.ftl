@@ -19,7 +19,7 @@
 <!-- 主体（一般只改变这里的内容） -->
 <div class="blog-body">
     <!-- canvas -->
-    <canvas id="canvas-banner" style="background: #393D49;"></canvas>
+    <canvas id="canvas-banner" style="background: #393D49;cursor: pointer;"></canvas>
     <!--为了及时效果需要立即设置canvas宽高，否则就在home.js中设置-->
     <script type="text/javascript">
         var canvas = document.getElementById('canvas-banner');
@@ -47,14 +47,20 @@
                             <a href="detail"> ${ item.title!}</a>
                         </div>
                         <div class="article-abstract">
-                            <#if item.content?exists>${item.content?substring(0,1)}</#if>
+                            <#if item.content?exists>${item.sent}</#if>
                         </div>
                     </div>
                     <div class="clear"></div>
                     <div class="article-footer">
-                        <span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;${item.create?string('yyyy-MM-dd')}</span>
-                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;${item.uName}</span>
-                        <span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">${item.tag}</a></span>
+                        <span><i class="fa fa-clock-o"></i>&nbsp;${item.create?string('yyyy-MM-dd')}</span>
+                        <span>
+                            <i style="font-size: 10px;color: #8D8D8D"
+                               class="layui-icon">&#xe619;</i>
+                            <#if item.top==1>top!<#else>
+                            normal~</#if></span>
+                        <span class="article-author"><i class="fa fa-user"></i>&nbsp;${item.uName}</span>
+                        <span><i class="fa fa-bomb"></i>&nbsp;<a href="javascript:;">${item.category}</a></span>
+                        <span><i class="fa fa-tag"></i>&nbsp;${item.tag}</span>
                         <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
                         <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
                     </div>
@@ -89,7 +95,6 @@
 
 <!--分享窗体 遮罩-->
 <@netCommon.commonShare/>
-
 
 
 <!-- 本页脚本 -->

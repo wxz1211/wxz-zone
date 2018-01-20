@@ -18,7 +18,7 @@ public interface ArticleMapper {
      * @param article
      * @return
      */
-    Article addArticle(Article article);
+    Integer addArticle(Article article);
 
     /**
      * getArticleByArticleId
@@ -26,6 +26,14 @@ public interface ArticleMapper {
      * @return
      */
     Article getArticleByArticleId(@Param("articleId") Integer articleId);
+
+    /**
+     * updateSidByArticleId
+     * @param articleId
+     * @param sid
+     * @return
+     */
+    Integer updateSidByArticleId(@Param("articleId") Integer articleId,@Param("sid") String sid);
 
     /**
      * getArticlesByPage

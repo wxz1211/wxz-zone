@@ -1,12 +1,18 @@
 package com.github.wxz.action;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.wxz.common.response.Response;
+import com.github.wxz.common.util.BeanUtils;
 import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.entity.Article;
+import com.github.wxz.request.UserArticleDO;
 import com.github.wxz.service.ArticleService;
 import com.github.wxz.service.HeadPrinter;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +31,28 @@ public class ArticleAction {
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping("addArticle")
+
+    @RequestMapping("/addArticle")
     public Response addArticle(Model model, @RequestParam("userArticle") String userArticle) {
         UserAuthDO userAuthDO = headPrinter.printHead(model);
+        if (StringUtils.isEmpty(userArticle)) {
+            return Response.FAIL;
 
+        }
+        UserArticleDO userArticleDO = JSONObject.parseObject(userArticle, UserArticleDO.class);
+        if (userArticleDO == null
+                || StringUtils.isEmpty(userArticleDO.getTitle())
+                || StringUtils.isEmpty(userArticleDO.getSent())
+                || StringUtils.isEmpty(userArticleDO.getContent())
+                || CollectionUtils.isEmpty(userArticleDO.getTag())
+                || StringUtils.isEmpty(userArticleDO.getCategory())
+                ) {
+            return Response.FAIL;
+        }
         Article article = new Article();
-
+        BeanUtils.copyProperties(article, userArticleDO);
+        article.setCategory(Integer.valueOf(userArticleDO.getCategory()));
+        article.setTag(JSON.toJSONString(userArticleDO.getTag()));
         article.setUid(userAuthDO.getId());
         articleService.addArticle(article);
         return Response.SUCCESS;

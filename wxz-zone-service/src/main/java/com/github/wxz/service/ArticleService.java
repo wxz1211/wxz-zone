@@ -1,14 +1,22 @@
 package com.github.wxz.service;
 
+import com.alibaba.fastjson.JSONArray;
+import com.github.wxz.common.crypt.AesCrypt;
 import com.github.wxz.common.util.BeanUtils;
+import com.github.wxz.common.util.CommonContent;
 import com.github.wxz.common.util.PaginationManage;
+import com.github.wxz.dao.ArticleCategoryMapper;
 import com.github.wxz.dao.ArticleMapper;
+import com.github.wxz.dao.ArticleTagMapper;
 import com.github.wxz.dao.UserMapper;
 import com.github.wxz.domain.ArticleDO;
 import com.github.wxz.entity.Article;
+import com.github.wxz.entity.ArticleCategory;
+import com.github.wxz.entity.ArticleTag;
 import com.github.wxz.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +33,24 @@ public class ArticleService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private ArticleCategoryMapper articleCategoryMapper;
+
+    @Autowired
+    private ArticleTagMapper articleTagMapper;
+
     /**
      * addArticle
      *
      * @param article
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public Article addArticle(Article article) {
-        return articleMapper.addArticle(article);
+        articleMapper.addArticle(article);
+        String sid = AesCrypt.encode(CommonContent.SECRET, article.getId().toString());
+        articleMapper.updateSidByArticleId(article.getId(), sid);
+        return articleMapper.getArticleByArticleId(article.getId());
     }
 
     /**
@@ -59,7 +77,17 @@ public class ArticleService {
             User user = userMapper.getUserById(article.getUid());
             ArticleDO articleDO = new ArticleDO();
             BeanUtils.copyProperties(articleDO, article);
+            ArticleCategory articleCategory =
+                    articleCategoryMapper.getArticleCateGoryById(article.getCategory());
+            articleDO.setCategory(articleCategory.getName());
 
+            List<String> tagList = JSONArray.parseArray(article.getTag(), String.class);
+            StringBuilder stringBuilder = new StringBuilder();
+            tagList.stream().forEach(tag -> {
+                ArticleTag articleTag = articleTagMapper.getArticleTagById(Integer.valueOf(tag));
+                stringBuilder.append(articleTag.getName() + ",");
+            });
+            articleDO.setTag(stringBuilder.substring(0, stringBuilder.length() - 1));
             articleDO.setuName((user == null || user.getName() == null) ? "" : user.getName());
             articleDOList.add(articleDO);
         });

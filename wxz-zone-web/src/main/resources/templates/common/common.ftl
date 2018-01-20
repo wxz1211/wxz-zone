@@ -310,8 +310,8 @@
 
 <!--个人中心-->
 <#macro commonUserCenter>
+<form id="user-center" class="layui-form layui-hide">
 
-<div id="user-center" class="layui-hide">
     <br>
 
     <#if currentUser?exists>
@@ -347,6 +347,7 @@
             </tbody>
         </table>
     </#if>
-</div>
+    </div>
+</form>
 
 </#macro>

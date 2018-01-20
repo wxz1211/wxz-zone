@@ -2,7 +2,7 @@
     var $ = layui.jquery;
     $(function () {
         //播放公告
-        playAnnouncement(3000);
+        playAnnouncement(4000);
     });
     function playAnnouncement(interval) {
         var index = 0;

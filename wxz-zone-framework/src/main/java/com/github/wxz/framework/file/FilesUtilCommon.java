@@ -1,6 +1,7 @@
 package com.github.wxz.framework.file;
 
 import com.github.wxz.common.util.CloseUtils;
+import com.github.wxz.common.util.CommonContent;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,8 +9,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
@@ -19,8 +23,8 @@ import java.util.Date;
  */
 @Component
 public class FilesUtilCommon {
-    private static Logger LOGGER = LoggerFactory.getLogger(FilesUtilCommon.class);
 
+    private static Logger LOGGER = LoggerFactory.getLogger(FilesUtilCommon.class);
     @Value("${pic.path}")
     private String path;
 
@@ -33,9 +37,28 @@ public class FilesUtilCommon {
         return getImagePath(filePath);
     }
 
+    public boolean validate(MultipartFile multipartFile) {
+        try (InputStream inputStream = multipartFile.getInputStream()) {
+            BufferedImage image = ImageIO.read(inputStream);
+            //得到图片的宽度
+            int width = image.getWidth();
+            //获取图片高度
+            int height = image.getHeight();
+            if (width == -1 || height == -1 || width <= height || width >= CommonContent.MAX_LENGTH) {
+                return false;
+            }
+            return true;
+        } catch (IOException e) {
+            LOGGER.error(" validate img   exception {}", e);
+            return false;
+        }
+
+    }
+
     private String getImagePath(String filePath) {
         return "http://www.wangxianzhi.xyz/static/" + filePath;
     }
+
 
     /**
      * 上传图片

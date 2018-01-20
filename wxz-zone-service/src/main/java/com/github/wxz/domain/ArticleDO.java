@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * service 层
+ *
  * @author xianzhi.wang
  * @date 2018/1/15 -10:51
  */
@@ -22,8 +23,17 @@ public class ArticleDO {
     private String sent;
     private String content;
     private Integer top;
+    private Integer chosen;
     private Date create;
     private Date update;
+
+    public Integer getChosen() {
+        return chosen;
+    }
+
+    public void setChosen(Integer chosen) {
+        this.chosen = chosen;
+    }
 
     public Integer getId() {
         return id;

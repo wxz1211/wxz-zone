@@ -5,13 +5,15 @@
     <resultMap id="ArticleMap" type="com.github.wxz.entity.Article">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="uid" property="uid" jdbcType="INTEGER"/>
-        <result column="category" property="category" jdbcType="VARCHAR"/>
+        <result column="sid" property="sid" jdbcType="INTEGER"/>
+        <result column="category" property="category" jdbcType="INTEGER"/>
         <result column="tag" property="tag" jdbcType="VARCHAR"/>
         <result column="title" property="title" jdbcType="VARCHAR"/>
         <result column="img" property="img" jdbcType="VARCHAR"/>
         <result column="content" property="content" jdbcType="VARCHAR"/>
         <result column="sent" property="sent" jdbcType="VARCHAR"/>
         <result column="top" property="top" jdbcType="INTEGER"/>
+        <result column="chosen" property="chosen" jdbcType="INTEGER"/>
         <result column="create" property="create" jdbcType="TIMESTAMP"/>
         <result column="update" property="update" jdbcType="TIMESTAMP"/>
     </resultMap>
@@ -22,7 +24,7 @@
         INTO
         wxz_zone_article
         (
-        user_id,
+        uid,
         <if test="category != null">
             category,
         </if>
@@ -45,6 +47,9 @@
 
         <if test="top != null">
             top,
+        </if>
+        <if test="chosen != null">
+            chosen,
         </if>
 
         `create`,
@@ -73,6 +78,9 @@
         <if test="top != null">
             #{top},
         </if>
+        <if test="chosen != null">
+            #{chosen},
+        </if>
         now(),
         now())
     </insert>
@@ -84,7 +92,7 @@
         from
         wxz_zone_article
         where
-        id=#{arcticleId}
+        id = #{articleId}
     </select>
 
 
@@ -105,4 +113,13 @@
         from
         wxz_zone_article
     </select>
+
+    <update id="updateSidByArticleId">
+        UPDATE
+        wxz_zone_article
+        SET
+        sid = #{sid}
+        WHERE
+        id = #{articleId}
+    </update>
 </mapper>

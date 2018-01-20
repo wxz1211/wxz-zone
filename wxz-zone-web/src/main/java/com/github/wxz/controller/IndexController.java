@@ -2,14 +2,16 @@ package com.github.wxz.controller;
 
 import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
+import com.github.wxz.entity.ArticleCategory;
+import com.github.wxz.entity.ArticleTag;
 import com.github.wxz.entity.User;
-import com.github.wxz.service.ArticleService;
-import com.github.wxz.service.HeadPrinter;
-import com.github.wxz.service.UserService;
+import com.github.wxz.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * @author xianzhi.wang
@@ -25,6 +27,12 @@ public class IndexController {
     public ArticleService articleService;
 
     @Autowired
+    private ArticleCategoryService articleCategoryService;
+
+    @Autowired
+    private ArticleTagService articleTagService;
+
+    @Autowired
     private HeadPrinter headPrinter;
 
     @RequestMapping(value = "home")
@@ -32,7 +40,7 @@ public class IndexController {
         headPrinter.printHead(model);
         User user = userService.getUserById(6);
         model.addAttribute("user", user);
-        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(1, PaginationManage.DEFAULT_SIZE_5);
+        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(1, PaginationManage.DEFAULT_SIZE_8);
         model.addAttribute("article", articlePaginationManage);
         return "home/home";
     }
@@ -70,6 +78,12 @@ public class IndexController {
     @RequestMapping(value = "edit")
     public String edit(Model model) {
         headPrinter.printHead(model);
+
+        List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
+        List<ArticleTag> articleTagList = articleTagService.getAllArticleTag();
+
+        model.addAttribute("articleCategoryList", articleCategoryList);
+        model.addAttribute("articleTagList", articleTagList);
         return "edit/edit";
     }
 }

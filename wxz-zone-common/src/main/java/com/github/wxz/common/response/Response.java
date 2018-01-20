@@ -21,6 +21,9 @@ public class Response {
     public static  Response successResponse(Object data) {
         return new Response(0, data, "success");
     }
+    public static  Response failResponse(Object data) {
+        return new Response(-1, data, "fail");
+    }
 
     public Response(int code, Object data, String msg) {
         this.code = code;

@@ -34,7 +34,7 @@
         <!-- 默认为OTHER,为了解决oracle插入null报错的问题要设置为NULL -->
         <!--<setting name="jdbcTypeForNull" value="NULL"/>-->
         <!--<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>-->
-        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 
 </configuration>
