@@ -112,4 +112,9 @@ public class ArticleService {
         }
         return getArticlesByPage(pageNo, PaginationManage.DEFAULT_SIZE_8);
     }
+
+
+    public List<Article> getChosenArticles() {
+        return articleMapper.getChosenArticles();
+    }
 }

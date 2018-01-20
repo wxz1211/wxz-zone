@@ -131,9 +131,9 @@
 <div class="blog-module shadow">
     <div class="blog-module-title">文章推荐</div>
     <ul class="fa-ul blog-module-ul">
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章1</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章2</a></li>
-        <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail">文章3</a></li>
+        <#list chosenArticleList as article>
+            <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">${article.title}</a></li>
+        </#list>
     </ul>
 </div>
 </#macro>
@@ -188,8 +188,8 @@
 <div class="blog-module shadow">
     <div class="blog-module-title">友情链接</div>
     <ul class="blogroll">
-        <li><a target="_blank" href="http://www.layui.com/" title="Layui">Layui</a></li>
-        <li><a target="_blank" href="http://www.pagemark.cn/" title="页签">页签</a></li>
+        <li><a target="_blank" href="javascript:;" title="Layui">Layui</a></li>
+        <li><a target="_blank" href="javascript:;" title="页签">页签</a></li>
     </ul>
 </div>
 </#macro>

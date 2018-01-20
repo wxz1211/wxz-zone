@@ -50,19 +50,18 @@
                 </div>
                 <div class="article-category shadow">
                     <div class="article-category-title">分类导航</div>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">ASP.NET MVC</a>
-                    <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">SQL Server</a>
+                <#list articleCategoryList as articleCategory>
+                    <a href="javascript:layer.msg(&#39;${articleCategory.name}&#39;)">${articleCategory.name}</a>
+                </#list>
                     <div class="clear"></div>
                 </div>
                 <div class="blog-module shadow">
                     <div class="blog-module-title">作者推荐</div>
                     <ul class="fa-ul blog-module-ul">
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">Web安全之跨站请求伪造CSRF</a>
+                    <#list chosenArticleList as article>
+                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">${article.title}</a>
                         </li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC
-                            防范跨站请求伪造（CSRF）</a>
-                        </li>
-
+                    </#list>
                     </ul>
                 </div>
                 <div class="blog-module shadow">
@@ -119,23 +118,20 @@
                         html +=
                                 '<div class="article shadow">'
                                 + '<div class="article-left">';
-                        if (dataList[i].img == null) {
-                            html += '<img src="" alt="标题" style="width: 100% ;height: 100%"/>';
-                        } else {
-                            html += '<img src="' + dataList[i].img + '" alt="标题" style="width: 100% ;height: 100%"/>';
-                        }
+
+                        html += '<img src="' + dataList[i].img + '" alt="标题" style="width: 100% ;height: 100%"/>';
 
                         html += '</div> '
                                 + '<div class="article-right"><div class="article-title">'
                                 + '<a href="detail">' + dataList[i].title + '</a></div>'
                                 + '<div class="article-abstract">'
                                 //+ dataList[i].content
-                                + 'linux写时复制技术'
+                                + dataList[i].sent
                                 + '</div></div>'
                                 + '<div class="clear"></div><div class="article-footer">'
-                                + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + dataList[i].create + '</span>'
-                                + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;&nbsp;' + dataList[i].uName + '</span>'
-                                + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="#">' + dataList[i].tag + '</a></span>'
+                                + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + timetrans(dataList[i].create) + '</span>'
+                                + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;' + dataList[i].uName + '</span>'
+                                + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="javascript:;">' + dataList[i].tag + '</a></span>'
                                 + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>'
                                 + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>'
                                 + '</div> </div>'
@@ -163,6 +159,18 @@
 
 
     });
+
+    function timetrans(date) {
+        var date = new Date(date);//如果date为13位不需要乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+        //var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        //var m = (date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        //var s = (date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+        return Y + M + D;
+        // +h+m+s;
+    }
 </script>
 </body>
 <@netCommon.commonSign/>

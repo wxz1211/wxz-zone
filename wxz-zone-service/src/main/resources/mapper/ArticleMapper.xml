@@ -122,4 +122,16 @@
         WHERE
         id = #{articleId}
     </update>
+
+    <select id="getChosenArticles" resultMap="ArticleMap">
+         SELECT
+        *
+        from
+        wxz_zone_article
+        WHERE
+        chosen = 1
+        ORDER BY `create` DESC
+        limit 5
+    </select>
+
 </mapper>

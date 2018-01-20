@@ -48,4 +48,10 @@ public interface ArticleMapper {
      * @return
      */
     int count();
+
+    /**
+     * getChosenArticles
+     * @return
+     */
+    List<Article> getChosenArticles();
 }

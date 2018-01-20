@@ -2,6 +2,7 @@ package com.github.wxz.controller;
 
 import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
+import com.github.wxz.entity.Article;
 import com.github.wxz.entity.ArticleCategory;
 import com.github.wxz.entity.ArticleTag;
 import com.github.wxz.entity.User;
@@ -40,7 +41,11 @@ public class IndexController {
         headPrinter.printHead(model);
         User user = userService.getUserById(6);
         model.addAttribute("user", user);
-        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(1, PaginationManage.DEFAULT_SIZE_8);
+        PaginationManage<ArticleDO> articlePaginationManage = articleService.getArticlesByPage(1, PaginationManage.DEFAULT_SIZE_5);
+        List<Article> chosenArticleList = articleService.getChosenArticles();
+
+        model.addAttribute("chosenArticleList", chosenArticleList);
+
         model.addAttribute("article", articlePaginationManage);
         return "home/home";
     }
@@ -48,6 +53,14 @@ public class IndexController {
     @RequestMapping(value = "article")
     public String article(Model model) {
         headPrinter.printHead(model);
+
+        List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
+
+        List<Article> chosenArticleList = articleService.getChosenArticles();
+
+        model.addAttribute("articleCategoryList", articleCategoryList);
+
+        model.addAttribute("chosenArticleList", chosenArticleList);
         return "article/article";
     }
 

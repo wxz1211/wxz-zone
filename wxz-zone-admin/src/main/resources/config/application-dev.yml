@@ -7,15 +7,15 @@ server:
 mysql:
   datasource:
     write:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=utf8
       username: root
       password: root
     read01:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=utf8
       username: root
       password: root
     read02:
-      url: jdbc:mysql://47.88.220.111:3306/wxz-zone?useUnicode=true&amp;characterEncoding=UTF-8
+      url: jdbc:mysql://127.0.0.1:3306/wxz-zone?useUnicode=true&amp;characterEncoding=utf8
       username: root
       password: root
 
