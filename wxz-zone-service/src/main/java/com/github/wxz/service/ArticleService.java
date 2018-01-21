@@ -73,24 +73,8 @@ public class ArticleService {
         List<Article> articleList = articleMapper.getArticlesByPage((pageNo - 1) * pageSize, pageSize);
         List<ArticleDO> articleDOList = new ArrayList<>();
 
-        articleList.stream().forEach(article -> {
-            User user = userMapper.getUserById(article.getUid());
-            ArticleDO articleDO = new ArticleDO();
-            BeanUtils.copyProperties(articleDO, article);
-            ArticleCategory articleCategory =
-                    articleCategoryMapper.getArticleCateGoryById(article.getCategory());
-            articleDO.setCategory(articleCategory.getName());
-
-            List<String> tagList = JSONArray.parseArray(article.getTag(), String.class);
-            StringBuilder stringBuilder = new StringBuilder();
-            tagList.stream().forEach(tag -> {
-                ArticleTag articleTag = articleTagMapper.getArticleTagById(Integer.valueOf(tag));
-                stringBuilder.append(articleTag.getName() + ",");
-            });
-            articleDO.setTag(stringBuilder.substring(0, stringBuilder.length() - 1));
-            articleDO.setuName((user == null || user.getName() == null) ? "" : user.getName());
-            articleDOList.add(articleDO);
-        });
+        articleList.stream().forEach(article ->
+                articleDOList.add(convertArticleToArticleDO(article)));
 
         int totalCount = articleMapper.count();
         PaginationManage<ArticleDO> articlePaginationManage = new PaginationManage<>();
@@ -98,6 +82,26 @@ public class ArticleService {
         articlePaginationManage.setPageInfo(pageNo, pageSize);
         articlePaginationManage.setTotalCount(totalCount);
         return articlePaginationManage;
+    }
+
+
+    public ArticleDO convertArticleToArticleDO(Article article) {
+        User user = userMapper.getUserById(article.getUid());
+        ArticleDO articleDO = new ArticleDO();
+        BeanUtils.copyProperties(articleDO, article);
+        ArticleCategory articleCategory =
+                articleCategoryMapper.getArticleCateGoryById(article.getCategory());
+        articleDO.setCategory(articleCategory.getName());
+
+        List<String> tagList = JSONArray.parseArray(article.getTag(), String.class);
+        StringBuilder stringBuilder = new StringBuilder();
+        tagList.stream().forEach(tag -> {
+            ArticleTag articleTag = articleTagMapper.getArticleTagById(Integer.valueOf(tag));
+            stringBuilder.append(articleTag.getName() + ",");
+        });
+        articleDO.setTag(stringBuilder.substring(0, stringBuilder.length() - 1));
+        articleDO.setuName((user == null || user.getName() == null) ? "" : user.getName());
+        return articleDO;
     }
 
     /**

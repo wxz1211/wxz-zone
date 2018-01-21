@@ -10,6 +10,7 @@ import com.github.wxz.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -64,9 +65,28 @@ public class IndexController {
         return "article/article";
     }
 
-    @RequestMapping(value = "detail")
-    public String detail(Model model) {
+    @RequestMapping(value = "detail/{id}")
+    public String detail(Model model, @PathVariable Integer id) {
         headPrinter.printHead(model);
+        if (id == null || id == 0) {
+            return "home/home";
+        }
+        Article article = articleService.getArticleByArticleId(id);
+
+        if (article == null) {
+            return "home/home";
+        }
+        ArticleDO articleDO = articleService.convertArticleToArticleDO(article);
+        List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
+
+        List<Article> chosenArticleList = articleService.getChosenArticles();
+
+        model.addAttribute("articleDO", articleDO);
+
+        model.addAttribute("articleCategoryList", articleCategoryList);
+
+        model.addAttribute("chosenArticleList", chosenArticleList);
+
         return "detail/detail";
     }
 

@@ -55,15 +55,7 @@
                 </#list>
                     <div class="clear"></div>
                 </div>
-                <div class="blog-module shadow">
-                    <div class="blog-module-title">作者推荐</div>
-                    <ul class="fa-ul blog-module-ul">
-                    <#list chosenArticleList as article>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">${article.title}</a>
-                        </li>
-                    </#list>
-                    </ul>
-                </div>
+                <@netCommon.commonHotArticle/>
                 <div class="blog-module shadow">
                     <div class="blog-module-title">随便看看</div>
                     <ul class="fa-ul blog-module-ul">
