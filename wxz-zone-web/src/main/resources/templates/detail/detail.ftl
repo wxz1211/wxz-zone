@@ -37,7 +37,7 @@
                     <div class="article-detail-info">
                         <span>发表时间：${articleDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
                         <span>作者：${articleDO.uName}</span>
-                        <span>浏览量：12</span>
+                        <span>浏览量：${articleDO.accessCount}</span>
                     </div>
 
                     <div class="article-detail-content">
@@ -54,6 +54,8 @@
                         <hr/>
                     </div>
                 </div>
+
+
                 <!-- 评论区域 -->
                 <div class="blog-module shadow" style="box-shadow: 0 1px 8px #a6a6a6;">
                     <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
@@ -73,18 +75,21 @@
                     </fieldset>
                     <div class="blog-module-title">最新评论</div>
                     <ul class="blog-comment">
-                        <li>
-                            <div class="comment-parent">
-                                <img src="${cxt.contextPath}/images/Absolutely.jpg" alt="absolutely"/>
-                                <div class="info">
-                                    <span class="username">Absolutely</span>
-                                    <span class="time">2017-03-18 18:46:06</span>
+                        <#list articleDO.articleMemoDOList as articleMemoDO>
+                            <li>
+                                <div class="comment-parent">
+                                    <img src="${articleMemoDO.img}" alt="头像"/>
+                                    <div class="info">
+                                        <span class="username">${articleMemoDO.uName}</span>
+                                        <span class="time">${articleMemoDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                    </div>
+                                    <div class="content">
+                                    ${articleMemoDO.memo}
+                                    </div>
                                 </div>
-                                <div class="content">
-                                    我为大家做了模拟评论功能！还有，这个评论功能也可以改成和留言一样，但是目前没改，有兴趣可以自己改
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+                        </#list>
+
                     </ul>
                 </div>
             </div>

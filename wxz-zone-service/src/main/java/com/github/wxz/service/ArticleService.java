@@ -5,21 +5,22 @@ import com.github.wxz.common.crypt.AesCrypt;
 import com.github.wxz.common.util.BeanUtils;
 import com.github.wxz.common.util.CommonContent;
 import com.github.wxz.common.util.PaginationManage;
-import com.github.wxz.dao.ArticleCategoryMapper;
-import com.github.wxz.dao.ArticleMapper;
-import com.github.wxz.dao.ArticleTagMapper;
-import com.github.wxz.dao.UserMapper;
+import com.github.wxz.dao.*;
+import com.github.wxz.domain.ArticleAccessLogDO;
 import com.github.wxz.domain.ArticleDO;
-import com.github.wxz.entity.Article;
-import com.github.wxz.entity.ArticleCategory;
-import com.github.wxz.entity.ArticleTag;
-import com.github.wxz.entity.User;
+import com.github.wxz.domain.ArticleMemoDO;
+import com.github.wxz.domain.ArticleMemoSecondDO;
+import com.github.wxz.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /**
  * @author xianzhi.wang
@@ -38,6 +39,12 @@ public class ArticleService {
 
     @Autowired
     private ArticleTagMapper articleTagMapper;
+
+    @Autowired
+    private ArticleAccessLogMapper articleAccessLogMapper;
+
+    @Autowired
+    private ArticleMemoMapper articleMemoMapper;
 
     /**
      * addArticle
@@ -84,22 +91,103 @@ public class ArticleService {
         return articlePaginationManage;
     }
 
-
+    /**
+     * convertArticleToArticleDO
+     *
+     * @param article
+     * @return
+     */
     public ArticleDO convertArticleToArticleDO(Article article) {
         User user = userMapper.getUserById(article.getUid());
         ArticleDO articleDO = new ArticleDO();
         BeanUtils.copyProperties(articleDO, article);
+
+        //分类设置
         ArticleCategory articleCategory =
                 articleCategoryMapper.getArticleCateGoryById(article.getCategory());
         articleDO.setCategory(articleCategory.getName());
 
+        //标签设置
         List<String> tagList = JSONArray.parseArray(article.getTag(), String.class);
-        StringBuilder stringBuilder = new StringBuilder();
-        tagList.stream().forEach(tag -> {
-            ArticleTag articleTag = articleTagMapper.getArticleTagById(Integer.valueOf(tag));
-            stringBuilder.append(articleTag.getName() + ",");
-        });
-        articleDO.setTag(stringBuilder.substring(0, stringBuilder.length() - 1));
+
+        String articleDOTag = tagList.stream().map(
+                tag -> {
+                    ArticleTag articleTag = articleTagMapper.getArticleTagById(Integer.valueOf(tag));
+                    return articleTag.getName();
+                })
+                .collect(Collectors.joining(" "));
+        articleDO.setTag(articleDOTag);
+
+        int accessCount = articleAccessLogMapper.getCountByAid(article.getId());
+        //访问次数
+        articleDO.setAccessCount(accessCount);
+        //访问实体类
+        if (accessCount != 0) {
+            List<ArticleAccessLog> articleAccessLogList = articleAccessLogMapper.getArticleAccessLogByAid(article.getId());
+            List<ArticleAccessLogDO> articleAccessLogDOList =
+                    articleAccessLogList.stream()
+                            .filter(articleAccessLog -> articleAccessLog.getUid() == null
+                                    || articleAccessLog.getUid() == 0)
+                            .map(articleAccessLog -> {
+                                ArticleAccessLogDO articleAccessLogDO = new ArticleAccessLogDO();
+                                BeanUtils.copyProperties(articleAccessLogDO, articleAccessLog);
+                                articleAccessLogDO.setName(userMapper.getUserById(articleAccessLog.getUid()).getName());
+                                return articleAccessLogDO;
+                            }).collect(Collectors.toList());
+            articleDO.setArticleAccessLogList(articleAccessLogDOList);
+        } else {
+            articleDO.setArticleAccessLogList(Collections.EMPTY_LIST);
+        }
+
+        //评论数
+        int memoCount = articleMemoMapper.articleMemoCount(article.getId());
+
+        articleDO.setMemoCount(memoCount);
+        //评论实体类
+        if (memoCount != 0) {
+            List<ArticleMemo> articleMemoList = articleMemoMapper.getFloorArticleMemo(article.getId(), 0);
+
+            if (!CollectionUtils.isEmpty(articleMemoList)) {
+
+                //TODO stream写法疑问???
+                Supplier<List<ArticleMemoDO>> supplier = () -> new ArrayList<>();
+                //lambada
+                List<ArticleMemoDO> articleMemoDOList = new ArrayList<>();
+                articleMemoList
+                        .stream()
+                        .forEach(articleMemo -> {
+                            ArticleMemoDO articleMemoDO = new ArticleMemoDO();
+                            BeanUtils.copyProperties(articleMemoDO, articleMemo);
+                            User user1 = userMapper.getUserById(articleMemo.getUid());
+                            articleMemoDO.setuName(user1.getName());
+                            articleMemoDO.setImg(user1.getImg());
+                            List<ArticleMemo> articleMemos = articleMemoMapper.getFloorArticleMemo(
+                                    articleMemo.getAid(), articleMemo.getId());
+
+                            if (!CollectionUtils.isEmpty(articleMemos)) {
+                                List<ArticleMemoSecondDO> articleMemoListSecond = new ArrayList<>();
+                                articleMemos.stream().forEach(articleMemo1 -> {
+                                    ArticleMemoSecondDO articleMemoSecondDO = new ArticleMemoSecondDO();
+                                    BeanUtils.copyProperties(articleMemoSecondDO, articleMemo1);
+                                    User user2 = userMapper.getUserById(articleMemo1.getId());
+                                    articleMemoSecondDO.setuName(user2.getName());
+                                    articleMemoSecondDO.setImg(user2.getImg());
+                                    articleMemoListSecond.add(articleMemoSecondDO);
+                                });
+                                articleMemoDO.setArticleMemoSecondDOList(articleMemoListSecond);
+                            } else {
+                                articleMemoDO.setArticleMemoSecondDOList(Collections.EMPTY_LIST);
+                            }
+                            articleMemoDOList.add(articleMemoDO);
+                        });
+                articleDO.setArticleMemoDOList(articleMemoDOList);
+            } else {
+                articleDO.setArticleMemoDOList(Collections.EMPTY_LIST);
+            }
+        } else {
+            articleDO.setArticleMemoDOList(Collections.EMPTY_LIST);
+        }
+
         articleDO.setuName((user == null || user.getName() == null) ? "" : user.getName());
         return articleDO;
     }
@@ -117,8 +205,21 @@ public class ArticleService {
         return getArticlesByPage(pageNo, PaginationManage.DEFAULT_SIZE_8);
     }
 
-
+    /**
+     * 精选文章
+     *
+     * @return
+     */
     public List<Article> getChosenArticles() {
         return articleMapper.getChosenArticles();
+    }
+
+    /**
+     * 精选文章
+     *
+     * @return
+     */
+    public List<Article> getTopArticles() {
+        return articleMapper.getTopArticles();
     }
 }

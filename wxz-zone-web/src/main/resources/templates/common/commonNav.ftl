@@ -4,7 +4,7 @@
     <div class="blog-container">
 
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item layui-this">
@@ -33,7 +33,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color:rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>
@@ -55,7 +55,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
 
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -84,7 +84,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>
@@ -106,7 +106,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
 
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -135,7 +135,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>
@@ -156,7 +156,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
 
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -185,7 +185,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>
@@ -206,7 +206,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
 
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -235,7 +235,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>
@@ -258,7 +258,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
 
-        <a class="blog-logo" href="home">安安静的肥宅</a>
+        <a class="blog-logo" href="home">lost</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">
@@ -287,7 +287,7 @@
                 <#else>
                     <a href="javascript:;"><i class="layui-icon" style="font-size: 20px; color: rgba(59,175,255,0.78);">&#xe6af;</i>&nbsp;来呀&nbsp;快活啊</a>
                     <dl class="layui-nav-child">
-                        <dd><a id="login" target="_blank" href="javascript:;">登录</a></dd>
+                        <dd><a id="login"  href="javascript:;">登录</a></dd>
                         <dd><a id="sign" href="javascript:">注册</a></dd>
                     </dl>
                 </#if>

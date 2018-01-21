@@ -2,6 +2,7 @@ package com.github.wxz.controller;
 
 import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
+import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.entity.Article;
 import com.github.wxz.entity.ArticleCategory;
 import com.github.wxz.entity.ArticleTag;
@@ -10,8 +11,8 @@ import com.github.wxz.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -33,6 +34,9 @@ public class IndexController {
 
     @Autowired
     private ArticleTagService articleTagService;
+
+    @Autowired
+    private ArticleAccessLogService articleAccessLogService;
 
     @Autowired
     private HeadPrinter headPrinter;
@@ -58,16 +62,18 @@ public class IndexController {
         List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
 
         List<Article> chosenArticleList = articleService.getChosenArticles();
+        List<Article> topArticleList = articleService.getTopArticles();
 
         model.addAttribute("articleCategoryList", articleCategoryList);
 
         model.addAttribute("chosenArticleList", chosenArticleList);
+        model.addAttribute("topArticleList", topArticleList);
         return "article/article";
     }
 
-    @RequestMapping(value = "detail/{id}")
-    public String detail(Model model, @PathVariable Integer id) {
-        headPrinter.printHead(model);
+    @RequestMapping(value = "detail")
+    public String detail(Model model, @RequestParam("a") Integer id) {
+        UserAuthDO userAuthDO = headPrinter.printHead(model);
         if (id == null || id == 0) {
             return "home/home";
         }
@@ -76,10 +82,14 @@ public class IndexController {
         if (article == null) {
             return "home/home";
         }
+
+        articleAccessLogService.addArticleAccessLog(userAuthDO == null ? 0 : userAuthDO.getId(), id);
+
         ArticleDO articleDO = articleService.convertArticleToArticleDO(article);
         List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
 
         List<Article> chosenArticleList = articleService.getChosenArticles();
+
 
         model.addAttribute("articleDO", articleDO);
 

@@ -55,17 +55,16 @@
                 </#list>
                     <div class="clear"></div>
                 </div>
-                <@netCommon.commonHotArticle/>
+
+            <@netCommon.commonHotArticle/>
+
                 <div class="blog-module shadow">
                     <div class="blog-module-title">随便看看</div>
                     <ul class="fa-ul blog-module-ul">
+                    <#list topArticleList as topArticle>
                         <li><i class="fa-li fa fa-hand-o-right"></i><a
-                                href="../detail/detail.ftl">一步步制作时光轴（一）（HTML篇）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET
-                            MVC制作404跳转（非302和200）</a></li>
-                        <li><i class="fa-li fa fa-hand-o-right"></i><a href="../detail/detail.ftl">ASP.NET MVC
-                            防范跨站请求伪造（CSRF）</a>
-                        </li>
+                                href="detail?a=${topArticle.id}">${topArticle.title}</a></li>
+                    </#list>
 
                     </ul>
                 </div>
@@ -114,8 +113,11 @@
                         html += '<img src="' + dataList[i].img + '" alt="标题" style="width: 100% ;height: 100%"/>';
 
                         html += '</div> '
-                                + '<div class="article-right"><div class="article-title">'
-                                + '<a href="detail">' + dataList[i].title + '</a></div>'
+                                + '<div class="article-right"><div class="article-title">';
+                        if (dataList[i].top == 1) {
+                            html += ' <span class="article_is_top">置顶</span>';
+                        }
+                        html += '<a href="detail?a=' + dataList[i].id + '">' + dataList[i].title + '</a></div>'
                                 + '<div class="article-abstract">'
                                 //+ dataList[i].content
                                 + dataList[i].sent
@@ -124,16 +126,14 @@
                                 + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + timetrans(dataList[i].create) + '</span>'
                                 + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;' + dataList[i].uName + '</span>'
                                 + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="javascript:;">' + dataList[i].tag + '</a></span>'
-                                + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>'
-                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>'
-                                + '</div> </div>'
+                                + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + dataList[i].accessCount + '</span>'
+                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;dataList[i].memoCount</span>'
+                                + '</div></div>'
                     }
 
                     html += '<div id="article" class="article"></div>';
                     layer.close(index);
                     jquery("#blog-main-left-body").html(html);
-
-
                     laypage.render({
                         elem: 'article'
                         , count: totalCount

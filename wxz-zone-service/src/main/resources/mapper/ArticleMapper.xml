@@ -102,7 +102,7 @@
         *
         from
         wxz_zone_article
-        ORDER BY `create` DESC
+         ORDER BY top DESC,`create` DESC
         limit #{begin},#{pageSize}
     </select>
 
@@ -130,7 +130,19 @@
         wxz_zone_article
         WHERE
         chosen = 1
-        ORDER BY `create` DESC
+        ORDER BY top DESC,`create` DESC
+        limit 5
+    </select>
+
+
+    <select id="getTopArticles" resultMap="ArticleMap">
+        SELECT
+        *
+        from
+        wxz_zone_article
+        WHERE
+        top = 1
+        ORDER BY top DESC,`create` DESC
         limit 5
     </select>
 

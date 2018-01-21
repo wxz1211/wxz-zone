@@ -44,7 +44,10 @@
                     </div>
                     <div class="article-right">
                         <div class="article-title">
-                            <a href="detail"> ${ item.title!}</a>
+                            <#if item.top==1>
+                                <span class="article_is_top">置顶</span>
+                            </#if>
+                            <a href="detail?a=${item.id}"> ${ item.title!}</a>
                         </div>
                         <div class="article-abstract">
                             <#if item.content?exists>${item.sent}</#if>
@@ -53,20 +56,26 @@
                     <div class="clear"></div>
                     <div class="article-footer">
                         <span><i class="fa fa-clock-o"></i>&nbsp;${item.create?string('yyyy-MM-dd')}</span>
-                        <span>
+                     <#--   <span>
                             <i style="font-size: 10px;color: #8D8D8D"
                                class="layui-icon">&#xe619;</i>
                             <#if item.top==1>top!<#else>
-                            normal~</#if></span>
+                                normal~</#if></span>-->
                         <span class="article-author"><i class="fa fa-user"></i>&nbsp;${item.uName}</span>
                         <span><i class="fa fa-bomb"></i>&nbsp;<a href="javascript:;">${item.category}</a></span>
                         <span><i class="fa fa-tag"></i>&nbsp;${item.tag}</span>
-                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>
-                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;4</span>
+                        <span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;${item.accessCount}</span>
+                        <span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;${item.memoCount}</span>
                     </div>
                 </div>
             </#list>
-                <div style="align-content: center;font-size: inherit">查看更多.....</div>
+                <div class="article shadow" style="padding: 10px 0px 10px 242px;">
+                    <a href="article" style="position: relative;width: 206px;height: 60px;
+                    line-height: 60px;font-size: 26px;font-weight: 300;"
+                       class="layui-btn">查看更多
+                    </a>
+                </div>
+                <div style="align-content: center;font-size: inherit"></div>
             </div>
 
 
@@ -78,9 +87,9 @@
 
             <@netCommon.commonHotArticle/>
 
-            <@netCommon.commonYiLuZouLai/>
+            <#--  <@netCommon.commonYiLuZouLai/>
 
-            <@netCommon.commonHouTaiJiLu/>
+              <@netCommon.commonHouTaiJiLu/>-->
 
             <@netCommon.commonLink/>
             </div>

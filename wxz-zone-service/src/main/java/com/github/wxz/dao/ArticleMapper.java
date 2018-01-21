@@ -54,4 +54,10 @@ public interface ArticleMapper {
      * @return
      */
     List<Article> getChosenArticles();
+
+    /**
+     * getTopArticles
+     * @return
+     */
+    List<Article> getTopArticles();
 }

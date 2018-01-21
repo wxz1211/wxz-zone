@@ -1110,3 +1110,14 @@ body {
         opacity: 0;
     }
 }
+
+.article_is_top{
+    font-size: 12px;
+    display: inline-block;
+    line-height: 20px;
+    background: #1E9FFF;
+    border-radius: 2px;
+    color: #fff;
+    padding: 0px 5px;
+    position: inherit;
+}

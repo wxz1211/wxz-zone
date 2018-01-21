@@ -102,8 +102,8 @@
 
     </div>
     <div class="blogerinfo-contact">
-        <a target="_blank" title="相亲简介" href="http://www.wangxianzhi.xyz/do/about"><i
-                class="fa fa-twitch fa-lg"></i> 相亲简介</a>
+        <a target="_blank" title="相亲简介" href="http://tieba.baidu.com/home/main?un=%E9%9B%B7%E7%A5%AD%E7%9A%84%E5%AD%98%E5%9C%A8&fr=home><i
+                class=" fa fa-twitch fa-lg"></i> 相亲简介</a>
         <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
                 class="fa  fa-yelp  fa-lg"></i> 基佬专用</a>
     </div>
@@ -132,7 +132,7 @@
     <div class="blog-module-title">文章推荐</div>
     <ul class="fa-ul blog-module-ul">
         <#list chosenArticleList as article>
-            <li><i class="fa-li fa fa-hand-o-right"></i><a href="javascript:;">${article.title}</a></li>
+            <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail?a=${article.id}">${article.title}</a></li>
         </#list>
     </ul>
 </div>
@@ -161,7 +161,7 @@
         <dt>2017年03月12日</dt>
         <dd>新增留言回复功能！人人都可参与回复！</dd>
         <dt>2017年03月10日</dt>
-        <dd>不落阁2.0基本功能完成，正式上线！</dd>
+        <dd>基本功能完成，正式上线！</dd>
         <dt>2017年03月09日</dt>
         <dd>新增文章搜索功能！</dd>
         <dt>2017年02月25日</dt>

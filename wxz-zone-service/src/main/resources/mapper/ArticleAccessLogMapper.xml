@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.github.wxz.dao.ArticleAccessLogMapper">
+
+    <insert id="addArticleAccessLog" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.github.wxz.entity.ArticleAccessLog">
+        INSERT
+        INTO
+        wxz_zone_article_access_log
+        (
+        uid,
+        aid,
+        `create`,
+        `update`
+        )
+        values(
+        #{uid}, #{aid},
+        now(),
+        now())
+    </insert>
+    <select id="getArticleAccessLogByUid" parameterType="java.lang.Integer"
+            resultType="com.github.wxz.entity.ArticleAccessLog">
+        SELECT
+        *
+        from
+        wxz_zone_article_access_log
+        where
+        uid=#{uid}
+        GROUP BY aid
+    </select>
+
+    <select id="getArticleAccessLogByAid" parameterType="java.lang.Integer"
+            resultType="com.github.wxz.entity.ArticleAccessLog">
+        SELECT
+        *
+        from
+        wxz_zone_article_access_log
+        where
+        aid=#{aid} AND
+        uid != 0
+    </select>
+
+    <select id="getAllArticleAccessLog" resultType="com.github.wxz.entity.ArticleAccessLog">
+        SELECT
+        *
+        from
+        wxz_zone_article_access_log
+    </select>
+</mapper>

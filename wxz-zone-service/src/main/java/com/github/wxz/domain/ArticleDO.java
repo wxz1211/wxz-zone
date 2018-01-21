@@ -1,6 +1,8 @@
 package com.github.wxz.domain;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * service 层
@@ -24,8 +26,63 @@ public class ArticleDO {
     private String content;
     private Integer top;
     private Integer chosen;
+
+    /**
+     * 访问次数
+     */
+    private Integer accessCount;
+
+    /**
+     * 评论数
+     */
+    private Integer memoCount;
+
+    /**
+     * 评论实体
+     */
+    private List<ArticleMemoDO> articleMemoDOList;
+
+
+    /**
+     * 访问详情
+     */
+    private List<ArticleAccessLogDO> articleAccessLogList;
+
     private Date create;
     private Date update;
+
+
+    public Integer getMemoCount() {
+        return memoCount;
+    }
+
+    public void setMemoCount(Integer memoCount) {
+        this.memoCount = memoCount;
+    }
+
+    public List<ArticleMemoDO> getArticleMemoDOList() {
+        return articleMemoDOList;
+    }
+
+    public void setArticleMemoDOList(List<ArticleMemoDO> articleMemoDOList) {
+        this.articleMemoDOList = articleMemoDOList;
+    }
+
+    public List<ArticleAccessLogDO> getArticleAccessLogList() {
+        return articleAccessLogList;
+    }
+
+    public void setArticleAccessLogList(List<ArticleAccessLogDO> articleAccessLogList) {
+        this.articleAccessLogList = articleAccessLogList;
+    }
+
+    public Integer getAccessCount() {
+        return accessCount;
+    }
+
+    public void setAccessCount(Integer accessCount) {
+        this.accessCount = accessCount;
+    }
 
     public Integer getChosen() {
         return chosen;
