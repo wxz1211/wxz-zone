@@ -55,7 +55,7 @@
         setTimeout(function () {
             layer.close(index);
             var content = data.field.replyContent;
-            var html = '<div class="comment-child"><img src="../images/absolutely.jpg"alt="Absolutely"/><div class="info"><span class="username">模拟回复</span><span>' + content + '</span></div><p class="info"><span class="time">2017-03-18 18:26</span></p></div>';
+            var html = '<div class="comment-child"><img src=""alt="Absolutely"/><div class="info"><span class="username">模拟回复</span><span>' + content + '</span></div><p class="info"><span class="time">2017-03-18 18:26</span></p></div>';
             $(data.form).find('textarea').val('');
             $(data.form).parent('.replycontainer').before(html).siblings('.comment-parent').children('p').children('a').click();
             layer.msg("回复成功", { icon: 1 });
