@@ -38,5 +38,9 @@ public interface ArticleMemoMapper {
      * @return
      */
     @Select("select count(1) from wxz_zone_article_memo where aid = #{aid}")
-    Integer articleMemoCount(@Param("aid") Integer aid);
+    Integer getArticleMemoTotalCount(@Param("aid") Integer aid);
+
+
+    @Select("select count(1) from wxz_zone_article_memo where aid = #{aid} and parent = 0")
+    Integer getArticleMemoFloorCount(@Param("aid") Integer aid);
 }

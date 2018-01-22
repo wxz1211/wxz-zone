@@ -20,6 +20,8 @@ public class ArticleMemoDO {
     private String memo;
     private Date create;
     private Date update;
+    private List<ArticleMemoSecondDO> articleMemoSecondDOList;
+
 
     public String getImg() {
         return img;
@@ -28,8 +30,6 @@ public class ArticleMemoDO {
     public void setImg(String img) {
         this.img = img;
     }
-
-    private List<ArticleMemoSecondDO> articleMemoSecondDOList;
 
     public List<ArticleMemoSecondDO> getArticleMemoSecondDOList() {
         return articleMemoSecondDOList;

@@ -39,4 +39,6 @@ public class ArticleMemoService {
     public Integer addArticleMemo(ArticleMemo articleMemo) {
         return articleMemoMapper.addArticleMemo(articleMemo);
     }
+
+    //articleMemoMapper.getArticleMemoFloorCount()
 }

@@ -25,6 +25,7 @@
         <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
             <a href="home" title="网站首页">网站首页</a>
             <a href="article" title="文章专栏">文章专栏</a>
+            <input type="hidden" value="${articleDO.id}" id="aid">
             <a><cite>${articleDO.title}</cite></a>
         </blockquote>
         <div class="blog-main">
@@ -75,20 +76,58 @@
                     </fieldset>
                     <div class="blog-module-title">最新评论</div>
                     <ul class="blog-comment">
-                        <#list articleDO.articleMemoDOList as articleMemoDO>
-                            <li>
-                                <div class="comment-parent">
-                                    <img src="${articleMemoDO.img}" alt="头像"/>
-                                    <div class="info">
-                                        <span class="username">${articleMemoDO.uName}</span>
-                                        <span class="time">${articleMemoDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
-                                    </div>
-                                    <div class="content">
-                                    ${articleMemoDO.memo}
-                                    </div>
+                    <#list articleDO.articleMemoDOList as articleMemoDO>
+                        <li>
+                            <div class="comment-parent">
+                                <img src="${articleMemoDO.img}" alt="${articleMemoDO.uName}"/>
+                                <div class="info">
+                                    <span class="username">${articleMemoDO.uName}</span>
+
                                 </div>
-                            </li>
-                        </#list>
+                                <div class="content">
+                                ${articleMemoDO.memo}
+                                </div>
+                                <p class="info info-footer">
+                                    <span class="time">${articleMemoDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                    &nbsp;
+                                    <a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)"></a>
+                                </p>
+                            </div>
+                            <hr>
+                            <#list articleMemoDO.articleMemoSecondDOList as articleMemoSecondDO>
+                                <div class="comment-child">
+                                    <img src="${articleMemoSecondDO.img}"
+                                         alt="${articleMemoSecondDO.uName}">
+                                    <div class="info"><span
+                                            class="username">${articleMemoSecondDO.uName}</span><span>${articleMemoSecondDO.memo}</span>
+                                    </div>
+                                    <p class="info"><span
+                                            class="time">${articleMemoSecondDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                    </p>
+                                </div>
+
+                            </#list>
+
+
+                            <div class="replycontainer layui-hide">
+                                <form class="layui-form" action="">
+                                    <input type="hidden" id="parent_key" name="parent_key"
+                                           value="8017cf26bcf7371d8e60599d02421619">
+                                    <div class="layui-form-item">
+                                        <textarea id="replyContent" name="replyContent" lay-verify="replyContent"
+                                                  placeholder="请输入回复内容" class="layui-textarea"
+                                                  style="min-height:80px;">
+                                        </textarea>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <button class="layui-btn layui-btn-mini" lay-submit="formReply"
+                                                lay-filter="formReply">提交
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                    </#list>
 
                     </ul>
                 </div>

@@ -6,7 +6,10 @@ import com.github.wxz.common.response.Response;
 import com.github.wxz.common.util.BeanUtils;
 import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.entity.Article;
+import com.github.wxz.entity.ArticleMemo;
 import com.github.wxz.request.UserArticleDO;
+import com.github.wxz.request.UserMemoDO;
+import com.github.wxz.service.ArticleMemoService;
 import com.github.wxz.service.ArticleService;
 import com.github.wxz.service.HeadPrinter;
 import org.apache.commons.lang3.StringUtils;
@@ -30,6 +33,9 @@ public class ArticleAction {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private ArticleMemoService articleMemoService;
 
 
     @RequestMapping("/addArticle")
@@ -58,4 +64,26 @@ public class ArticleAction {
         return Response.SUCCESS;
     }
 
+    @RequestMapping("/addMemo")
+    public Response addMemo(Model model, @RequestParam("userMemo") String userMemo) {
+        UserAuthDO userAuthDO = headPrinter.printHead(model);
+        if (StringUtils.isEmpty(userMemo)) {
+            return Response.FAIL;
+        }
+        UserMemoDO userMemoDO = JSONObject.parseObject(userMemo, UserMemoDO.class);
+        if (userMemoDO == null
+                || StringUtils.isEmpty(userMemoDO.getMemo())
+                || (userMemoDO.getFloor() == 0 && userMemoDO.getParent() == 0)
+                ) {
+            return Response.FAIL;
+        }
+        if(userMemoDO.getParent()==0){
+            //articleMemoService.getFloorArticleMemo()
+        }
+        ArticleMemo articleMemo = new ArticleMemo();
+        BeanUtils.copyProperties(articleMemo, userMemoDO);
+        articleMemo.setUid(userAuthDO.getId());
+        articleMemoService.addArticleMemo(articleMemo);
+        return Response.SUCCESS;
+    }
 }

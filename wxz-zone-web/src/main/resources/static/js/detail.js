@@ -9,31 +9,125 @@ layui.use(['form', 'layedit'], function () {
         height: 100,
         tool: ['face', 'left', 'center', 'right', 'link'],
     });
+
     //评论和留言的编辑器的验证
     form.verify({
         content: function (value) {
             value = $.trim(layedit.getText(editIndex));
             if (value == "") return "最少得有一个字吧";
+            if (value.length > 680) return "最多680个字哦！";
             layedit.sync(editIndex);
         }
     });
 
+
     //监听评论提交
     form.on('submit(formRemark)', function (data) {
         var index = layer.load(1);
+        debugger;
+        var userMemo = {
+            memo: data.field.editorContent,
+            parent: 0,
+            aid: $("#aid").val()
+        };
+        $.ajax({
+            type: 'post',
+            url: 'article/addMemo',
+            data: {userMemo: JSON.stringify(userMemo)},
+            success: function (data) {
+                layer.close(index);
+                if (data.success == 1) {
+                    layer.msg(data.msg, {icon: 5});
+                } else {
+                    if (data.msg != undefined) {
+                        layer.msg(data.msg, {icon: 6});
+                    } else {
+                        layer.msg('程序异常，请重试或联系作者', {icon: 6});
+                    }
+                }
+                setTimeout(function () {
+                    window.location.reload();
+                }, 500);
+            },
+            error: function (data) {
+                layer.close(index);
+                layer.msg("请求异常", {icon: 2});
+            }
+        });
+        return false;
+
+
         //模拟评论提交
-        setTimeout(function () {
-            layer.close(index);
-            var content = data.field.editorContent;
-            var html = '<li><div class="comment-parent"><img src="../images/absolutely.jpg"alt="absolutely"/><div class="info"><span class="username">Absolutely</span><span class="time">2017-03-18 18:46:06</span></div><div class="content">' + content + '</div></div></li>';
-            $('.blog-comment').append(html);
-            $('#remarkEditor').val('');
-            editIndex = layui.layedit.build('remarkEditor', {
-                height: 150,
-                tool: ['face', '|', 'left', 'center', 'right', '|', 'link'],
+        // setTimeout(function () {
+        //     layer.close(index);
+        //     var content = data.field.editorContent;
+        //     var html = '<li><div class="comment-parent"><img src="../images/absolutely.jpg"alt="absolutely"/><div class="info"><span class="username">Absolutely</span><span class="time">2017-03-18 18:46:06</span></div><div class="content">' + content + '</div></div></li>';
+        //     $('.blog-comment').append(html);
+        //     $('#remarkEditor').val('');
+        //     editIndex = layui.layedit.build('remarkEditor', {
+        //         height: 150,
+        //         tool: ['face', '|', 'left', 'center', 'right', '|', 'link'],
+        //     });
+        //     layer.msg("评论成功", {icon: 1});
+        // }, 500);
+        // return false;
+    });
+
+
+    //监听留言回复提交
+    form.on('submit(formReply)', function (data) {
+        if (data.field.replyContent == null || data.field.replyContent == "") {
+            layer.msg('回复内容不能为空', {icon: 5});
+        } else {
+            var index = layer.load(1);
+            var parent = data.field.parent_key;
+            var userMemo = {
+                floor: 0,
+                memo: data.field.editorContent,
+                parent: parent,
+                aid: $("#aid").val()
+            };
+            debugger
+
+            //留言回复
+            $.ajax({
+                type: 'post',
+                url: 'article/addMemo',
+                data: {
+                    userMemo: JSON.stringify(userMemo)
+                },
+
+                success: function (data) {
+                    layer.close(index);
+                    if (data.success == 1) {
+                        layer.msg(data.msg, {icon: 5});
+                    } else {
+                        if (data.msg != undefined) {
+                            layer.msg(data.msg, {icon: 6});
+                        } else {
+                            layer.msg('程序异常，请重试或联系作者', {icon: 6});
+                        }
+                    }
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 500);
+                },
+                error: function (data) {
+                    layer.close(index);
+                    layer.msg("请求异常", {icon: 2});
+                }
             });
-            layer.msg("评论成功", { icon: 1 });
-        }, 500);
+        }
         return false;
     });
 });
+
+function btnReplyClick(elem) {
+    var $ = layui.jquery;
+    $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
+    if ($(elem).text() == '回复') {
+        $(elem).text('收起')
+    } else {
+        $(elem).text('回复')
+    }
+}
