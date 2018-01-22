@@ -148,11 +148,11 @@ layui.use(['layer', 'jquery', 'element', 'layedit', 'form', 'upload'], function 
             success: function (data) {
                 layer.closeAll();
                 if (data.code == 0) {
-                    layer.msg('登录成功啦~正在跳转中...')
+                    layer.msg('发表文章成功啦~正在跳转中...')
                 } else {
-                    layer.msg('登录失败啦~正在跳转中...')
+                    layer.msg('发表文章失败啦~正在跳转中...')
                 }
-                //location.href = 'home';
+                location.href = 'home';
             }
         });
         return false;

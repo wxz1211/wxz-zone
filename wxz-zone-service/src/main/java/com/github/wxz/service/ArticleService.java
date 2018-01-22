@@ -140,7 +140,7 @@ public class ArticleService {
         }
 
         //评论数
-        int memoCount = articleMemoMapper.articleMemoCount(article.getId());
+        int memoCount = articleMemoMapper.getArticleMemoTotalCount(article.getId());
 
         articleDO.setMemoCount(memoCount);
         //评论实体类
@@ -169,7 +169,7 @@ public class ArticleService {
                                 articleMemos.stream().forEach(articleMemo1 -> {
                                     ArticleMemoSecondDO articleMemoSecondDO = new ArticleMemoSecondDO();
                                     BeanUtils.copyProperties(articleMemoSecondDO, articleMemo1);
-                                    User user2 = userMapper.getUserById(articleMemo1.getId());
+                                    User user2 = userMapper.getUserById(articleMemo1.getUid());
                                     articleMemoSecondDO.setuName(user2.getName());
                                     articleMemoSecondDO.setImg(user2.getImg());
                                     articleMemoListSecond.add(articleMemoSecondDO);

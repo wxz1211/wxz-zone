@@ -127,7 +127,7 @@
                                 + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;' + dataList[i].uName + '</span>'
                                 + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="javascript:;">' + dataList[i].tag + '</a></span>'
                                 + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + dataList[i].accessCount + '</span>'
-                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;dataList[i].memoCount</span>'
+                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;'+dataList[i].memoCount+'</span>'
                                 + '</div></div>'
                     }
 

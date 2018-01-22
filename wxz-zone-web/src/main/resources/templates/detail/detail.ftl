@@ -78,6 +78,7 @@
                     <ul class="blog-comment">
                     <#list articleDO.articleMemoDOList as articleMemoDO>
                         <li>
+
                             <div class="comment-parent">
                                 <img src="${articleMemoDO.img}" alt="${articleMemoDO.uName}"/>
                                 <div class="info">
@@ -90,7 +91,7 @@
                                 <p class="info info-footer">
                                     <span class="time">${articleMemoDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
                                     &nbsp;
-                                    <a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)"></a>
+                                    <a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)">回复</a>
                                 </p>
                             </div>
                             <hr>
@@ -107,16 +108,14 @@
                                 </div>
 
                             </#list>
-
-
                             <div class="replycontainer layui-hide">
                                 <form class="layui-form" action="">
-                                    <input type="hidden" id="parent_key" name="parent_key"
-                                           value="8017cf26bcf7371d8e60599d02421619">
+                                    <input type="hidden" name="parent_key"
+                                           value="${articleMemoDO.id}">
                                     <div class="layui-form-item">
-                                        <textarea id="replyContent" name="replyContent" lay-verify="replyContent"
-                                                  placeholder="请输入回复内容" class="layui-textarea"
-                                                  style="min-height:80px;">
+                                            <textarea name="replyContent" lay-verify="replyContent"
+                                                      class="layui-textarea"
+                                                      style="min-height:80px;">
                                         </textarea>
                                     </div>
                                     <div class="layui-form-item">
@@ -129,6 +128,7 @@
                         </li>
                     </#list>
 
+                        <div class="layui-flow-more">还没有更多的人评论~QAQ</div>
                     </ul>
                 </div>
             </div>

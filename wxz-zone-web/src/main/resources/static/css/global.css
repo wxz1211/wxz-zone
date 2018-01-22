@@ -889,6 +889,7 @@ body {
     padding: 2px 0 5px 0;
     min-height: 30px;
     font-size: 13px;
+    word-break: break-all;
 }
 
 .blog-comment hr {

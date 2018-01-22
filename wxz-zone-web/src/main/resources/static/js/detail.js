@@ -24,7 +24,6 @@ layui.use(['form', 'layedit'], function () {
     //监听评论提交
     form.on('submit(formRemark)', function (data) {
         var index = layer.load(1);
-        debugger;
         var userMemo = {
             memo: data.field.editorContent,
             parent: 0,
@@ -36,18 +35,25 @@ layui.use(['form', 'layedit'], function () {
             data: {userMemo: JSON.stringify(userMemo)},
             success: function (data) {
                 layer.close(index);
-                if (data.success == 1) {
+                if (data.code == 0) {
                     layer.msg(data.msg, {icon: 5});
+                } else if (data.code != -1) {
+                    layer.msg('程序异常，请重试或联系作者', {icon: 6});
                 } else {
-                    if (data.msg != undefined) {
-                        layer.msg(data.msg, {icon: 6});
-                    } else {
-                        layer.msg('程序异常，请重试或联系作者', {icon: 6});
-                    }
+                    $('#user-login').removeClass('layui-hide');
+                    layer.open(
+                        {
+                            area: ['400px'],
+                            title: '登录',
+                            shadeClose: true, //点击遮罩关闭层
+                            type: 1,
+                            content: $('#user-login')
+                        }
+                    );
                 }
                 setTimeout(function () {
                     window.location.reload();
-                }, 500);
+                }, 300);
             },
             error: function (data) {
                 layer.close(index);
@@ -76,48 +82,63 @@ layui.use(['form', 'layedit'], function () {
 
     //监听留言回复提交
     form.on('submit(formReply)', function (data) {
-        if (data.field.replyContent == null || data.field.replyContent == "") {
+        var index = layer.load(1);
+        var memo = data.field.replyContent;
+        if ($.trim(memo) == null || $.trim(memo) == '') {
             layer.msg('回复内容不能为空', {icon: 5});
-        } else {
-            var index = layer.load(1);
-            var parent = data.field.parent_key;
-            var userMemo = {
-                floor: 0,
-                memo: data.field.editorContent,
-                parent: parent,
-                aid: $("#aid").val()
-            };
-            debugger
-
-            //留言回复
-            $.ajax({
-                type: 'post',
-                url: 'article/addMemo',
-                data: {
-                    userMemo: JSON.stringify(userMemo)
-                },
-
-                success: function (data) {
-                    layer.close(index);
-                    if (data.success == 1) {
-                        layer.msg(data.msg, {icon: 5});
-                    } else {
-                        if (data.msg != undefined) {
-                            layer.msg(data.msg, {icon: 6});
-                        } else {
-                            layer.msg('程序异常，请重试或联系作者', {icon: 6});
-                        }
-                    }
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
-                },
-                error: function (data) {
-                    layer.close(index);
-                    layer.msg("请求异常", {icon: 2});
-                }
-            });
+            return;
         }
+        var userMemo = {
+            floor: 0,
+            memo: memo,
+            parent: data.field.parent_key,
+            aid: $("#aid").val()
+        };
+        //留言回复
+        $.ajax({
+            type: 'post',
+            url: 'article/addMemo',
+            data: {
+                userMemo: JSON.stringify(userMemo)
+            },
+            success: function (data) {
+                layer.close(index);
+                if (data.code == 0) {
+                    layer.msg(data.msg, {icon: 5});
+                } else if (data.code == -2) {
+                    $('#user-login').removeClass('layui-hide');
+                    layer.open(
+                        {
+                            area: ['400px'],
+                            title: '登录',
+                            shadeClose: true, //点击遮罩关闭层
+                            type: 1,
+                            content: $('#user-login')
+                        }
+                    );
+                } else {
+                    layer.msg('程序异常，请重试或联系作者', {icon: 6});
+
+                }
+                setTimeout(function () {
+                    window.location.reload();
+                }, 300);
+            },
+            error: function (data) {
+                layer.close(index);
+                $('#user-login').removeClass('layui-hide');
+                layer.open(
+                    {
+                        area: ['400px'],
+                        title: '登录',
+                        shadeClose: true, //点击遮罩关闭层
+                        type: 1,
+                        content: $('#user-login')
+                    }
+                );
+            }
+        });
+
         return false;
     });
 });

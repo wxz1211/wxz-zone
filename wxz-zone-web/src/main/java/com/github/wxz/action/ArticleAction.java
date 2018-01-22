@@ -73,16 +73,15 @@ public class ArticleAction {
         UserMemoDO userMemoDO = JSONObject.parseObject(userMemo, UserMemoDO.class);
         if (userMemoDO == null
                 || StringUtils.isEmpty(userMemoDO.getMemo())
-                || (userMemoDO.getFloor() == 0 && userMemoDO.getParent() == 0)
                 ) {
             return Response.FAIL;
-        }
-        if(userMemoDO.getParent()==0){
-            //articleMemoService.getFloorArticleMemo()
         }
         ArticleMemo articleMemo = new ArticleMemo();
         BeanUtils.copyProperties(articleMemo, userMemoDO);
         articleMemo.setUid(userAuthDO.getId());
+        if (userMemoDO.getParent() == 0) {
+            articleMemo.setFloor(articleMemoService.getArticleMemoFloorCount(userMemoDO.getAid()) + 1);
+        }
         articleMemoService.addArticleMemo(articleMemo);
         return Response.SUCCESS;
     }

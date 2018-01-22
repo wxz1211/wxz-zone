@@ -4,6 +4,7 @@ import com.github.wxz.dao.ArticleMemoMapper;
 import com.github.wxz.entity.ArticleMemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,9 +37,16 @@ public class ArticleMemoService {
      * @param articleMemo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public Integer addArticleMemo(ArticleMemo articleMemo) {
         return articleMemoMapper.addArticleMemo(articleMemo);
     }
 
-    //articleMemoMapper.getArticleMemoFloorCount()
+    public Integer getArticleMemoTotalCount(Integer aid) {
+        return articleMemoMapper.getArticleMemoTotalCount(aid);
+    }
+
+    public Integer getArticleMemoFloorCount(Integer aid) {
+        return articleMemoMapper.getArticleMemoFloorCount(aid);
+    }
 }
