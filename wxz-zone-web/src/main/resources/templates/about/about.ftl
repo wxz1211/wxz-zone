@@ -151,7 +151,7 @@
                     <div class="layui-tab-item">
                         <div class="aboutinfo">
                             <div class="aboutinfo-figure">
-                                <img src="${cxt.contextPath}/images/messagewall.png" alt="留言墙"/>
+                                <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg" alt="留言墙"/>
                             </div>
                             <p class="aboutinfo-nickname">留言墙</p>
                             <p class="aboutinfo-introduce">本页面可留言、吐槽、提问。欢迎灌水，杜绝广告！</p>
@@ -179,42 +179,44 @@
                                             </div>
                                         </form>
                                         <ul class="blog-comment">
+                                        <#list leaveMessageDO.leaveMsgDOList as leaveMessageDO>
                                             <li>
+
                                                 <div class="comment-parent">
-                                                    <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg"
-                                                         alt="ddd"/>
+                                                    <img src="${leaveMessageDO.img}"
+                                                         alt="${leaveMessageDO.uName}"/>
                                                     <div class="info">
-                                                        <span class="username"></span>
+                                                        <span class="username">${leaveMessageDO.uName}</span>
                                                     </div>
                                                     <div class="content">
-                                                        模拟留言与回复
+                                                    ${leaveMessageDO.memo}
                                                     </div>
                                                     <p class="info info-footer"><span
-                                                            class="time">2017-03-18 18:09</span><a class="btn-reply"
-                                                                                                   href="javascript:;"
-                                                                                                   onclick="btnReplyClick(this)">回复</a>
+                                                            class="time"></span> ${leaveMessageDO.create?string('yyyy-MM-dd HH:mm:ss')}<a
+                                                            class="btn-reply"
+                                                            href="javascript:;"
+                                                            onclick="btnReplyClick(this)">&nbsp;回复</a>
                                                     </p>
                                                 </div>
+
                                                 <hr/>
-                                                <div class="comment-child">
-                                                    <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg"
-                                                         alt="Absolutely"/>
-                                                    <div class="info">
-                                                        <span class="username">a</span><span>这是用户回复内容</span>
+                                                <#list leaveMessageDO.leaveMsgScdDOList as leaveMsgScdDO>
+                                                    <div class="comment-child">
+                                                        <img src="${leaveMsgScdDO.img}"
+                                                             alt="${leaveMsgScdDO.uName}"/>
+                                                        <div class="info">
+                                                            <span class="username">${leaveMsgScdDO.uName}</span><span>${leaveMsgScdDO.memo}</span>
+                                                        </div>
+                                                        <p class="info"><span
+                                                                class="time">${leaveMsgScdDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                                        </p>
                                                     </div>
-                                                    <p class="info"><span class="time">2017-03-18 18:26</span></p>
-                                                </div>
-                                                <div class="comment-child">
-                                                    <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg"
-                                                         alt="Absolutely"/>
-                                                    <div class="info">
-                                                        <span class="username">a</span><span>这是第二个用户回复内容</span>
-                                                    </div>
-                                                    <p class="info"><span class="time">2017-03-18 18:26</span></p>
-                                                </div>
+                                                </#list>
                                                 <!-- 回复表单默认隐藏 -->
                                                 <div class="replycontainer layui-hide">
                                                     <form class="layui-form" action="">
+                                                        <input type="hidden" name="parent_key"
+                                                               value="${leaveMessageDO.id}">
                                                         <div class="layui-form-item">
                                                             <textarea name="replyContent" lay-verify="replyContent"
                                                                       placeholder="请输入回复内容" class="layui-textarea"
@@ -228,6 +230,8 @@
                                                     </form>
                                                 </div>
                                             </li>
+                                        </#list>
+                                            <div class="layui-flow-more">还没有更多的人评论~QAQ</div>
                                         </ul>
                                     </div>
                                 </div>

@@ -112,12 +112,14 @@
                                 <form class="layui-form" action="">
                                     <input type="hidden" name="parent_key"
                                            value="${articleMemoDO.id}">
+
                                     <div class="layui-form-item">
                                             <textarea name="replyContent" lay-verify="replyContent"
+                                                      placeholder="请输入内容"
                                                       class="layui-textarea"
-                                                      style="min-height:80px;">
-                                        </textarea>
+                                                      style="min-height:80px;"></textarea>
                                     </div>
+
                                     <div class="layui-form-item">
                                         <button class="layui-btn layui-btn-mini" lay-submit="formReply"
                                                 lay-filter="formReply">提交

@@ -27,7 +27,8 @@ layui.use(['form', 'layedit'], function () {
         var userMemo = {
             memo: data.field.editorContent,
             parent: 0,
-            aid: $("#aid").val()
+            aid: 0,
+            type: 1
         };
         $.ajax({
             type: 'post',
@@ -37,7 +38,10 @@ layui.use(['form', 'layedit'], function () {
                 layer.close(index);
                 if (data.code == 0) {
                     layer.msg(data.msg, {icon: 5});
-                } else if (data.code != -1) {
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 300);
+                } else if (data.code == -1) {
                     layer.msg('程序异常，请重试或联系作者', {icon: 6});
                 } else {
                     $('#user-login').removeClass('layui-hide');
@@ -51,9 +55,7 @@ layui.use(['form', 'layedit'], function () {
                         }
                     );
                 }
-                setTimeout(function () {
-                    window.location.reload();
-                }, 300);
+
             },
             error: function (data) {
                 layer.close(index);
@@ -92,7 +94,8 @@ layui.use(['form', 'layedit'], function () {
             floor: 0,
             memo: memo,
             parent: data.field.parent_key,
-            aid: $("#aid").val()
+            aid: $("#aid").val(),
+            type: 0
         };
         //留言回复
         $.ajax({
@@ -105,6 +108,9 @@ layui.use(['form', 'layedit'], function () {
                 layer.close(index);
                 if (data.code == 0) {
                     layer.msg(data.msg, {icon: 5});
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 300);
                 } else if (data.code == -2) {
                     $('#user-login').removeClass('layui-hide');
                     layer.open(
@@ -118,11 +124,8 @@ layui.use(['form', 'layedit'], function () {
                     );
                 } else {
                     layer.msg('程序异常，请重试或联系作者', {icon: 6});
-
                 }
-                setTimeout(function () {
-                    window.location.reload();
-                }, 300);
+
             },
             error: function (data) {
                 layer.close(index);

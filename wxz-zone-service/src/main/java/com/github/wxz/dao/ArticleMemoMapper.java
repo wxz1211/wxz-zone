@@ -17,12 +17,14 @@ import java.util.List;
 public interface ArticleMemoMapper {
     /**
      * getFloorArticleMemo
+     * 根据parent 和 aid ,type 获取memo
      *
      * @param aid
      * @param parent
+     * @param type
      * @return
      */
-    List<ArticleMemo> getFloorArticleMemo(@Param("aid") Integer aid, @Param("parent") Integer parent);
+    List<ArticleMemo> getFloorArticleMemo(@Param("aid") Integer aid, @Param("parent") Integer parent, @Param("type") Integer type);
 
     /**
      * addArticleMemo
@@ -34,17 +36,21 @@ public interface ArticleMemoMapper {
 
     /**
      * articleMemoCount
+     *
      * @param aid
+     * @param type
      * @return
      */
-    @Select("select count(1) from wxz_zone_article_memo where aid = #{aid}")
-    Integer getArticleMemoTotalCount(@Param("aid") Integer aid);
+    @Select("select count(1) from wxz_zone_article_memo where aid = #{aid} and type =#{type}")
+    Integer getArticleMemoTotalCount(@Param("aid") Integer aid, @Param("type") Integer type);
 
     /**
      * getArticleMemoFloorCount
+     *
      * @param aid
+     * @param type
      * @return
      */
-    @Select("select count(1) from wxz_zone_article_memo where aid = #{aid} and parent = 0")
-    Integer getArticleMemoFloorCount(@Param("aid") Integer aid);
+    @Select("select count(1) from wxz_zone_article_memo where aid = #{aid} and type =#{type} and parent = 0")
+    Integer getArticleMemoFloorCount(@Param("aid") Integer aid, @Param("type") Integer type);
 }

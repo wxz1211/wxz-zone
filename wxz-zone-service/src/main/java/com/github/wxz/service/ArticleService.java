@@ -140,12 +140,12 @@ public class ArticleService {
         }
 
         //评论数
-        int memoCount = articleMemoMapper.getArticleMemoTotalCount(article.getId());
+        int memoCount = articleMemoMapper.getArticleMemoTotalCount(article.getId(),0);
 
         articleDO.setMemoCount(memoCount);
         //评论实体类
         if (memoCount != 0) {
-            List<ArticleMemo> articleMemoList = articleMemoMapper.getFloorArticleMemo(article.getId(), 0);
+            List<ArticleMemo> articleMemoList = articleMemoMapper.getFloorArticleMemo(article.getId(), 0,0);
 
             if (!CollectionUtils.isEmpty(articleMemoList)) {
 
@@ -162,7 +162,7 @@ public class ArticleService {
                             articleMemoDO.setuName(user1.getName());
                             articleMemoDO.setImg(user1.getImg());
                             List<ArticleMemo> articleMemos = articleMemoMapper.getFloorArticleMemo(
-                                    articleMemo.getAid(), articleMemo.getId());
+                                    articleMemo.getAid(), articleMemo.getId(),0);
 
                             if (!CollectionUtils.isEmpty(articleMemos)) {
                                 List<ArticleMemoSecondDO> articleMemoListSecond = new ArrayList<>();

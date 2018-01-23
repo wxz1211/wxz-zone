@@ -1,31 +1,23 @@
-package com.github.wxz.entity;
+package com.github.wxz.domain;
 
 import java.util.Date;
+import java.util.List;
 
 /**
- * @author: wangxianzhi
- * @date: 2018/1/21
- * @time: 19:38
- * @email: xianzhi@eastmoney.com
+ * @author xianzhi.wang
+ * @date 2018/1/23 -14:16
  */
-public class ArticleMemo {
+public class LeaveMsgDO {
     private Integer id;
     private Integer uid;
-    private Integer aid;
+    private String uName;
+    private String img;
     private Integer floor;
     private Integer parent;
     private String memo;
-    private Integer type;
     private Date create;
     private Date update;
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
-    }
+    private List<LeaveMsgScdDO> leaveMsgScdDOList;
 
     public Integer getId() {
         return id;
@@ -43,13 +35,22 @@ public class ArticleMemo {
         this.uid = uid;
     }
 
-    public Integer getAid() {
-        return aid;
+    public String getuName() {
+        return uName;
     }
 
-    public void setAid(Integer aid) {
-        this.aid = aid;
+    public void setuName(String uName) {
+        this.uName = uName;
     }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
 
     public Integer getFloor() {
         return floor;
@@ -91,17 +92,11 @@ public class ArticleMemo {
         this.update = update;
     }
 
-    @Override
-    public String toString() {
-        return "ArticleMemo{" +
-                "id=" + id +
-                ", uid=" + uid +
-                ", aid=" + aid +
-                ", floor=" + floor +
-                ", parent=" + parent +
-                ", memo='" + memo + '\'' +
-                ", create=" + create +
-                ", update=" + update +
-                '}';
+    public List<LeaveMsgScdDO> getLeaveMsgScdDOList() {
+        return leaveMsgScdDOList;
+    }
+
+    public void setLeaveMsgScdDOList(List<LeaveMsgScdDO> leaveMsgScdDOList) {
+        this.leaveMsgScdDOList = leaveMsgScdDOList;
     }
 }

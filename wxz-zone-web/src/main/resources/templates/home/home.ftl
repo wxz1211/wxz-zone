@@ -69,12 +69,13 @@
                     </div>
                 </div>
             </#list>
-                <div class="article shadow" style="padding: 10px 0px 10px 242px;">
+                <div class="layui-flow-more"><a href="article">查看更多....</a></div>
+              <#--  <div class="article shadow" style="padding: 10px 0px 10px 242px;">
                     <a href="article" style="position: relative;width: 206px;height: 60px;
                     line-height: 60px;font-size: 26px;font-weight: 300;"
                        class="layui-btn">查看更多
                     </a>
-                </div>
+                </div>-->
                 <div style="align-content: center;font-size: inherit"></div>
             </div>
 

@@ -9,6 +9,7 @@ public class UserMemoDO {
     private Integer floor;
     private Integer parent;
     private String memo;
+    private Integer type;
 
     public Integer getAid() {
         return aid;
@@ -40,5 +41,24 @@ public class UserMemoDO {
 
     public void setMemo(String memo) {
         this.memo = memo;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    @Override
+    public String toString() {
+        return "UserMemoDO{" +
+                "aid=" + aid +
+                ", floor=" + floor +
+                ", parent=" + parent +
+                ", memo='" + memo + '\'' +
+                ", type=" + type +
+                '}';
     }
 }

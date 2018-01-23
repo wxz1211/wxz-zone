@@ -37,7 +37,13 @@ public class ArticleAction {
     @Autowired
     private ArticleMemoService articleMemoService;
 
-
+    /**
+     * 文章，添加文章
+     *
+     * @param model
+     * @param userArticle
+     * @return
+     */
     @RequestMapping("/addArticle")
     public Response addArticle(Model model, @RequestParam("userArticle") String userArticle) {
         UserAuthDO userAuthDO = headPrinter.printHead(model);
@@ -64,6 +70,13 @@ public class ArticleAction {
         return Response.SUCCESS;
     }
 
+    /**
+     * 文章 留言墙 添加评论
+     *
+     * @param model
+     * @param userMemo
+     * @return
+     */
     @RequestMapping("/addMemo")
     public Response addMemo(Model model, @RequestParam("userMemo") String userMemo) {
         UserAuthDO userAuthDO = headPrinter.printHead(model);
@@ -80,7 +93,7 @@ public class ArticleAction {
         BeanUtils.copyProperties(articleMemo, userMemoDO);
         articleMemo.setUid(userAuthDO.getId());
         if (userMemoDO.getParent() == 0) {
-            articleMemo.setFloor(articleMemoService.getArticleMemoFloorCount(userMemoDO.getAid()) + 1);
+            articleMemo.setFloor(articleMemoService.getArticleMemoFloorCount(userMemoDO.getAid(), articleMemo.getType()) + 1);
         }
         articleMemoService.addArticleMemo(articleMemo);
         return Response.SUCCESS;

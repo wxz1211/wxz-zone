@@ -11,6 +11,7 @@
         where
         aid = #{aid}
         AND parent = #{parent}
+        AND type = #{type}
         ORDER BY floor DESC ,`create` DESC
     </select>
 
@@ -26,6 +27,7 @@
         parent,
         floor,
         memo,
+        `type`,
         `create`,
         `update`
         )
@@ -35,6 +37,7 @@
         #{parent},
         #{floor},
         #{memo},
+        #{type},
         now(),
         now())
     </insert>

@@ -2,6 +2,7 @@ package com.github.wxz.controller;
 
 import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
+import com.github.wxz.domain.LeaveMessageDO;
 import com.github.wxz.domain.UserAuthDO;
 import com.github.wxz.entity.Article;
 import com.github.wxz.entity.ArticleCategory;
@@ -37,10 +38,18 @@ public class IndexController {
 
     @Autowired
     private ArticleAccessLogService articleAccessLogService;
+    @Autowired
+    private ArticleMemoService articleMemoService;
 
     @Autowired
     private HeadPrinter headPrinter;
 
+    /**
+     * home
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "home")
     public String home(Model model) {
         headPrinter.printHead(model);
@@ -55,6 +64,12 @@ public class IndexController {
         return "home/home";
     }
 
+    /**
+     * article
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "article")
     public String article(Model model) {
         headPrinter.printHead(model);
@@ -90,7 +105,6 @@ public class IndexController {
 
         List<Article> chosenArticleList = articleService.getChosenArticles();
 
-
         model.addAttribute("articleDO", articleDO);
 
         model.addAttribute("articleCategoryList", articleCategoryList);
@@ -100,9 +114,19 @@ public class IndexController {
         return "detail/detail";
     }
 
+    /**
+     * about
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "about")
     public String about(Model model) {
+
         headPrinter.printHead(model);
+        LeaveMessageDO leaveMessageDO = articleMemoService.getLeaveMessage();
+        model.addAttribute("leaveMessageDO", leaveMessageDO);
+
         return "about/about";
     }
 
