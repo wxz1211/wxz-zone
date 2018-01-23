@@ -27,8 +27,8 @@ layui.use(['form', 'layedit'], function () {
         var userMemo = {
             memo: data.field.editorContent,
             parent: 0,
-            aid: 0,
-            type: 1
+            aid: $("#aid").val(),
+            type:0
         };
         $.ajax({
             type: 'post',
@@ -95,7 +95,7 @@ layui.use(['form', 'layedit'], function () {
             memo: memo,
             parent: data.field.parent_key,
             aid: $("#aid").val(),
-            type: 0
+            type:0
         };
         //留言回复
         $.ajax({
