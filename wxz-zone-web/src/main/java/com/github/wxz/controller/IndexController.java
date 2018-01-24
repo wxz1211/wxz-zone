@@ -1,21 +1,25 @@
 package com.github.wxz.controller;
 
+import com.github.wxz.common.response.Response;
+import com.github.wxz.common.util.DateUtil;
 import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.domain.ArticleDO;
-import com.github.wxz.domain.LeaveMessageDO;
 import com.github.wxz.domain.UserAuthDO;
-import com.github.wxz.entity.Article;
-import com.github.wxz.entity.ArticleCategory;
-import com.github.wxz.entity.ArticleTag;
-import com.github.wxz.entity.User;
+import com.github.wxz.domain.leave.message.LeaveMessageDO;
+import com.github.wxz.entity.*;
 import com.github.wxz.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xianzhi.wang
@@ -38,8 +42,12 @@ public class IndexController {
 
     @Autowired
     private ArticleAccessLogService articleAccessLogService;
+
     @Autowired
     private ArticleMemoService articleMemoService;
+
+    @Autowired
+    private TimeLineService timeLineService;
 
     @Autowired
     private HeadPrinter headPrinter;
@@ -140,6 +148,40 @@ public class IndexController {
     public String timeline(Model model) {
         headPrinter.printHead(model);
         return "timeline/timeline";
+    }
+
+
+    @RequestMapping("timelineAjax")
+    public @ResponseBody
+    Response timelineAjax(@RequestParam("pageNo") Integer pageNo) {
+        PaginationManage<TimeLine> timeLinePaginationManage = timeLineService.getTimeLineByPage(pageNo, 30);
+        List<TimeLine> timeLineList = timeLinePaginationManage.getDataList();
+        Map<String, Map<String, List<TimeLine>>> stringListMap = new HashMap<>();
+        timeLineList.stream().forEach(timeLine -> {
+            String year = DateUtil.getYear(timeLine.getCreate()) + "";
+            //月份
+            String month = year + "" + DateUtil.getMonth(timeLine.getCreate());
+            Map<String, List<TimeLine>> map = stringListMap.get(year);
+            if (CollectionUtils.isEmpty(map)) {
+                List<TimeLine> timeLines = new ArrayList<>();
+                timeLines.add(timeLine);
+                map = new HashMap<>();
+                map.put(month, timeLines);
+                stringListMap.put(year, map);
+            } else {
+                List<TimeLine> lineList = map.get(month);
+                if (CollectionUtils.isEmpty(lineList)) {
+                    List<TimeLine> timeLines = new ArrayList<>();
+                    timeLines.add(timeLine);
+                    map.put(month, timeLines);
+                } else {
+                    lineList.add(timeLine);
+                    map.put(month, lineList);
+                }
+                stringListMap.put(year, map);
+            }
+        });
+        return Response.successResponse(stringListMap);
     }
 
     @RequestMapping(value = "edit")

@@ -1,12 +1,13 @@
-package com.github.wxz.domain;
+package com.github.wxz.domain.leave.message;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author xianzhi.wang
  * @date 2018/1/23 -14:16
  */
-public class LeaveMsgScdDO {
+public class LeaveMsgDO {
     private Integer id;
     private Integer uid;
     private String uName;
@@ -16,6 +17,7 @@ public class LeaveMsgScdDO {
     private String memo;
     private Date create;
     private Date update;
+    private List<LeaveMsgScdDO> leaveMsgScdDOList;
 
     public Integer getId() {
         return id;
@@ -48,6 +50,7 @@ public class LeaveMsgScdDO {
     public void setImg(String img) {
         this.img = img;
     }
+
 
     public Integer getFloor() {
         return floor;
@@ -87,5 +90,13 @@ public class LeaveMsgScdDO {
 
     public void setUpdate(Date update) {
         this.update = update;
+    }
+
+    public List<LeaveMsgScdDO> getLeaveMsgScdDOList() {
+        return leaveMsgScdDOList;
+    }
+
+    public void setLeaveMsgScdDOList(List<LeaveMsgScdDO> leaveMsgScdDOList) {
+        this.leaveMsgScdDOList = leaveMsgScdDOList;
     }
 }

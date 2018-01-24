@@ -1,4 +1,4 @@
-package com.github.wxz.domain;
+package com.github.wxz.domain.leave.message;
 
 import java.util.List;
 

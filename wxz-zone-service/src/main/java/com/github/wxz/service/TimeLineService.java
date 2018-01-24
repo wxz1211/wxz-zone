@@ -1,11 +1,10 @@
 package com.github.wxz.service;
 
+import com.github.wxz.common.util.PaginationManage;
 import com.github.wxz.dao.TimeLineMapper;
 import com.github.wxz.entity.TimeLine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author xianzhi.wang
@@ -17,7 +16,12 @@ public class TimeLineService {
     @Autowired
     private TimeLineMapper timeLineMapper;
 
-    public List<TimeLine> getTimeLineByPage(Integer begin, Integer pageSize) {
-        return timeLineMapper.getTimeLineByPage(begin, pageSize);
+    public PaginationManage<TimeLine> getTimeLineByPage(Integer pageNo, Integer pageSize) {
+        PaginationManage<TimeLine> timeLinePaginationManage = new PaginationManage<>();
+        timeLinePaginationManage.setPageInfo(pageNo, pageSize);
+        timeLinePaginationManage.setTotalCount(timeLineMapper.count());
+        timeLinePaginationManage.setDataList(timeLineMapper.getTimeLineByPage((pageNo - 1) * pageSize, pageSize));
+        return timeLinePaginationManage;
+
     }
 }

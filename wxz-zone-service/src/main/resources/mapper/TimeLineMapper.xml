@@ -9,7 +9,8 @@
         SELECT
         *
         from
-        wxz_zone_article_category
+        wxz_zone_time_line
+        order BY `create` DESC
         limit #{begin},#{pageSize}
     </select>
 
