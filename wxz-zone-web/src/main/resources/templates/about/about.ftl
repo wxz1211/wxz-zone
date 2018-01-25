@@ -14,7 +14,7 @@
 
 <body>
 <!-- 导航 -->
-<@netCommonNav.commonNav4/>
+<@netCommonNav.commonNav/>
 <!-- 主体（一般只改变这里的内容） -->
 <div class="blog-body">
     <div class="blog-container">

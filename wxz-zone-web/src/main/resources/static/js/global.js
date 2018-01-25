@@ -2,6 +2,23 @@
     var $ = layui.jquery;
     var layer = layui.layer;
     var form = layui.form;
+
+    var currentPath = window.location.href.split("/");
+
+    var path = currentPath[currentPath.length - 1];
+    var searchArr = [];
+    $(".blog-nav .layui-nav li a").each(function (i, e) {
+        var name = $(e).attr('href').split(">");
+        searchArr.push(name[name.length - 1].toLowerCase());
+    });
+
+    var index = searchArr.indexOf(path);
+    if (index == -1 || index > 4) {
+        $(".layui-nav .layui-nav-item").removeClass("layui-this");
+    } else {
+        $(".layui-nav .layui-nav-item").removeClass("layui-this").eq(index).addClass("layui-this");
+    }
+
     $('#login').on('click', function () {
         $('#user-login').removeClass('layui-hide');
         layer.open(

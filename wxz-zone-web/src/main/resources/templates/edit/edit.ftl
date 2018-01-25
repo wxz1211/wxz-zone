@@ -31,7 +31,7 @@
 </style>
 <body>
 
-<@netCommonNav.commonNavNormal/>
+<@netCommonNav.commonNav/>
 
 <!-- 主体（一般只改变这里的内容） -->
 <div class="blog-body">

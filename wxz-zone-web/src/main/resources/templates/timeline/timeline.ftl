@@ -10,23 +10,23 @@
 </head>
 <body>
 <!-- 导航 -->
-<@netCommonNav.commonNav3/>
+<@netCommonNav.commonNav/>
 <!-- 主体（一般只改变这里的内容） -->
 <div class="blog-body">
     <div class="blog-container">
         <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
-            <a href="home" title="网站首页">网站首页</a>
-            <a href="timeline" title="点点滴滴">点点滴滴</a>
-            <a><cite>时光轴</cite></a>
+            <a href="home" title="网站首页">首页</a>
+            <a href="timeline" title="一路走来">一路走来</a>
+            <a><cite>发展历程</cite></a>
         </blockquote>
         <div class="blog-main">
             <div class="child-nav shadow">
-                <span class="child-nav-btn child-nav-btn-this">时光轴</span>
+                <span class="child-nav-btn child-nav-btn-this">一路走来</span>
                 <span class="child-nav-btn">笔记墙</span>
             </div>
             <div class="timeline-box shadow">
                 <div class="timeline-main">
-                    <h1><i class="fa fa-clock-o"></i>时光轴<span> —— 记录生活点点滴滴</span></h1>
+                    <h1><i class="fa fa-clock-o"></i>发展历程<span> —— 记录生活点点滴滴</span></h1>
                     <div class="timeline-line"></div>
                     <div id="time_line">
 
