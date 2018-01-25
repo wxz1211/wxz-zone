@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.*;
 
 /**
+ * 页面路由
+ *
  * @author xianzhi.wang
  * @date 2018/1/10 -12:33
  */
@@ -127,11 +129,13 @@ public class IndexController {
      */
     @RequestMapping(value = "about")
     public String about(Model model) {
-
         headPrinter.printHead(model);
         LeaveMessageDO leaveMessageDO = articleMemoService.getLeaveMessage();
+        Article siteIntroduce = articleService.getArticleByArticleId(81);
+        Article authorIntroduce = articleService.getArticleByArticleId(82);
+        model.addAttribute("siteIntroduce", siteIntroduce);
+        model.addAttribute("authorIntroduce", authorIntroduce);
         model.addAttribute("leaveMessageDO", leaveMessageDO);
-
         return "about/about";
     }
 
@@ -178,17 +182,14 @@ public class IndexController {
                 stringListMap.put(year, map);
             }
         });
-
         return Response.successResponse(stringListMap);
     }
 
     @RequestMapping(value = "edit")
     public String edit(Model model) {
         headPrinter.printHead(model);
-
         List<ArticleCategory> articleCategoryList = articleCategoryService.getAllArticleCateGory();
         List<ArticleTag> articleTagList = articleTagService.getAllArticleTag();
-
         model.addAttribute("articleCategoryList", articleCategoryList);
         model.addAttribute("articleTagList", articleTagList);
         return "edit/edit";

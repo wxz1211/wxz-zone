@@ -102,7 +102,7 @@
 
     </div>
     <div class="blogerinfo-contact">
-        <a target="_blank" title="相亲简介" href="http://tieba.baidu.com/home/main?un=%E9%9B%B7%E7%A5%AD%E7%9A%84%E5%AD%98%E5%9C%A8&fr=home><i
+        <a target="_blank" title="相亲简介" href="http://tieba.baidu.com/home/main?un=%E9%9B%B7%E7%A5%AD%E7%9A%84%E5%AD%98%E5%9C%A8&fr=home"><i
                 class=" fa fa-twitch fa-lg"></i> 相亲简介</a>
         <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
                 class="fa  fa-yelp  fa-lg"></i> 基佬专用</a>

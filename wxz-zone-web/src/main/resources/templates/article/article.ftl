@@ -23,22 +23,20 @@
         </blockquote>
         <div class="blog-main">
             <div class="blog-main-left">
-                <div class="shadow"
-                     style="text-align:center;font-size:16px;padding:40px 15px;background:#fff;margin-bottom:15px;">
-                    未搜索到与【<span style="color: #FF5722;">keywords</span>】有关的文章，随便看看吧！
-                </div>
+            <#-- <div class="shadow"
+                  style="text-align:center;font-size:16px;padding:40px 15px;background:#fff;margin-bottom:15px;">
+                 未搜索到与【<span style="color: #FF5722;">keywords</span>】有关的文章，随便看看吧！
+             </div>-->
                 <div id="blog-main-left-body">
 
-
                 </div>
-
             </div>
             <div class="blog-main-right">
                 <div class="blog-search">
                     <form class="layui-form" action="">
                         <div class="layui-form-item">
                             <div class="search-keywords  shadow">
-                                <input type="text" name="keywords" lay-verify="required" placeholder="输入关键词搜索"
+                                <input name="keywords" lay-verify="required" placeholder="输入关键词搜索"
                                        autocomplete="off" class="layui-input">
                             </div>
                             <div class="search-submit  shadow">
@@ -100,7 +98,6 @@
                 data: {pageNo: pageNo},
                 dataType: 'json',
                 success: function (data) {
-
                     var totalCount = data.data.totalCount;
                     var dataList = data.data.dataList;
                     var currentPageNo = data.data.currentPageNo;
@@ -123,11 +120,11 @@
                                 + dataList[i].sent
                                 + '</div></div>'
                                 + '<div class="clear"></div><div class="article-footer">'
-                                + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + timetrans(dataList[i].create) + '</span>'
+                                + '<span><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + timeTrans(dataList[i].create) + '</span>'
                                 + '<span class="article-author"><i class="fa fa-user"></i>&nbsp;' + dataList[i].uName + '</span>'
                                 + '<span><i class="fa fa-tag"></i>&nbsp;&nbsp;<a href="javascript:;">' + dataList[i].tag + '</a></span>'
                                 + '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + dataList[i].accessCount + '</span>'
-                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;'+dataList[i].memoCount+'</span>'
+                                + '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;' + dataList[i].memoCount + '</span>'
                                 + '</div></div>'
                     }
 
@@ -148,11 +145,9 @@
                 }
             });
         }
-
-
     });
 
-    function timetrans(date) {
+    function timeTrans(date) {
         var date = new Date(date);//如果date为13位不需要乘1000
         var Y = date.getFullYear() + '-';
         var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';

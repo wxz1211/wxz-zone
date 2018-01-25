@@ -76,7 +76,7 @@
                         <div class="layui-input-block">
                         <#list articleTagList as item>
                             <input type="checkbox" name="article_tag" title="${item.name}" id="tag${item.id}"
-                                  >
+                            >
                         </#list>
                         </div>
                     </div>
@@ -100,28 +100,22 @@
                             <button style="margin: 10px 0px 0px 40px;" type="button" class="layui-btn"
                                     id="article_upload_img">上传文章图片
                             </button>
-                            <legend style="margin: 10px 0px 0px 40px;">图片尺寸应小于800*800，且上传图片宽度应小于高度</legend>
+                            <legend style="margin: 10px 0px 0px 40px;">图片尺寸应小于800*800，且上传图片宽度应大于高度</legend>
                             <div class="layui-upload-list" style="margin: 10px 0px 0px 40px;">
                                 <img class="layui-upload-img" id="article_img">
                                 <p id="article_img_text"></p>
                             </div>
                         </div>
                     </div>
-
-
                     <!--左边文章列表-->
                     <div style="margin: 0px 0px">
                         <textarea id="layer-edit"></textarea>
-
                     </div>
                     <div class="layui-form-item p">
-
                         <button id="add_article_submit" lay-submit lay-filter="add_article_form" class="layui-btn">
                             发表
                         </button>
                     </div>
-
-
                     <div class="clear"></div>
                 </form>
             </div>

@@ -25,7 +25,7 @@
         <div class="blog-main">
             <div class="layui-tab layui-tab-brief shadow" lay-filter="tabAbout">
                 <ul class="layui-tab-title">
-                    <li lay-id="1">关于博客</li>
+                    <li lay-id="1">关于本站</li>
                     <li lay-id="2">关于作者</li>
                     <li lay-id="3" id="frinedlink">友情链接</li>
                     <li lay-id="4">留言墙</li>
@@ -34,12 +34,13 @@
                     <div class="layui-tab-item">
                         <div class="aboutinfo">
                             <div class="aboutinfo-figure">
-                                <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg" alt="lost"/>
+                                <img src="http://www.wangxianzhi.xyz/static/2018_01_25142659342_6_20180125141748.png"
+                                     style="width: 100px;height: 100px" alt="cool"/>
                             </div>
-                            <p class="aboutinfo-nickname">lost</p>
+                            <p class="aboutinfo-nickname">Cool</p>
                             <p class="aboutinfo-introduce">肥宅又做错了什么</p>
-                            <p class="aboutinfo-location"><i class="fa fa-link"></i>&nbsp;&nbsp;<a target="_blank"
-                                                                                                   href="home">www.wangxianzhi.xyz/wxz-zone/home</a>
+                            <p class="aboutinfo-location"><i class="fa fa-link"></i>&nbsp;&nbsp;
+                                <a target="_blank" href="home">www.wangxianzhi.xyz/wxz-zone/home</a>
                             </p>
                             <hr/>
                             <div class="aboutinfo-contact">
@@ -56,15 +57,7 @@
                             <fieldset class="layui-elem-field layui-field-title">
                                 <legend>简介</legend>
                                 <div class="layui-field-box aboutinfo-abstract">
-                                    <p style="text-align:center;"></p>
-                                    <h1>第一个版本</h1>
-                                    <p>
-                                    </p>
-                                    <h1>第二个版本</h1>
-                                    <p></p>
-                                    <h1>当前版本</h1>
-                                    <p>
-                                    </p>
+                                ${siteIntroduce.content}
                                     <h1 style="text-align:center;">The End</h1>
                                 </div>
                             </fieldset>
@@ -73,30 +66,35 @@
                     <div class="layui-tab-item">
                         <div class="aboutinfo">
                             <div class="aboutinfo-figure">
-                                <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg" alt="shijia"/>
+                                <img src="http://www.wangxianzhi.xyz/static/2018_01_25142659342_6_20180125141748.png"
+                                     style="width: 100px;height: 100px" alt="shijia"/>
                             </div>
-                            <p class="aboutinfo-nickname">废宅</p>
-                            <p class="aboutinfo-introduce">废宅</p>
+                            <p class="aboutinfo-nickname">做个小肥宅吧</p>
+                            <p class="aboutinfo-introduce">做个小肥宅吧</p>
                             <p class="aboutinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;上海 - 宝山</p>
                             <hr/>
-                            <div class="aboutinfo-contact">
-                                <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i
-                                        class="fa fa-qq fa-2x"></i></a>
-                                <a target="_blank" title="给我写信" href="javascript:layer.msg('启动邮我窗口')"><i
-                                        class="fa fa-envelope fa-2x"></i></a>
-                                <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i
-                                        class="fa fa-weibo fa-2x"></i></a>
-                                <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i
-                                        class="fa fa-git fa-2x"></i></a>
+
+                            <div class="blogerinfo-contact" style="padding: 0px 0 15px 0px;">
+                                <a target="_blank" title="豆瓣交流" href="https://www.douban.com/people/wxz1211/"><i
+                                        class="fa  fa-slideshare fa-lg"></i> 豆瓣交流</a>&nbsp;&nbsp;&nbsp;
+                                <a target="_blank" title="相亲专用"
+                                   href="https://www.zhihu.com/people/wangxianzhi1211/activities"><i
+                                        class="fa fa-openid fa-lg"></i> 相亲专用</a>
+
                             </div>
+
+                            <div class="blogerinfo-contact" style="padding: 0px 0 10px 0px;">
+                                <a target="_blank" title="相亲简介"
+                                   href="http://tieba.baidu.com/home/main?un=%E9%9B%B7%E7%A5%AD%E7%9A%84%E5%AD%98%E5%9C%A8&fr=home"><i
+                                        class=" fa fa-twitch fa-lg"></i> 相亲简介</a>&nbsp;&nbsp;&nbsp;
+                                <a target="_blank" title="基佬专用" href="https://github.com/wxz1211"><i
+                                        class="fa  fa-yelp  fa-lg"></i> 基佬专用</a>
+                            </div>
+
                             <fieldset class="layui-elem-field layui-field-title">
                                 <legend>简介</legend>
                                 <div class="layui-field-box aboutinfo-abstract abstract-bloger">
-                                    <p style="text-align:center;"></p>
-                                    <h1>个人信息</h1>
-                                    <p>暂无</p>
-                                    <h1>个人介绍</h1>
-                                    <p>没什么介绍......</p>
+                                ${authorIntroduce.content}
                                     <h1 style="text-align:center;">The End</h1>
                                 </div>
                             </fieldset>
@@ -105,7 +103,8 @@
                     <div class="layui-tab-item">
                         <div class="aboutinfo">
                             <div class="aboutinfo-figure">
-                                <img src="${cxt.contextPath}/images/handshake.png" alt="友情链接"/>
+                                <img src="http://www.wangxianzhi.xyz/static/2018_01_25142659342_6_20180125141748.png"
+                                     style="width: 100px;height: 100px" alt="友情链接"/>
                             </div>
                             <p class="aboutinfo-nickname">友情链接</p>
                             <p class="aboutinfo-introduce">Name：&nbsp;&nbsp;&nbsp;&nbsp;Site:www.wangxianzhi.xyz/wxz-zone/home</p>
@@ -134,15 +133,6 @@
                                                 <p class="friendlink-item-domain">layui.com</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a target="_blank" href="http://www.pagemark.cn/" title="页签"
-                                               class="friendlink-item">
-                                                <p class="friendlink-item-pic"><img
-                                                        src="http://pm.lyblogs.cn/Images/logo-png.png" alt="页签"/></p>
-                                                <p class="friendlink-item-title">页签</p>
-                                                <p class="friendlink-item-domain">pagemark.cn</p>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </div>
                             </fieldset>
@@ -151,10 +141,11 @@
                     <div class="layui-tab-item">
                         <div class="aboutinfo">
                             <div class="aboutinfo-figure">
-                                <img src="http://www.wangxianzhi.xyz/static/before0720/shijia.jpg" alt="留言墙"/>
+                                <img src="http://www.wangxianzhi.xyz/static/2018_01_25142659342_6_20180125141748.png"
+                                     style="width: 100px;height: 100px" alt="留言墙"/>
                             </div>
                             <p class="aboutinfo-nickname">留言墙</p>
-                            <p class="aboutinfo-introduce">本页面可留言、吐槽、提问。欢迎灌水，杜绝广告！</p>
+                            <p class="aboutinfo-introduce">本页面可留言、吐槽、提问等！</p>
                             <p class="aboutinfo-location">
                                 <i class="fa fa-clock-o"></i>&nbsp;<span id="time"></span>
                             </p>
@@ -185,17 +176,20 @@
                                                 <div class="comment-parent">
                                                     <img src="${leaveMessageDO.img}"
                                                          alt="${leaveMessageDO.uName}"/>
-                                                    <div class="info">
+                                                    <div class="info info-common-parent">
                                                         <span class="username">${leaveMessageDO.uName}</span>
                                                     </div>
                                                     <div class="content">
-                                                    ${leaveMessageDO.memo}
+                                                        &nbsp;&nbsp;${leaveMessageDO.memo}
                                                     </div>
                                                     <p class="info info-footer"><span
-                                                            class="time"></span> ${leaveMessageDO.create?string('yyyy-MM-dd HH:mm:ss')}<a
-                                                            class="btn-reply"
-                                                            href="javascript:;"
-                                                            onclick="btnReplyClick(this)">&nbsp;回复</a>
+                                                            class="time"></span> ${leaveMessageDO.create?string('yyyy-MM-dd HH:mm:ss')}
+
+                                                        <a
+                                                                class="btn-reply"
+                                                                href="javascript:;"
+                                                                onclick="btnReplyClick(this)"> <i
+                                                                class="fa fa-commenting"></i>&nbsp;回复</a>
                                                     </p>
                                                 </div>
 
@@ -205,10 +199,16 @@
                                                         <img src="${leaveMsgScdDO.img}"
                                                              alt="${leaveMsgScdDO.uName}"/>
                                                         <div class="info">
-                                                            <span class="username">${leaveMsgScdDO.uName}</span><span>${leaveMsgScdDO.memo}</span>
+                                                            <span class="username">${leaveMsgScdDO.uName}</span>
+                                                            <span>&nbsp;${leaveMsgScdDO.memo}</span>
                                                         </div>
-                                                        <p class="info"><span
-                                                                class="time">${leaveMsgScdDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                                        <p class="info">
+                                                            <span class="time">${leaveMsgScdDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+
+                                                            <a class="btn-reply"
+                                                               href="javascript:;"
+                                                               onclick="btnReplyClickChild(this)"><i
+                                                                    class="fa fa-commenting"></i>&nbsp;回复</a>
                                                         </p>
                                                     </div>
                                                 </#list>

@@ -102,8 +102,10 @@
         *
         from
         wxz_zone_article
-         ORDER BY top DESC,`create` DESC
+        where `delete` =0
+        ORDER BY top DESC,`create` DESC
         limit #{begin},#{pageSize}
+
     </select>
 
 
@@ -112,6 +114,7 @@
         count(1)
         from
         wxz_zone_article
+        where `delete` =0
     </select>
 
     <update id="updateSidByArticleId">
@@ -130,6 +133,7 @@
         wxz_zone_article
         WHERE
         chosen = 1
+         AND `delete` =0
         ORDER BY top DESC,`create` DESC
         limit 5
     </select>
@@ -142,6 +146,7 @@
         wxz_zone_article
         WHERE
         top = 1
+        AND `delete` =0
         ORDER BY top DESC,`create` DESC
         limit 5
     </select>

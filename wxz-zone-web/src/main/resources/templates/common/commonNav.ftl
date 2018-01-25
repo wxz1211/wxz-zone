@@ -3,7 +3,7 @@
 <nav class="blog-nav layui-header">
     <div class="blog-container">
         <!-- 不落阁 -->
-        <a class="blog-logo" href="home">cool</a>
+        <a class="blog-logo" href="home">Cool</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
             <li class="layui-nav-item">

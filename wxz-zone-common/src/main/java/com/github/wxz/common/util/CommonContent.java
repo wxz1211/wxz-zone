@@ -8,7 +8,7 @@ package com.github.wxz.common.util;
  */
 public class CommonContent {
     public static final String ERROR = "error";
-    public static final int MAX_LENGTH = 700;
+    public static final int MAX_LENGTH = 800;
     public static String SECRET ="UrHrsrd2fR18dtK5";
 
 }

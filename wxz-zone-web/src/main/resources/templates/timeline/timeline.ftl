@@ -32,7 +32,9 @@
 
                     </div>
                 </div>
-                <h1 style="padding-top:4px;padding-bottom:2px;margin-top:40px;"><i class="fa fa-hourglass-end"></i>THE
+                <h1 align="center" style="
+                padding-top:4px;padding-bottom:2px;margin-top:40px;"><i
+                        class="fa fa-hourglass-end"></i>THE
                     END</h1>
             </div>
         </div>

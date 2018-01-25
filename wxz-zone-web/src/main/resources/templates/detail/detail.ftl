@@ -49,13 +49,12 @@
                             <br/>
                         </p>
                         <p>
-                            &nbsp; &nbsp; 关注我的github：<a href="javascript:;" target="_blank"><span
-                                style="color:#337FE5;">求star求fork</span></a>
+                            &nbsp; &nbsp; 关注<a href="https://github.com/wxz1211" target="_blank"><span
+                                style="color:#337FE5;">王贤志的github</span></a>
                         </p>
                         <hr/>
                     </div>
                 </div>
-
 
                 <!-- 评论区域 -->
                 <div class="blog-module shadow" style="box-shadow: 0 1px 8px #a6a6a6;">
@@ -78,7 +77,6 @@
                     <ul class="blog-comment">
                     <#list articleDO.articleMemoDOList as articleMemoDO>
                         <li>
-
                             <div class="comment-parent">
                                 <img src="${articleMemoDO.img}" alt="${articleMemoDO.uName}"/>
                                 <div class="info">
@@ -106,7 +104,6 @@
                                             class="time">${articleMemoSecondDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
                                     </p>
                                 </div>
-
                             </#list>
                             <div class="replycontainer layui-hide">
                                 <form class="layui-form" action="">
@@ -119,7 +116,6 @@
                                                       class="layui-textarea"
                                                       style="min-height:80px;"></textarea>
                                     </div>
-
                                     <div class="layui-form-item">
                                         <button class="layui-btn layui-btn-mini" lay-submit="formReply"
                                                 lay-filter="formReply">提交
@@ -129,7 +125,6 @@
                             </div>
                         </li>
                     </#list>
-
                         <div class="layui-flow-more">还没有更多的人评论~QAQ</div>
                     </ul>
                 </div>
@@ -149,8 +144,6 @@
                 </div>
 
             <@netCommon.commonHotArticle/>
-
-
             </div>
             <div class="clear"></div>
         </div>
