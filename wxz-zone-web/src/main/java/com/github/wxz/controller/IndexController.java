@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author xianzhi.wang
@@ -156,7 +153,7 @@ public class IndexController {
     Response timelineAjax(@RequestParam("pageNo") Integer pageNo) {
         PaginationManage<TimeLine> timeLinePaginationManage = timeLineService.getTimeLineByPage(pageNo, 30);
         List<TimeLine> timeLineList = timeLinePaginationManage.getDataList();
-        Map<String, Map<String, List<TimeLine>>> stringListMap = new HashMap<>();
+        Map<String, Map<String, List<TimeLine>>> stringListMap = new TreeMap<>(Comparator.reverseOrder());
         timeLineList.stream().forEach(timeLine -> {
             String year = DateUtil.getYear(timeLine.getCreate()) + "";
             //月份
@@ -165,7 +162,7 @@ public class IndexController {
             if (CollectionUtils.isEmpty(map)) {
                 List<TimeLine> timeLines = new ArrayList<>();
                 timeLines.add(timeLine);
-                map = new HashMap<>();
+                map = new TreeMap<>(Comparator.reverseOrder());
                 map.put(month, timeLines);
                 stringListMap.put(year, map);
             } else {
@@ -181,6 +178,7 @@ public class IndexController {
                 stringListMap.put(year, map);
             }
         });
+
         return Response.successResponse(stringListMap);
     }
 

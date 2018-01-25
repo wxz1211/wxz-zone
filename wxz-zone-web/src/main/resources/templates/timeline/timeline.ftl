@@ -1,16 +1,12 @@
 ﻿<!DOCTYPE html>
 <html>
-
 <#import "/common/common.ftl" as netCommon>
 <#import "/common/commonNav.ftl" as netCommonNav>
-
 <@netCommon.commonHtml />
-
 <head>
 <@netCommon.commonStyle />
     <!-- 本页样式表 -->
     <link href="${cxt.contextPath}/css/timeline.css" rel="stylesheet"/>
-
 </head>
 <body>
 <!-- 导航 -->
@@ -32,12 +28,10 @@
                 <div class="timeline-main">
                     <h1><i class="fa fa-clock-o"></i>时光轴<span> —— 记录生活点点滴滴</span></h1>
                     <div class="timeline-line"></div>
-                    <div id="test">
+                    <div id="time_line">
 
                     </div>
-
                 </div>
-
                 <h1 style="padding-top:4px;padding-bottom:2px;margin-top:40px;"><i class="fa fa-hourglass-end"></i>THE
                     END</h1>
             </div>
@@ -65,40 +59,35 @@
                 data: {pageNo: 1},
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data.data);
-                    var  map = data.data;
-                    for(var key in map){
-                       var html = '  <div class="timeline-year">';
-                       html+='   <h2><a class="yearToggle" href="javascript:;">'+key;
-                       html+='年</a><i class="fa fa-caret-down fa-fw"></i> </h2>';
-
-
+                    if (data.code != 0) {
+                        return;
                     }
-
-                <#list stringListMap?keys as key >
-
-
-                    <#list stringListMap.get(year)?keys as month>
-                            <div class="timeline-month">
-                            <h3 class=" animated fadeInLeft"><a class="monthToggle" href="javascript:;">${month}月</a><i
-                    class="fa fa-caret-down fa-fw"></i></h3>
-                            <ul>
-                        <#list stringListMap.get(year).get(month) as timeline>
-                                <li class=" ">
-                                <div class="h4  animated fadeInLeft">
-                                <p class="date">${timeline.create?string('yyyy-MM-dd HH:mm:ss')}</p>
-                                </div>
-                                <p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>
-                                <div class="content animated fadeInRight">${timeline.content}</div>
-                                <div class="clear"></div>
-                                </li>
-                        </#list>
-                            </ul>
-                            </div>
-                    </#list>
-                </#list>
-
-
+                    var yearMap = data.data;
+                    var html = '';
+                    for (var year in yearMap) {
+                        html += '  <div class="timeline-year">';
+                        html += '   <h2><a class="yearToggle" href="javascript:;">' + year;
+                        html += '年</a><i class="fa fa-caret-down fa-fw"></i> </h2>';
+                        var monthMap = yearMap[year];
+                        for (var month in monthMap) {
+                            html += '  <div class="timeline-month">';
+                            html += '  <h3 class=" animated fadeInLeft"><a class="monthToggle" href="javascript:;">' + month.substring(4) + '月</a>';
+                            html += '<i class="fa fa-caret-down fa-fw"></i></h3>';
+                            html += '<ul>';
+                            var list = monthMap[month];
+                            for (var i = 0; i < list.length; i++) {
+                                html += '<li class=" ">';
+                                html += '  <div class="h4  animated fadeInLeft">';
+                                html += ' <p class="date">' + timeTrans(list[i].create) + '</p> </div>';
+                                html += '<p class="dot-circle animated "><i class="fa fa-dot-circle-o"></i></p>';
+                                html += '<div class="content animated fadeInRight">' + list[i].content + '</div>';
+                                html += '<div class="clear"></div> </li>'
+                            }
+                            html += ' </ul> </div>';
+                        }
+                        html += '</div>';
+                    }
+                    $('#time_line').html(html);
                 }
             });
 
@@ -112,6 +101,17 @@
             });
         });
     });
+
+    function timeTrans(date) {
+        var date = new Date(date);//如果date为13位不需要乘1000
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+        var D = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' ';
+        var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+        var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+        var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+        return Y + M + D + h + m + s;
+    }
 </script>
 </body>
 <@netCommon.commonSign/>
