@@ -134,9 +134,31 @@ layui.use(['form', 'layedit'], function () {
 function btnReplyClick(elem) {
     var $ = layui.jquery;
     $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
-    if ($(elem).text() == '回复') {
-        $(elem).text('收起')
-    } else {
-        $(elem).text('回复')
+
+
+    var $ = layui.jquery;
+   // $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
+    var replyContainer = $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer');
+    var name = $(elem).parent('p').parent('.comment-parent').find('.info-common-parent .username').text();
+    var flag = replyContainer.hasClass('layui-hide');
+    if (flag) {
+        replyContainer.removeClass('layui-hide');
     }
+    replyContainer.find('textarea').text('@' + name + ':').focus();
+
+
+}
+
+
+function btnReplyClickChild(elem) {
+    var $ = layui.jquery;
+    //$(elem).parent('.info').parent('.comment-child').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
+    var replyContainer = $(elem).parent('.info').parent('.comment-child').siblings('.replycontainer');
+    var name = $(elem).parent('.info').parent('.comment-child').find('.username').text();
+    var flag = replyContainer.hasClass('layui-hide');
+    if (flag) {
+        replyContainer.removeClass('layui-hide');
+    }
+    replyContainer.find('textarea').text('@' + name + ':')
+        .focus();
 }

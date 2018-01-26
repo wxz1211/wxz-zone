@@ -75,6 +75,7 @@ public class ArticleMemoService {
                 leaveMsgDO.setImg(user1.getImg());
                 List<ArticleMemo> articleMemos = articleMemoMapper.getFloorArticleMemo(
                         0, articleMemo.getId(), 1);
+                Collections.reverse(articleMemos);
                 if (!CollectionUtils.isEmpty(articleMemos)) {
                     List<LeaveMsgScdDO> leaveMsgScdDOList = new ArrayList<>();
                     articleMemos.stream().forEach(articleMemo1 -> {

@@ -79,7 +79,7 @@
                         <li>
                             <div class="comment-parent">
                                 <img src="${articleMemoDO.img}" alt="${articleMemoDO.uName}"/>
-                                <div class="info">
+                                <div class="info info-common-parent ">
                                     <span class="username">${articleMemoDO.uName}</span>
 
                                 </div>
@@ -89,7 +89,8 @@
                                 <p class="info info-footer">
                                     <span class="time">${articleMemoDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
                                     &nbsp;
-                                    <a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)">回复</a>
+                                    <a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)"><i
+                                            class="fa fa-commenting"></i>&nbsp;回复</a>
                                 </p>
                             </div>
                             <hr>
@@ -102,6 +103,10 @@
                                     </div>
                                     <p class="info"><span
                                             class="time">${articleMemoSecondDO.create?string('yyyy-MM-dd HH:mm:ss')}</span>
+                                        <a class="btn-reply"
+                                           href="javascript:;"
+                                           onclick="btnReplyClickChild(this)"><i
+                                                class="fa fa-commenting"></i>&nbsp;回复</a>
                                     </p>
                                 </div>
                             </#list>

@@ -140,12 +140,12 @@ public class ArticleService {
         }
 
         //评论数
-        int memoCount = articleMemoMapper.getArticleMemoTotalCount(article.getId(),0);
+        int memoCount = articleMemoMapper.getArticleMemoTotalCount(article.getId(), 0);
 
         articleDO.setMemoCount(memoCount);
         //评论实体类
         if (memoCount != 0) {
-            List<ArticleMemo> articleMemoList = articleMemoMapper.getFloorArticleMemo(article.getId(), 0,0);
+            List<ArticleMemo> articleMemoList = articleMemoMapper.getFloorArticleMemo(article.getId(), 0, 0);
 
             if (!CollectionUtils.isEmpty(articleMemoList)) {
 
@@ -153,6 +153,7 @@ public class ArticleService {
                 Supplier<List<ArticleMemoDO>> supplier = () -> new ArrayList<>();
                 //lambada
                 List<ArticleMemoDO> articleMemoDOList = new ArrayList<>();
+
                 articleMemoList
                         .stream()
                         .forEach(articleMemo -> {
@@ -162,7 +163,7 @@ public class ArticleService {
                             articleMemoDO.setuName(user1.getName());
                             articleMemoDO.setImg(user1.getImg());
                             List<ArticleMemo> articleMemos = articleMemoMapper.getFloorArticleMemo(
-                                    articleMemo.getAid(), articleMemo.getId(),0);
+                                    articleMemo.getAid(), articleMemo.getId(), 0);
 
                             if (!CollectionUtils.isEmpty(articleMemos)) {
                                 List<ArticleMemoSecondDO> articleMemoListSecond = new ArrayList<>();
@@ -174,6 +175,7 @@ public class ArticleService {
                                     articleMemoSecondDO.setImg(user2.getImg());
                                     articleMemoListSecond.add(articleMemoSecondDO);
                                 });
+                                Collections.reverse(articleMemoListSecond);
                                 articleMemoDO.setArticleMemoSecondDOList(articleMemoListSecond);
                             } else {
                                 articleMemoDO.setArticleMemoSecondDOList(Collections.EMPTY_LIST);
