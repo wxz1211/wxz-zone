@@ -28,7 +28,7 @@ layui.use(['form', 'layedit'], function () {
             memo: data.field.editorContent,
             parent: 0,
             aid: $("#aid").val(),
-            type:0
+            type: 0
         };
         $.ajax({
             type: 'post',
@@ -80,7 +80,7 @@ layui.use(['form', 'layedit'], function () {
             memo: memo,
             parent: data.field.parent_key,
             aid: $("#aid").val(),
-            type:0
+            type: 0
         };
         //留言回复
         $.ajax({
@@ -133,20 +133,15 @@ layui.use(['form', 'layedit'], function () {
 
 function btnReplyClick(elem) {
     var $ = layui.jquery;
-    $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
-
-
-    var $ = layui.jquery;
-   // $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
+    //$(elem).parent('p').parent('.comment-parent').siblings('.replycontainer').toggleClass('layui-hide');
     var replyContainer = $(elem).parent('p').parent('.comment-parent').siblings('.replycontainer');
     var name = $(elem).parent('p').parent('.comment-parent').find('.info-common-parent .username').text();
     var flag = replyContainer.hasClass('layui-hide');
     if (flag) {
         replyContainer.removeClass('layui-hide');
     }
-    replyContainer.find('textarea').text('@' + name + ':').focus();
-
-
+    replyContainer.find('textarea').text('@' + name + ':');
+    replyContainer.focus();
 }
 
 
@@ -160,5 +155,5 @@ function btnReplyClickChild(elem) {
         replyContainer.removeClass('layui-hide');
     }
     replyContainer.find('textarea').text('@' + name + ':')
-        .focus();
+    replyContainer.focus();
 }

@@ -29,6 +29,7 @@
         } else {
             canvas.height = window.innerHeight * 2 / 9;
         }
+
     </script>
     <!-- 这个一般才是真正的主体内容 -->
     <div class="blog-container">

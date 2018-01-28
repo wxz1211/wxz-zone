@@ -46,11 +46,11 @@
                             <div class="aboutinfo-contact">
                                 <a target="_blank" title="网站首页" href="home"><i class="fa fa-home fa-2x"
                                                                                style="font-size:2.5em;position:relative;top:3px"></i></a>
-                                <a target="_blank" title="文章专栏" href="article"><i
+                                <a target="_blank" title="博客列表" href="article"><i
                                         class="fa fa-file-text fa-2x"></i></a>
                                 <a target="_blank" title="资源分享" href="resource"><i
                                         class="fa fa-tags fa-2x"></i></a>
-                                <a target="_blank" title="点点滴滴" href="timeline"><i
+                                <a target="_blank" title="一路走来" href="timeline"><i
                                         class="fa fa-hourglass-half fa-2x"></i></a>
                             </div>
 
@@ -58,7 +58,6 @@
                                 <legend>简介</legend>
                                 <div class="layui-field-box aboutinfo-abstract">
                                 ${siteIntroduce.content}
-                                    <h1 style="text-align:center;">The End</h1>
                                 </div>
                             </fieldset>
                         </div>
@@ -95,7 +94,6 @@
                                 <legend>简介</legend>
                                 <div class="layui-field-box aboutinfo-abstract abstract-bloger">
                                 ${authorIntroduce.content}
-                                    <h1 style="text-align:center;">The End</h1>
                                 </div>
                             </fieldset>
                         </div>
@@ -107,7 +105,7 @@
                                      style="width: 100px;height: 100px" alt="友情链接"/>
                             </div>
                             <p class="aboutinfo-nickname">友情链接</p>
-                            <p class="aboutinfo-introduce">Name：&nbsp;&nbsp;&nbsp;&nbsp;Site:www.wangxianzhi.xyz/wxz-zone/home</p>
+                            <p class="aboutinfo-introduce">Name：你个死肥宅~&nbsp;Site:http://www.wangxianzhi.xyz/wxz-zone/home</p>
                             <p class="aboutinfo-location">
                                 <i class="fa fa-close"></i>经常宕机&nbsp;
                                 <i class="fa fa-close"></i>不合法规&nbsp;

@@ -14,7 +14,7 @@ import java.util.Map;
  * @author xianzhi.wang
  * @date 2018/1/26 -13:10
  */
-public class NetEaseEncryptUtils {
+public class NetEaseEncryptUtil {
 
     private final static String MODULUS = "00e0b509f6259df8642dbc35662901477df22677ec152b5ff68ace615bb7" +
             "b725152b3ab17a876aea8a5aa76d2e417629ec4ee341f56135fccf695280" +
@@ -26,7 +26,7 @@ public class NetEaseEncryptUtils {
     private final static String PUB_KEY = "010001";
 
     private static final String PARAMS = "params";
-    private static final String ENCSECKEY = "encSecKey";
+    private static final String ENC_SEC_KEY = "encSecKey";
 
     public static Map<String, String> encrypt(String text) {
         RandomStringGenerator randomStringGenerator = new RandomStringGenerator.Builder().withinRange(0,9).withinRange('a','e').build();
@@ -36,7 +36,7 @@ public class NetEaseEncryptUtils {
 
         Map<String, String> map = new HashMap<>(1<<4);
         map.put(PARAMS, encText);
-        map.put(ENCSECKEY, encSecKey);
+        map.put(ENC_SEC_KEY, encSecKey);
         return map;
     }
 

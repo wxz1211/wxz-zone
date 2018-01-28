@@ -156,7 +156,8 @@ function btnReplyClick(elem) {
     if (flag) {
         replyContainer.removeClass('layui-hide');
     }
-    replyContainer.find('textarea').text('@' + name + ':').focus();
+    replyContainer.find('textarea').text('@' + name + ':');
+    replyContainer.focus();
 }
 
 function btnReplyClickChild(elem) {
@@ -169,7 +170,7 @@ function btnReplyClickChild(elem) {
         replyContainer.removeClass('layui-hide');
     }
     replyContainer.find('textarea').text('@' + name + ':')
-        .focus();
+    replyContainer.focus();
 }
 
 systemTime();

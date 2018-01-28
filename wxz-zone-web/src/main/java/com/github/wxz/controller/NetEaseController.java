@@ -1,6 +1,8 @@
 package com.github.wxz.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.wxz.common.response.Response;
+import com.github.wxz.framework.netease.NetEaseSearchDO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
@@ -20,7 +22,11 @@ public class NetEaseController {
 
     @RequestMapping(value = "search", method = RequestMethod.POST)
     public Response search(Model model, @RequestParam("musicSearch") String musicSearch) {
+        NetEaseSearchDO netEaseSearchDO = JSONObject.parseObject(musicSearch, NetEaseSearchDO.class);
 
         return Response.FAIL;
     }
+
+
+
 }
