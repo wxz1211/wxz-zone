@@ -93,6 +93,12 @@ public class IndexController {
         return "article/article";
     }
 
+    /**
+     * detail
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "detail")
     public String detail(Model model, @RequestParam("a") Integer id) {
         UserAuthDO userAuthDO = headPrinter.printHead(model);
@@ -139,19 +145,44 @@ public class IndexController {
         return "about/about";
     }
 
+    /**
+     * resource
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "resource")
     public String resource(Model model) {
         headPrinter.printHead(model);
         return "resource/resource";
     }
 
+    /**
+     * timeline
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "timeline")
     public String timeline(Model model) {
         headPrinter.printHead(model);
         return "timeline/timeline";
     }
 
+    /**
+     * profession
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "profession")
+    public String profession(Model model) {
+        headPrinter.printHead(model);
+        return "profession/profession";
+    }
 
+    /**
+     * timelineAjax
+     * @param pageNo
+     * @return
+     */
     @RequestMapping("timelineAjax")
     public @ResponseBody
     Response timelineAjax(@RequestParam("pageNo") Integer pageNo) {
@@ -185,6 +216,11 @@ public class IndexController {
         return Response.successResponse(stringListMap);
     }
 
+    /**
+     * edit
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "edit")
     public String edit(Model model) {
         headPrinter.printHead(model);
