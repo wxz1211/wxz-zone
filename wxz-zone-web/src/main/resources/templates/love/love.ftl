@@ -19,21 +19,21 @@
     </center
     <div class="iw_wrapper " style="    background-color: #c5daaddb;">
         <ul class="iw_thumbs" id="iw_thumbs" style="    background-color: #32822b4a;">
-            <li><img src="${cxt.contextPath}/images/thumbs/1.jpg" data-img="${cxt.contextPath}/images/full/1.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/1.jpg" data-img="http://www.wangxianzhi.xyz/static/love/1.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>她的笑容是四月的花,她的双唇吐着太阳的热烈</h2>
                     <p>她的眼睛是天上最亮的星, 她的娇音缓缓拨动我</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/2.jpg" data-img="${cxt.contextPath}/images/full/2.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/2.jpg" data-img="http://www.wangxianzhi.xyz/static/love/2.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>哪天我老了，还跟小孩一样,桌前给你写信,窗外风雨千樯</h2>
                     <p>第一句讲很想念你,最后写见字如面</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/3.jpg" data-img="${cxt.contextPath}/images/full/3.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/3.jpg" data-img="http://www.wangxianzhi.xyz/static/love/3.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>我想和你在一起，在某个小镇
@@ -41,84 +41,84 @@
                     <p>共享无尽的黄昏,和绵绵不绝的钟声。</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/4.jpg" data-img="${cxt.contextPath}/images/full/4.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/4.jpg" data-img="http://www.wangxianzhi.xyz/static/love/4.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>我在这里,从未离开,在你之前</h2>
                     <p>我不是我,在你之后,只剩你我</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/5.jpg" data-img="${cxt.contextPath}/images/full/5.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/5.jpg" data-img="http://www.wangxianzhi.xyz/static/love/5.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>你是我的,半截的诗,半截用心爱着</h2>
                     <p>半截用肉体埋着,你是我的半截的诗,不许别人更改一个字</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/6.jpg" data-img="${cxt.contextPath}/images/full/6.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/6.jpg" data-img="http://www.wangxianzhi.xyz/static/love/6.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>我行过许多地方的桥，看过许多次数的云</h2>
                     <p>喝过许多种类的酒，却只爱过一个正当最好年龄的人。</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/7.jpg" data-img="${cxt.contextPath}/images/full/7.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/7.jpg" data-img="http://www.wangxianzhi.xyz/static/love/7.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>当我突然亲你的时候,你就什么话也别说,要么直接扑到我怀里</h2>
                     <p>要么就把我强硬地推开,这样我才能知道,是该说声抱歉,还是继续吻你</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/8.jpg" data-img="${cxt.contextPath}/images/full/8.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/8.jpg" data-img="http://www.wangxianzhi.xyz/static/love/8.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>人生一瞬百年，哪堪去去还还。</h2>
                     <p>无论尔在何处，只祈如水如船。</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/9.jpg" data-img="${cxt.contextPath}/images/full/9.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/9.jpg" data-img="http://www.wangxianzhi.xyz/static/love/9.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>我就仗着我遇见过你这一件事</h2>
                     <p>我就敢嘲笑全天下人的孤独和彷惶</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/10.jpg" data-img="${cxt.contextPath}/images/full/10.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/10.jpg" data-img="http://www.wangxianzhi.xyz/static/love/10.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>曾经我以为最湿润的地方是唇</h2>
                     <p>之后,我才发现最湿润的地方是眼</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/11.jpg" data-img="${cxt.contextPath}/images/full/11.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/11.jpg" data-img="http://www.wangxianzhi.xyz/static/love/11.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>一见你的眼睛 我便清醒起来,我更喜欢看你那晕红的双腮</h2>
                     <p>黄昏时的彩霞似的,谢谢你给我力量</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/12.jpg" data-img="${cxt.contextPath}/images/full/12.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/12.jpg" data-img="http://www.wangxianzhi.xyz/static/love/12.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>我想要在茅亭里看雨，假山边看蚂蚁，看蝴蝶恋爱，看蜘蛛结网</h2>
                     <p>看水、看船、看云、看瀑布，看谷立慧甜甜地睡觉</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/13.jpg" data-img="${cxt.contextPath}/images/full/13.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/13.jpg" data-img="http://www.wangxianzhi.xyz/static/love/13.jpg"
                      alt="猫"/>
                 <div>
                     <h2>下辈子，要做你的一只猫。</h2>
                     <p>早晨，摇你起床，在你发起床气之前逃跑。</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/14.jpg" data-img="${cxt.contextPath}/images/full/14.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/14.jpg" data-img="http://www.wangxianzhi.xyz/static/love/14.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>今天我感到非常烦闷，我想念你，我想起夜幕降临的时候，和你踏着星光走去</h2>
                     <p>想起了灯光照着树叶的时候，踏着婆娑的灯影走去，想起了欲语又塞的时候</p>
                 </div>
             </li>
-            <li><img src="${cxt.contextPath}/images/thumbs/15.jpg" data-img="${cxt.contextPath}/images/full/15.jpg"
+            <li><img src="http://www.wangxianzhi.xyz/static/love/15.jpg" data-img="http://www.wangxianzhi.xyz/static/love/15.jpg"
                      alt="Thumb1"/>
                 <div>
                     <h2>若你愿意，我将会把十六岁的我念给你听
