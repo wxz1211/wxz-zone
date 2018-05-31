@@ -62,6 +62,14 @@
     <li class="layui-nav-item">
         <a href="about"><i class="fa fa-info fa-fw"></i>&nbsp;关于我</a>
     </li>
+
+    <li class="layui-nav-item">
+        <a href="profesion"><i class="fa fa-info fa-fw"></i>&nbsp;profesion</a>
+    </li>
+
+    <li class="layui-nav-item">
+        <a href="love"><i class="fa fa-info fa-fw"></i>&nbsp;love</a>
+    </li>
 </ul>
 </#macro>
 

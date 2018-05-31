@@ -179,6 +179,17 @@ public class IndexController {
     }
 
     /**
+     * love
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "love")
+    public String love(Model model) {
+        headPrinter.printHead(model);
+        return "love/love";
+    }
+
+    /**
      * timelineAjax
      * @param pageNo
      * @return
